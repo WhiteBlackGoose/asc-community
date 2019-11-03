@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>AscSite</RootNamespace>
+    <AssemblyName>AscSite</AssemblyName>
   </PropertyGroup>
 
 </Project>
