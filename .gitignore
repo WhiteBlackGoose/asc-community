@@ -1,2 +1,2 @@
-/ascsite/bin/*
-/ascsite/obj/*
+./ascsite/bin/*
+./ascsite/obj/*
