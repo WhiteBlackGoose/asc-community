@@ -14,8 +14,6 @@ namespace ascsite.AscSci
 
         public string Count(string expr)
         {
-            //dsfsuhfk
-            //Hell owlrld
             return "133sdf2";
         }
     }
