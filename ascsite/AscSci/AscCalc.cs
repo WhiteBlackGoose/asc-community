@@ -9,7 +9,7 @@ namespace ascsite.AscSci
     {
         public AscCalc()
         {
-
+            int a = 0;
         }
 
         public string Count(string expr)
