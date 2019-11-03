@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\main\\vs_prj\\ascsite\\ascsite\\ascsite.csproj": {}
+    "D:\\main\\vs_prj\\asc-community\\ascsite\\ascsite.csproj": {}
   },
   "projects": {
-    "D:\\main\\vs_prj\\ascsite\\ascsite\\ascsite.csproj": {
+    "D:\\main\\vs_prj\\asc-community\\ascsite\\ascsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\main\\vs_prj\\ascsite\\ascsite\\ascsite.csproj",
+        "projectUniqueName": "D:\\main\\vs_prj\\asc-community\\ascsite\\ascsite.csproj",
         "projectName": "ascsite",
-        "projectPath": "D:\\main\\vs_prj\\ascsite\\ascsite\\ascsite.csproj",
+        "projectPath": "D:\\main\\vs_prj\\asc-community\\ascsite\\ascsite.csproj",
         "packagesPath": "C:\\Users\\goose\\.nuget\\packages\\",
-        "outputPath": "D:\\main\\vs_prj\\ascsite\\ascsite\\obj\\",
+        "outputPath": "D:\\main\\vs_prj\\asc-community\\ascsite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\goose\\AppData\\Roaming\\NuGet\\NuGet.Config",
