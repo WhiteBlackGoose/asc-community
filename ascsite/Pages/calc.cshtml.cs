@@ -13,41 +13,25 @@ namespace ascsite
     {
         public AscCalc calc = new AscCalc();
 
-        private string response;
-        public string Response
-        {
-            get
-            {
-                return response;
-            }
-            set
-            {
-                response = value;
-            }
-        }
+       
+        public string CalcResponse { get; set; }
 
-        public string expr = "";
         [BindProperty(SupportsGet = true)]
-        public string Expr {
-            get 
-            {
-                return expr;
-            }
-            set
-            {
-                expr = value;
-            }
+        public string Expr 
+        {
+            get => Expr ?? string.Empty;
+            set => Expr = value;
         }
 
         public void OnGet()
         {
-            if(Expr != null)
-                Response = calc.Count(Expr);
+            if(!string.IsNullOrEmpty(Expr)) 
+                CalcResponse = calc.Count(Expr);
         }
 
         public void OnPost()
         {
-            
+            // to do
         }
     }
 }
