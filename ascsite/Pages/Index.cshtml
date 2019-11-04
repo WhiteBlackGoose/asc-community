@@ -4,8 +4,16 @@
     ViewData["Title"] = "Home page";
 }
 
+<script src="~/lib/moment/moment.js"></script>
+
 <div class="text-center">
     <h1 class="display-4">Welcome to ASC community!</h1>
     <p>We are here to populate math and solve complicated problems.</p>
-    <p>@Model.Time</p>
+    <p id="timeDisplay"></p>
 </div>
+
+    <script type="text/javascript">
+        setInterval(function displayCurrentTime() {
+            document.getElementById("timeDisplay").innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
+        }, 1000);
+    </script>

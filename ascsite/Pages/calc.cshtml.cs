@@ -1,7 +1,12 @@
+using ascsite.Core;
 using ascsite.Core.AscSci.Calculator;
+using ascsite.Core.PyInterface;
+using ascsite.Core.PyInterface.PyMath;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace ascsite
 {
@@ -16,15 +21,19 @@ namespace ascsite
         {
             if (!string.IsNullOrEmpty(Expression))
             {
-                ICalc calc = new AscCalc(Expression);
-                if(calc.ParseExpression())
+                AscCalc calc = new AscCalc(Expression);
+                try
                 {
-                    CalcResponse = calc.Result;
+                    CalcResponse = calc.Compute();
                 }
-                else
+                catch (Exception e)
                 {
-                    CalcResponse = string.Join('\n', calc.Errors);
+                    CalcResponse = "Error: " + e.Message;
                 }
+            }
+            else
+            {
+                CalcResponse = "Received empty request.";
             }
         }
 
