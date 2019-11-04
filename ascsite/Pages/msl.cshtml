@@ -1,0 +1,23 @@
+﻿@page
+@model ascsite.Pages.MSLModel
+@{
+    
+}
+<script src="~/js/msleditor.js"></script>
+    <div class="container">
+
+        <form method="post">
+            <div class="calcform">
+                <div class="text-center">
+
+                    <div class="calcline">
+                        <textarea onkeydown="return on_area_click(event, this);" spellcheck="false" rows="10" cols="80" name="CodeText" class="calcclass calcinput">@Model.CodeText</textarea>
+                        <input type="submit" value="Compile" class="calcclass calcbutton" id="sendButton" />
+                    </div>
+                </div>
+                <div id="response">
+                    <textarea spellcheck="false" class="staticoutput" rows="5" cols="80">@Model.OutputMSL</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
