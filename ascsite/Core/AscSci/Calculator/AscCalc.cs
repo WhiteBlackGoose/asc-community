@@ -32,8 +32,8 @@ namespace ascsite.Core.AscSci.Calculator
                     throw new ArgumentException("No `" + CONST.FOR + "` token was found. Tokens are: " + tokens.ToString());
                 string diffVar = tokens[forPos + 1].value;
 
-                // throw everything before pipe keyword in token list
-                Func<List<Token>, int> SplitIndex = list => list.FindIndex(token => token == new Token(Token.TYPE.BRACKET_OPEN, CONST.PIPE)) + 1;
+                // drop out everything before pipe keyword in token list
+                Func<TokenList, int> SplitIndex = list => list.FindIndex(token => token == new Token(Token.TYPE.BRACKET_OPEN, CONST.PIPE)) + 1;
                 int idx = SplitIndex(tokens);
                 tokens = new TokenList(tokens.GetRange(idx, tokens.Count() - idx));
 
