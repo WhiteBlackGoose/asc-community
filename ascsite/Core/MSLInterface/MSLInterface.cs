@@ -1,35 +1,119 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ascsite;
+using ascsite.Core;
+using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
+using System.Security;
+using ascsite.Core.AscSci.Calculator;
 
 namespace ascsite.Core.MSLInterface
 {
-    public class MSLInterface
+    public class MSLInterface : ProgramInterface
     {
-        public static string Run(string code)
+        public MSLInterface()
         {
-            ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = @"C:\Users\Momo\source\repos\MSL\Release\MSL.exe";
-            start.UseShellExecute = false;
-            start.CreateNoWindow = true; 
-            start.RedirectStandardOutput = true;
-            start.RedirectStandardError = true;
-            start.RedirectStandardInput = true;
-            using (Process process = Process.Start(start))
+            CompilerPath = Const.PATH_MSL;
+            LibraryPaths.Add("math.msl");
+            LibraryPaths.Add("asc_interop.msl");
+            LibraryPaths.Add("utils.msl");
+            
+            var config = CreateProcessConfig();
+            process = Process.Start(config);
+        }
+
+        Process process = null;
+
+        public void Kill()
+        {
+            process.Kill();
+        }
+
+        public void Execute(string code)
+        {
+            ImportLibraries(process);
+            process.StandardInput.WriteLine(code);
+            process.StandardInput.WriteLine(Const.PREFIX_MSL_END_FILEREAD);
+            process.StandardInput.Flush();
+        }
+
+        public string Run(string code, string input)
+        {
+            try
             {
-                using (StreamWriter writer = process.StandardInput)
-                {
-                    writer.Write(code);
-                }
+                StringBuilder builder = new StringBuilder();
 
                 using (StreamReader reader = process.StandardOutput)
                 {
-                    string result = reader.ReadToEnd();
-                    return result;
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        if (!ProcessMSLOutput(process, line))
+                        {
+                            builder.Append(line);
+                            builder.Append('\n');
+                        }
+                    }
                 }
+                return builder.ToString();
+            }
+            catch (Exception e)
+            {
+                return Const.ERMSG_MSL_STARTERR + e.Message;
+            }
+        }
+
+        public string PullOutput()
+        {
+            StringBuilder builder = new StringBuilder();
+            while (!process.StandardOutput.EndOfStream)
+            {
+                string line = process.StandardOutput.ReadLine();
+                builder.Append(line);
+                builder.Append('\n');
+                // to do calc integration
+            }
+            return builder.ToString();
+        }
+
+        private void ImportLibraries(Process process)
+        {
+            LibraryPaths.ForEach(path =>
+            {
+                string code = GetSample(path);
+                process.StandardInput.Write(code);
+            });
+        }
+
+        // returns true if line was caught by function
+        private bool ProcessMSLOutput(Process process, string line)
+        {
+            if (line.StartsWith(Const.PREFIX_MSL_CALC_EXECUTE))
+            {
+                line = line.Remove(0, Const.PREFIX_MSL_CALC_EXECUTE.Length);
+                try
+                {
+                    if (!Security.ExprSecure(line))
+                        throw new SecurityException();
+
+                    string result = new AscCalc(line).Compute().SolidResult.Split('\n')[0] + '\n';
+                    process.StandardInput.Write(result);
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    process.StandardInput.WriteLine(Const.ERMSG_PREOUTPUT + e.Message);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static string GetSample(string name)
+        {
+            using (StreamReader reader = new StreamReader(Const.PATH_SUBSAMPLES + "/" + name))
+            {
+                return reader.ReadToEnd();
             }
         }
     }

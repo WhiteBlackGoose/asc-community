@@ -70,40 +70,119 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-.calcform{
+.sample-block {
     width: 60%;
-    align-content: center;
     margin-left: 20%;
 }
 
-.calcline {
+.calc-form{
+    width: 80%;
+    /*align-content:;*/
+    margin-left: 10%;
+}
+
+.calc-line {
     width: 100%;
-    border-color: orange;
+    border-color: #8888ff;
     border-width: 5px;
     border-radius: 3px;
     border-style: solid;
     margin-top: 100px;
 }
 
-.calcclass {
+.calc-class {
     border: none;
 }
 
-.calcinput {
+.calc-input {
     width: 80%;
+    padding: 8px;
+    font-size: 14pt;
 }
 
-.calcbutton {
+.calc-button {
     padding-bottom: 2px; /*Otherwise a white line appears*/
     width: 20%;
     min-width: 100px;
-    background-color: orange;
+    background-color: #8888ff;
     color: white;
     font-size: 17.5px;
+    padding: 10px;
+    font-size: 14pt;
+}
+
+.calc-button:hover {
+    /*background-color: white;
+    color: #8888ff;*/
+}
+
+.calc-block {
+    text-align: center;
+    border: solid 1px gray;
+    border-radius: 3px;
+    padding: 7px;
+    /*
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    */
+    margin-top: 6px;
+}
+
+.calc-title {
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .staticoutput
 {
     color: black;
     background-color: white;
+    width: 100%;
+}
+
+#examplecalc {
+    color: #8888ff;
+    font-weight: bold;
+}
+
+#examplecalc:hover {
+    color: gray;
+    cursor: copy;
+}
+
+#bool-res {
+    border: 1px solid gray;
+    border-radius: 2px;
+    width: 30%;
+    margin-left: 35%;
+}
+
+#bool-res .cellbool-res {
+    border: 1px solid gray;
+}
+
+.asc-button {
+    border: 1px solid #8888ff;
+    border-radius: 3px;
+    color: #8888ff;
+    font-size: 8pt;
+    padding: 2px;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.asc-button:hover
+{
+    background-color: #8888ff;
+    color: white;
+}
+
+.big-asc-button {
+    font-size: 11pt;
+    padding: 4px;
+}
+
+.jax-output {
+
 }
