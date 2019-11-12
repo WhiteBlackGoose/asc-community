@@ -1,0 +1,58 @@
+﻿@page
+@model ascsite.CalcModel
+@{
+
+}
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<script src="~/js/calc.js"></script>
+<div class="container">
+
+    <form method="get">
+        <div class="calc-form">
+            <div class="text-center">
+                <div class="calc-line">
+                    <input id="prompt" type="text" value="@Model.Expression" name="Expression" class="calc-class calc-input" /><input type="submit" value="Compute" class="calc-class calc-button" id="sendButton" />
+                </div>
+            </div>
+            <div class="calc-block" style="display: @Model.Visib1">
+                <h6 class="calc-title">Interpreted as</h6>
+                <p>@Model.InterpretedAs</p>
+            </div>
+            <div class="calc-block" style="display: @Model.Visib2" id="latex-res">
+                <h6 class="calc-title">Result<span class="asc-button" onclick="latexres_onclick()">Show plain</span></h6>
+                <span class="jax-output" style="white-space: pre-line">@Html.Raw(Model.CalcResponse)</span>
+            </div>
+            <div class="calc-block" style="display: none" id="plain-res">
+                <h6 class="calc-title">Result<span class="asc-button" onclick="latexres_onclick()">Back</span></h6>
+                <span style="white-space: pre-line">@Html.Raw(Model.PlainCalcResponse)</span>
+            </div>
+            <div class="calc-block" style="display: @Model.Visib3">
+                <h6 class="calc-title">Error</h6>
+                <p>@Model.Error</p>
+            </div>
+        </div>
+        <div class="sample-block calc-form calc-block" style="margin-top: 30px; text-align: left; padding: 30px; display: @Model.Visib4">
+            <a onclick="calc_sample_tog_onclick()" class="hyperlink">Examples</a>
+            <div id="samples" style="display: block">
+                <ul>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">116 + 3.4 - log(2.714)</a></li>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">(x + 4y) / 4 + x</a></li>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">(3 + 2*(2^0.5))0.5 - (3 - 2*(2^0.5))0.5</a></li>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">derivative for x | x2 + y3*x</a></li>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">derivative for x | sqrt(x + 1)</a></li>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">integrate for p | (p - 1)(p + 1)</a></li>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">integrate for x | log(x) - 4sin(x) + 3x6*y2 - z</a></li>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">solve for var | var2 - 2var + 1</a></li>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">integrate for x | sin(x)* tan(x) - sqrt(log(sqrt(3), 3) - x) + y3x - 6cos(y + x)</a></li>
+                    <li><a id="examplecalc" onclick="calc_sample_onclick(this)">boolean | a & b -> c | !(a == b)</a></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+
+</div>

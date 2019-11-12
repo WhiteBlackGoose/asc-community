@@ -1,0 +1,40 @@
+﻿	namespace System
+{
+    static class ASC
+    {
+        static var calcPrefix;
+        static var readPrefix;
+    
+        public static function ASC()
+        {
+            calcPrefix = "ASC_EXECUTE_COMMAND";
+            readPrefix = "ASC_READ_INPUT";
+        }
+    
+        public static function Eval(str)
+        {
+            System.Console.PrintLine(calcPrefix + str);
+            return System.Console.ReadLine();
+        }
+
+        public static function Integrate(expression, variable)
+        {
+            return ASC.Eval("integrate for " + variable + "|" + expression);
+        }
+
+        public static function Derivative(expression, variable)
+        {
+            return ASC.Eval("derivative for " + variable + "|" + expression);
+        }
+
+        public static function Solve(expression, variable)
+        {
+            return ASC.Eval("solve for " + variable + "|" + expression);
+        }
+
+		public static function Subs(str, variable, value)
+        {
+            return Utils.String.Replace(str, variable, value.ToString())
+        }
+    }
+}

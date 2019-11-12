@@ -1,0 +1,39 @@
+﻿@page
+@model ascsite.Pages.MSLModel
+@{
+
+}
+
+    <head>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/lib/codemirror/lib/codemirror.css">
+        <script type="text/javascript" src="~/lib/codemirror/lib/codemirror.js"></script>
+        <script type="text/javascript" src="~/lib/codemirror/mode/clike/clike.js"></script>
+        <script type="text/javascript" src="~/lib/codemirror/addon/hint/show-hint.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/lib/codemirror/addon/hint/show-hint.css">
+        <script type="text/javascript" src="https://raw.githubusercontent.com/request/request/master/request.js"></script>
+    </head>
+
+<form method="post">
+    <div>
+        <textarea spellcheck="false" id=demotext rows="30" cols="80" name="CodeText">@Model.CodeText</textarea>
+    </div>
+
+    <div>
+        <input type="submit" value="Compile" id="send-button" />
+    </div>
+</form>
+
+<div id="response">
+    <textarea id="msl-output" rows="10" cols="80">@Model.OutputMSL</textarea>
+    <input value="@Model.InputMSL" id="io-line" type="text" spellcheck="false" class="staticoutput" rows="5">
+</div>
+
+
+<script>
+    var MSLID = "@Model.ReturnedId";
+</script>
+<script src="~/js/msleditor.js">
+    
+</script>
+

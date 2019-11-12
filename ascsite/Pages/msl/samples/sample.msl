@@ -1,0 +1,13 @@
+namespace Program
+{
+    using namespace System;
+    
+    class ProgramClass
+    {
+        public static function Main()
+        {
+            var expr = ASC.Eval("solve for x | x^3 + x^2 - 4x - 4");
+            Console.PrintLine(expr);
+        }
+    }
+}

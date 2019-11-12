@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ascsite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace ascsite.Core.AscSci.Calculator
         public enum TYPE
         {
             ERROR,
-            INTEGER,
+            NUMBER,
             MATH_OP,
             BRACKET_OPEN,
             BRACKET_CLOSE,
@@ -44,12 +45,12 @@ namespace ascsite.Core.AscSci.Calculator
         /// <summary>
         /// get all variables which are not in `exlude` list
         /// </summary>
-        public IEnumerable<string> ExtractVariables()
+        public List<string> ExtractVariables()
         {
             var vars = from token in this
                        where token.type == Token.TYPE.VARIABLE
                        select token.value;
-            return vars;
+            return new List<string>(vars);
         }
 
         public TokenList(IEnumerable<Token> collection) : base(collection) { }
@@ -85,17 +86,19 @@ namespace ascsite.Core.AscSci.Calculator
             var mult = new Token(Token.TYPE.MATH_OP, "*");
             var pow = new Token(Token.TYPE.MATH_OP, "**");
             InsertBetween(Token.TYPE.VARIABLE, Token.TYPE.BRACKET_OPEN, mult);
-            InsertBetween(Token.TYPE.INTEGER, Token.TYPE.BRACKET_OPEN, mult);
+            InsertBetween(Token.TYPE.NUMBER, Token.TYPE.BRACKET_OPEN, mult);
 
             InsertBetween(Token.TYPE.BRACKET_CLOSE, Token.TYPE.SYSTEM_FUNCTION, mult);
             InsertBetween(Token.TYPE.VARIABLE, Token.TYPE.SYSTEM_FUNCTION, mult);
-            InsertBetween(Token.TYPE.INTEGER, Token.TYPE.SYSTEM_FUNCTION, mult);
+            InsertBetween(Token.TYPE.NUMBER, Token.TYPE.SYSTEM_FUNCTION, mult);
 
-            InsertBetween(Token.TYPE.BRACKET_CLOSE, Token.TYPE.INTEGER, pow);
-            InsertBetween(Token.TYPE.VARIABLE, Token.TYPE.INTEGER, pow);
+            InsertBetween(Token.TYPE.BRACKET_CLOSE, Token.TYPE.NUMBER, pow);
+            InsertBetween(Token.TYPE.VARIABLE, Token.TYPE.NUMBER, pow);
 
             InsertBetween(Token.TYPE.BRACKET_CLOSE, Token.TYPE.VARIABLE, mult);
-            InsertBetween(Token.TYPE.INTEGER, Token.TYPE.VARIABLE, pow);
+            InsertBetween(Token.TYPE.NUMBER, Token.TYPE.VARIABLE, mult);
+
+            InsertBetween(Token.TYPE.BRACKET_CLOSE, Token.TYPE.BRACKET_OPEN, mult);
         }
 
         public override string ToString()
@@ -109,25 +112,31 @@ namespace ascsite.Core.AscSci.Calculator
         /// <summary>
         /// math operators as chars that lexer identifies as tokens
         /// </summary>
-        private static readonly string operatorList = "+-/*%^<>=,";
+        private static readonly string operatorList = "+-/*%^<>=,&!";
 
         private static readonly IEnumerable<string> tagList = new HashSet<string>
         {
-            CONST.DERIVATIVE,
-            CONST.INTEGRAL,
-            CONST.NOERRORS,
-            CONST.BOOLEAN,
+            Names.DERIVATIVE,
+            Names.INTEGRAL,
+            Names.SOLVE,
+            Names.NOERRORS,
+            Names.BOOLEAN,
         };
 
         private static readonly IEnumerable<string> functionList = new HashSet<string>
         {
-            CONST.COS,
-            CONST.SIN,
+            Names.COS,
+            Names.SIN,
+            Names.TAN,
+            Names.LOG,
+            Names.SQRT,
+            Names.BFUNC,
+            Names.TBFUNC
         };
 
         private static readonly IEnumerable<string> keywordList = new HashSet<string>
         {
-            CONST.FOR,
+            Names.FOR,
         };
 
         /// <summary>
@@ -183,7 +192,7 @@ namespace ascsite.Core.AscSci.Calculator
                 }
                 else
                 {
-                    tokenList.Add(new Token(Token.TYPE.ERROR, "unresolved symbol: " + expr[idx]));
+                    tokenList.Add(new Token(Token.TYPE.ERROR, Const.ERMSG_UNRESOLVED_SYMBOL + expr[idx]));
                     break;
                 }
             }
@@ -221,7 +230,7 @@ namespace ascsite.Core.AscSci.Calculator
             if (expr[idx] == '.' || expr[idx] == ',')
                 builder.Append(expr[idx++]);
             else
-                return new Token(Token.TYPE.INTEGER, builder.ToString());
+                return new Token(Token.TYPE.NUMBER, builder.ToString());
 
             while (char.IsDigit(expr[idx]))
             {
@@ -229,7 +238,7 @@ namespace ascsite.Core.AscSci.Calculator
                 idx++;
             }
 
-            return new Token(Token.TYPE.INTEGER, builder.ToString());
+            return new Token(Token.TYPE.NUMBER, builder.ToString());
         }
     }
 }
