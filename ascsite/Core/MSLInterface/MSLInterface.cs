@@ -27,6 +27,7 @@ namespace ascsite.Core.MSLInterface
         public void Kill()
         {
             process.Kill();
+            process.Close();
         }
 
         public void Execute(string code)
@@ -69,9 +70,11 @@ namespace ascsite.Core.MSLInterface
             while (!process.StandardOutput.EndOfStream)
             {
                 string line = process.StandardOutput.ReadLine();
-                builder.Append(line);
-                builder.Append('\n');
-                // to do calc integration
+                if(!ProcessMSLOutput(process, line))
+                {
+                    builder.Append(line);
+                    builder.Append('\n');
+                }
             }
             return builder.ToString();
         }

@@ -29,6 +29,13 @@ namespace ascsite.Pages
             else
                 return pool[id];
         }
+
+        internal static void KillById(string id)
+        {
+            var process = GetById(id);
+            process.Kill();
+            pool.Remove(id);
+        }
     }
     public class MSLModel : PageModel
     {
@@ -82,12 +89,15 @@ namespace ascsite.Pages
             string id = MSLProgramPool.CreateProgram();
             MSLProgramPool.GetById(id).Execute(CodeText);
             ReturnedId = id;
-            var task = Task.Run(() => OutputMSL = MSLProgramPool.GetById(id).PullOutput());
+            string output = string.Empty;
+            var task = Task.Run(() => output = MSLProgramPool.GetById(id).PullOutput());
             bool timeout = !task.Wait(millisecondsTimeout: Const.LIMIT_MSL_EXECUTE_MS);
                 
-            MSLProgramPool.GetById(id).Kill();
-            if(timeout)
+            MSLProgramPool.KillById(id);
+            if (timeout)
                 OutputMSL = Const.ERMSG_EXECUTE_TIMEOUT;
+            else
+                OutputMSL = output;
         }
     }
 }

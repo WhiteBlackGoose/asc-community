@@ -21,7 +21,7 @@ namespace ascsite.Core
         public static bool ExprSecure(string expr)
         {
             expr = expr.ToLower();
-            foreach (string word in ForbiddenWords)
+            foreach (string word in ForbiddenWords) //общаемся без мата
                 if (expr.Contains(word))
                     return false;
             if (expr.Count() > Const.LIMIT_REQLEN)
