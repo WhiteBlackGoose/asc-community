@@ -1,61 +1,67 @@
-﻿using ascsite;
-using ascsite.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ascsite.Core.PyInterface
 {
-    public class PyInterface : ProgramInterface
+    public class PyInterface
     {
-        public PyInterface(string outputPath)
+        private string code;
+
+        public void Import(string LibName)
         {
-            ProcessInit();
+            Append("import " + LibName);
         }
 
-        public static List<string> FromPyList(string pylist, char del=',')
+        public void ImportAllFrom(string LibName)
         {
-            return pylist.Split(del).Select(x => x.Trim()).ToList();
+            Append("from " + LibName + " import *");
         }
 
-        private Socket socket;
-        public void ProcessInit()
+        public void Append(string line)
         {
-            IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(Const.PYINTERFACE_ADDRESS), Const.PYINTERFACE_PORT);
-            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            socket.Connect(ipPoint);
+            if (line.Contains("\n"))
+                throw new ArgumentException("new line prohibited");
+            code += line + "\n";
         }
-        public string Run(string code)
+
+        public string Exec(string code="")
         {
-            if (string.IsNullOrEmpty(code))
-                return "";
-            try
+            return Run(this.code + "\n" + code);
+        }
+
+        public static string Run(string code)
+        {
+            ProcessStartInfo start = new ProcessStartInfo();
+            start.FileName = @"D:\files\Anaconda\python.exe";
+            start.UseShellExecute = false;
+            start.CreateNoWindow = true;
+            start.RedirectStandardOutput = true;
+            start.RedirectStandardError = true;
+            start.RedirectStandardInput = true;
+            using (Process process = Process.Start(start))
             {
-                byte[] data = Encoding.UTF8.GetBytes(code);
-                socket.Send(data);
-                data = new byte[Const.LIMIT_PYMAXRESPONSESIZE];
-                string resp = Encoding.UTF8.GetString(data, 0, socket.Receive(data, data.Length, 0));
-                if (resp[0] == Const.PYINTERFACE_ERROR)
-                    throw new Exception(Const.ERMSG_PYINTERFACE_RESP);
-                return resp.Substring(1, resp.Length - 1);
-            }
-            catch(Exception e)
-            {
-                ProcessStop();
-                throw e;
+                using(StreamWriter writer = process.StandardInput)
+                {
+                    foreach (var line in code.Split('\n'))
+                    {
+                        writer.WriteLine(line);
+                    }
+                }
+          
+                using (StreamReader reader = process.StandardOutput)
+                {
+                    string stderr = process.StandardError.ReadToEnd(); // Here are the exceptions from our Python script
+                    string result = reader.ReadToEnd(); // Here is the result of stdout(for example: print "test")
+                    if (!string.IsNullOrEmpty(stderr))
+                        throw new Exception(stderr);
+                    return result;
+                }
             }
         }
 
-        public void ProcessStop()
-        {
-            socket.Close();
-        }
     }
 }

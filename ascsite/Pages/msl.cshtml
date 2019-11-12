@@ -1,0 +1,76 @@
+﻿@page
+@model ascsite.Pages.MSLModel
+@{
+
+}
+
+<!--
+<script src="~/js/msleditor.js"></script>
+
+<div class="container">
+
+    <form method="post">
+        <div class="calcform">
+            <div class="text-center">
+
+                <div class="calcline">
+                    <textarea onkeydown="return on_area_click(event, this);" spellcheck="false" rows="10" cols="80" name="CodeText" class="calcclass calcinput">@Model.CodeText</textarea>
+                    <input type="submit" value="Compile" class="calcclass calcbutton" id="sendButton" />
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+-->
+<!--EEEE-->
+
+
+<link rel="stylesheet" href="~/lib/codemirror/lib/codemirror.css">
+<script src="~/lib/codemirror/lib/codemirror.js"></script>
+<script src="~/lib/codemirror/addon/edit/matchbrackets.js"></script>
+<link rel="stylesheet" href="~/lib/codemirror/addon/hint/show-hint.css">
+<script src="~/lib/codemirror/addon/hint/show-hint.js"></script>
+<script src="~/lib/codemirror/mode/clike/clike.js"></script>
+<style>
+    .CodeMirror {
+        border: 2px inset #dee;
+    }
+</style>
+
+<link rel=stylesheet href="~/lib/codemirror/lib/codemirror.css">
+<link rel=stylesheet href="~/lib/codemirror/doc/docs.css">
+<script src="~/lib/codemirror/lib/codemirror.js"></script>
+<script src="~/lib/codemirror/mode/xml/xml.js"></script>
+<script src="~/lib/codemirror/mode/javascript/javascript.js"></script>
+<script src="~/lib/codemirror/mode/css/css.js"></script>
+<script src="~/lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="~/lib/codemirror/addon/edit/matchbrackets.js"></script>
+
+
+
+<form method="post">
+<div>
+<textarea id=demotext name="CodeText">@Model.CodeText</textarea>
+</div>
+
+<div>
+    <input type="submit" value="Compile" class="calcclass calcbutton" id="sendButton" />
+</div>
+</form>
+
+<div id="response">
+    <textarea spellcheck="false" class="staticoutput" rows="5" cols="80">@Model.OutputMSL</textarea>
+</div>
+
+
+<script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+        lineNumbers: true,
+        matchBrackets: true,
+        mode: "text/x-c++src"
+    });
+    var mac = CodeMirror.keyMap.default == CodeMirror.keyMap.macDefault;
+    CodeMirror.keyMap.default[(mac ? "Cmd" : "Ctrl") + "-Space"] = "autocomplete";
+</script>

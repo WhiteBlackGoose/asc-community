@@ -1,0 +1,26 @@
+﻿@page
+@model ascsite.CalcModel
+@{
+    ViewData["CalcResponse"] = "No response received yet";
+}
+
+<div class="container">
+    
+    <form>
+        <div class="calcform">
+            <div class="text-center">
+
+                <div class="calcline">
+                    <input type="text" value="@Model.Expression" name="Expression" class="calcclass calcinput"/><input type="submit" value="Calculate" class="calcclass calcbutton" id="sendButton" />
+                </div>
+            </div>
+            <div id="response">
+                <p>@Model.CalcResponse</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

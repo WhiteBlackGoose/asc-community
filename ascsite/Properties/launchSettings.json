@@ -1,10 +1,10 @@
-{
+﻿{
   "iisSettings": {
-    "windowsAuthentication": false,
+    "windowsAuthentication": false, 
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://95.24.126.129:64321",
-      "sslPort": 0
+      "applicationUrl": "http://79.111.18.99:55139",
+      "sslPort": 55139
     }
   },
   "profiles": {
@@ -18,10 +18,10 @@
     "ascsite": {
       "commandName": "Project",
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://95.24.126.129:64321"
+      }
     }
   }
 }
