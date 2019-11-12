@@ -76,28 +76,34 @@ body {
     margin-left: 20%;
 }
 
-.calcline{
+.calcline {
     width: 100%;
-}
-
-.calcclass {
     border-color: orange;
     border-width: 5px;
     border-radius: 3px;
     border-style: solid;
+    margin-top: 100px;
+}
+
+.calcclass {
+    border: none;
 }
 
 .calcinput {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
     width: 80%;
 }
 
 .calcbutton {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
+    padding-bottom: 2px; /*Otherwise a white line appears*/
     width: 20%;
+    min-width: 100px;
     background-color: orange;
     color: white;
-    font-size: 17px;
+    font-size: 17.5px;
+}
+
+.staticoutput
+{
+    color: black;
+    background-color: white;
 }

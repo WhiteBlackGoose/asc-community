@@ -17,18 +17,6 @@ namespace ascsite.Pages
             _logger = logger;
         }
 
-        public string Time
-        {
-            get
-            {
-                return "2";
-            }
-            set
-            {
-                Time = value;
-            }
-        }
-
         public void OnGet()
         {
 

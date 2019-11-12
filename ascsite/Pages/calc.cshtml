@@ -1,7 +1,7 @@
 ﻿@page
 @model ascsite.CalcModel
 @{
-    ViewData["Response"] = "No response received yet";
+    ViewData["CalcResponse"] = "No response received yet";
 }
 
 <div class="container">
@@ -9,12 +9,13 @@
     <form>
         <div class="calcform">
             <div class="text-center">
+
                 <div class="calcline">
-                    <input type="text" name="expr" class="calcclass calcinput"/><input type="submit" value="Calculate" class="calcclass calcbutton" id="sendButton" />
+                    <input type="text" value="@Model.Expression" name="Expression" class="calcclass calcinput"/><input type="submit" value="Calculate" class="calcclass calcbutton" id="sendButton" />
                 </div>
             </div>
             <div id="response">
-                <p>@Model.Response</p>
+                <p>@Model.CalcResponse</p>
             </div>
         </div>
     </form>

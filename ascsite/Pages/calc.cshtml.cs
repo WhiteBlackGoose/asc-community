@@ -1,53 +1,45 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ascsite.AscSci;
+using ascsite.Core;
+using ascsite.Core.AscSci.Calculator;
+using ascsite.Core.PyInterface;
+using ascsite.Core.PyInterface.PyMath;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace ascsite
 {
     public class CalcModel : PageModel
     {
-        public AscCalc calc = new AscCalc();
+        public string CalcResponse { get; set; }
 
-        private string response;
-        public string Response
-        {
-            get
-            {
-                return response;
-            }
-            set
-            {
-                response = value;
-            }
-        }
-
-        public string expr = "";
         [BindProperty(SupportsGet = true)]
-        public string Expr {
-            get 
-            {
-                return expr;
-            }
-            set
-            {
-                expr = value;
-            }
-        }
+        public string Expression { get; set; }
 
         public void OnGet()
         {
-            if(Expr != null)
-                Response = calc.Count(Expr);
+            if (!string.IsNullOrEmpty(Expression))
+            {
+                AscCalc calc = new AscCalc(Expression);
+                try
+                {
+                    CalcResponse = calc.Compute();
+                }
+                catch (Exception e)
+                {
+                    CalcResponse = "Error: " + e.Message;
+                }
+            }
+            else
+            {
+                CalcResponse = "Received empty request.";
+            }
         }
 
         public void OnPost()
         {
-            
+            // to do
         }
     }
 }

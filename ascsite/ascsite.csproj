@@ -6,4 +6,8 @@
     <AssemblyName>AscSite</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="IronPython" Version="2.7.9" />
+  </ItemGroup>
+
 </Project>
