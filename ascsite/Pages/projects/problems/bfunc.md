@@ -22,3 +22,7 @@ Then, $\overline{B}(x)=xcos(x)$. Other rules from the normal B-function are appl
 In general: To find all roots of equation $B(x)=c$, $c \in R$<br>
 Subproblem 1: find any root<br>
 Subproblem 2: find any other root assuming that you already have a finite amount of roots<br>
+
+
+
+By @WhiteBlackGoose

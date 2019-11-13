@@ -14,9 +14,19 @@
         <link rel="stylesheet" type="text/css" href="~/css/styles.css">
     </head>
 
-<form method="post">
+<<form method="post">
     <div>
-        <textarea spellcheck="false" id=demotext rows="30" cols="80" name="CodeText">@Model.CodeText</textarea>
+        <div class="div-to-left">
+            <textarea spellcheck="false" id=demotext rows="30" cols="80" name="CodeText">@Model.CodeText</textarea>
+        </div>
+        <div class="div-to-right">
+            <ul>
+                <li>sample1</li>
+                <li>sample2</li>
+                <li>sample3</li>
+                <li>sample4</li>
+            </ul>
+        </div>
     </div>
 
     <div>
@@ -25,8 +35,7 @@
 </form>
 
 <div id="response">
-    <textarea id="msl-output" rows="10" cols="80">@Model.OutputMSL</textarea>
-    <input value="@Model.InputMSL" id="io-line" type="text" spellcheck="false" class="staticoutput" rows="5">
+    <textarea spellcheck="false" id="msl-output" rows="10" cols="80">@Model.OutputMSL</textarea>
 </div>
 
 

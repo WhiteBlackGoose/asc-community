@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Collections.Generic;
+using System.Text;
 
-namespace ascsite.Core
+namespace processor
 {
-    public static class Const
+    public class Const
     {
         /*  ERROR MESSAGES  */
         public static readonly string ERMSG_PREOUTPUT = "During parsing an error occurred: ";
@@ -21,11 +22,11 @@ namespace ascsite.Core
 
         /*  PATHS  */
         public static readonly string PATH_PYTHON = @"D:\main\programs\miniconda3\python.exe";
-        public static readonly string PATH_MSL = @"D:\main\vs_prj\asc-community\ascsite\Resources\MSL.exe";
-        public static readonly string PATH_SUBSAMPLES = @"D:\main\vs_prj\asc-community\ascsite\Pages\msl\samples";
+        public static readonly string PATH_MSL = @"Resources\MSL.exe";
+        public static readonly string PATH_SUBSAMPLES = @"Pages\msl\samples";
         public static readonly string PATH_ASSOCPRJS = @"Pages\projects\assoc";
         public static readonly string PATH_LAYOUT = @"Pages\Shared\_Layout.cshtml";
-        public static readonly string PATH_PYOUT = @"D:/main/vs_prj/asc-community/ascsite/Core/PyInterface/pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
+        public static readonly string PATH_PYOUT = @"Core/PyInterface/pyout";
 
         /*  TITLES  */
         public static readonly string TITLE_INTERPRETEDAS = "Interpreted as";
@@ -61,8 +62,11 @@ namespace ascsite.Core
         public static readonly string DEL_PRJSPAGES = "|";
         public static readonly string DEL_ANNSTART = "@annstart";
         public static readonly string DEL_ANNEND = "@annend";
+        public static readonly string DEL_LIST = ",";
+        public static readonly string DEL_RANGE = ";";
 
         /*  ADDDATA  */
         public static readonly string ADD_LATEXSCRIPT = "<script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>" + "<script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>";
+
     }
 }

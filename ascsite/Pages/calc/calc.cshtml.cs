@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using ascsite;
 using System.IO;
 using System.Threading;
+using processor;
 
 namespace ascsite
 {
@@ -40,7 +41,7 @@ namespace ascsite
                     CalcResult cr;
                     cr = calc.Compute();
                     CalcResponse = cr.Result;
-                    InterpretedAs = cr.InterpretedAs;
+                    InterpretedAs = string.Join("<br>", cr.InterpretedAs);
 
                     AscCalc calc_pl = new AscCalc(Expression, latex: false);
                     cr = calc_pl.Compute();

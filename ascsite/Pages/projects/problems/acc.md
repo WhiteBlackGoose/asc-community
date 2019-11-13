@@ -22,3 +22,4 @@ As we see, $a(t)=\frac{m_1 m_2}{(S-r(t))}$
 <br>
 <br>
 
+By @WhiteBlackGoose

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using processor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -9,17 +10,17 @@ namespace ascsite.Core.PyInterface.PyMath
     public class PyMath
     {
         private PyInterface pyInterface;
-        private bool latex;
+        public bool latex;
 
         public void Destroy()
         {
             pyInterface.ProcessStop();
         }
 
-        public PyMath(bool latex = false)
+        public PyMath()
         {
             pyInterface = new PyInterface(Const.PATH_PYOUT);            
-            this.latex = latex;
+            this.latex = false;
         }
 
         public void TokensAdd(PyInterface pyInterface, IEnumerable<string> tokens)
@@ -107,14 +108,14 @@ namespace ascsite.Core.PyInterface.PyMath
             return (A + A.ToUpper()).Contains(s);
         }
 
-        public string Simplify(string expr, IEnumerable<string> tokens)
+        public string Simplify(string expr, IEnumerable<string> tokens, bool appr = true)
         {
             TokensAdd(pyInterface, tokens);
             expr = ExprPrepare(expr);
             string analyt = ExprPostProc(pyInterface.Run(PrintExpr("sympy.simplify(" + expr + ")")).Replace("**", "^"));
             string approx = ExprPostProc(pyInterface.Run(PrintExpr("sympy.simplify(expand(" + expr + ")).evalf()")).Replace("**", "^"));
             string res = "";
-            if (analyt != approx)
+            if (analyt != approx && appr)
             {
                 res = Const.TITLE_ANALYTICAL_SIMPLIFY + LatexOnNeed(analyt.ToString()) + "\n" + Const.TITLE_APPROXIMATE_SIMPLIFY + LatexOnNeed(approx.ToString());
             }
