@@ -21,11 +21,11 @@ namespace ascsite.Core
 
         /*  PATHS  */
         public static readonly string PATH_PYTHON = @"D:\main\programs\miniconda3\python.exe";
-        public static readonly string PATH_MSL = @"D:\main\vs_prj\asc-community\ascsite\Resources\MSL.exe";
-        public static readonly string PATH_SUBSAMPLES = @"D:\main\vs_prj\asc-community\ascsite\Pages\msl\samples";
+        public static readonly string PATH_MSL = @"Resources\MSL.exe";
+        public static readonly string PATH_SUBSAMPLES = @"Pages\msl\samples";
         public static readonly string PATH_ASSOCPRJS = @"Pages\projects\assoc";
         public static readonly string PATH_LAYOUT = @"Pages\Shared\_Layout.cshtml";
-        public static readonly string PATH_PYOUT = @"D:/main/vs_prj/asc-community/ascsite/Core/PyInterface/pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
+        public static readonly string PATH_PYOUT = @"Core/PyInterface/pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
 
         /*  TITLES  */
         public static readonly string TITLE_INTERPRETEDAS = "Interpreted as";

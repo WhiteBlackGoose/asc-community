@@ -19,3 +19,17 @@
     font-size: 10pt;
     padding: 4px;
 }
+
+.div-inline {
+    display:inline-block;
+}
+
+.div-to-left {
+    float: left;
+    position: relative;
+}
+
+.div-to-right {
+    float: right;
+    position: relative;
+}
