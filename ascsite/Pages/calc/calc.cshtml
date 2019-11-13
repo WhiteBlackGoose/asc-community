@@ -4,19 +4,21 @@
 
 }
 
+    <head>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/calc/calc.css">
+        <link rel="stylesheet" type="text/css" href="~/css/styles.css">
+        <script src="~/calc/calc.js"></script>
+    </head>
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-<script src="~/calc/calc.js"></script>
 <div class="container">
 
     <form method="get">
         <div class="calc-form">
             <div class="text-center">
                 <div class="calc-line">
-                    <input id="prompt" type="text" value="@Model.Expression" name="Expression" class="calc-class calc-input" /><input type="submit" value="Compute" class="calc-class calc-button" id="sendButton" />
+                    <input id="prompt" type="text" value="@Model.Expression" name="Expression" class="calc-class calc-input" /><!--<input type="submit" value="Compute" class="calc-class calc-button" id="sendButton" />-->
                 </div>
             </div>
             <div class="calc-block" style="display: @Model.Visib1">

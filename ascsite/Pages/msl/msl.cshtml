@@ -11,7 +11,7 @@
         <script type="text/javascript" src="~/lib/codemirror/mode/clike/clike.js"></script>
         <script type="text/javascript" src="~/lib/codemirror/addon/hint/show-hint.js"></script>
         <link rel="stylesheet" type="text/css" href="~/lib/codemirror/addon/hint/show-hint.css">
-        <script type="text/javascript" src="https://raw.githubusercontent.com/request/request/master/request.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/css/styles.css">
     </head>
 
 <form method="post">
@@ -20,7 +20,7 @@
     </div>
 
     <div>
-        <input type="submit" value="Compile" id="send-button" />
+        <input class="asc-button big-asc-button" type="submit" value="Compile" id="send-button" />
     </div>
 </form>
 
@@ -33,7 +33,7 @@
 <script>
     var MSLID = "@Model.ReturnedId";
 </script>
-<script src="~/js/msleditor.js">
+<script src="~/msl/msleditor.js">
     
 </script>
 

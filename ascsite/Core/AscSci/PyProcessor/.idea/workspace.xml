@@ -2,614 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c388d9e-066f-4e41-86d4-76a99e7bcba5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../.vs/ascsite/v16/Server/sqlite3/db.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Calculator/AscCalc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Calculator/ICalc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Calculator/Lexer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../MSLInterface/MSLInterface.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../PyInterface/PyInterface.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../PyInterface/PyMath/PyMath.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/js/msleditor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/AUTHORS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/comment/comment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/comment/continuecomment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/dialog/dialog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/dialog/dialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/display/autorefresh.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/display/fullscreen.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/display/fullscreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/display/panel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/display/placeholder.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/display/rulers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/edit/closebrackets.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/edit/closetag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/edit/continuelist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/edit/matchbrackets.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/edit/matchtags.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/edit/trailingspace.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/fold/brace-fold.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/fold/comment-fold.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/fold/foldcode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/fold/foldgutter.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/fold/foldgutter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/fold/indent-fold.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/fold/markdown-fold.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/fold/xml-fold.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/hint/anyword-hint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/hint/css-hint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/hint/html-hint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/hint/javascript-hint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/hint/show-hint.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/hint/show-hint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/hint/sql-hint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/hint/xml-hint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/lint/coffeescript-lint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/lint/css-lint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/lint/html-lint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/lint/javascript-lint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/lint/json-lint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/lint/lint.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/lint/lint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/lint/yaml-lint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/merge/merge.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/merge/merge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/mode/loadmode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/mode/multiplex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/mode/multiplex_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/mode/overlay.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/mode/simple.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/runmode/colorize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/runmode/runmode-standalone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/runmode/runmode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/runmode/runmode.node.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/scroll/annotatescrollbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/scroll/scrollpastend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/scroll/simplescrollbars.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/scroll/simplescrollbars.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/search/jump-to-line.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/search/match-highlighter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/search/matchesonscrollbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/search/matchesonscrollbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/search/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/search/searchcursor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/selection/active-line.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/selection/mark-selection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/selection/selection-pointer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/tern/tern.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/tern/tern.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/tern/worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/addon/wrap/hardwrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/bin/authors.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/bin/lint" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/bin/release" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/bin/source-highlight" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/bin/upload-release.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/activeline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/anywordhint.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/bidi.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/btree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/buffers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/changemode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/closebrackets.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/closetag.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/emacs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/folding.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/fullscreen.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/hardwrap.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/html5complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/indentwrap.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/lint.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/loadmode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/marker.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/markselection.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/matchhighlighter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/matchtags.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/merge.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/multiplex.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/mustache.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/panel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/placeholder.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/preview.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/requirejs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/resize.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/rulers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/runmode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/simplemode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/simplescrollbars.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/spanaffectswrapping_shim.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/sublime.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/tern.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/theme.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/trailingspace.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/variableheight.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/vim.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/visibletabs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/widget.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/demo/xmlcomplete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/activebookmark.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/docs.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/internals.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/manual.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/realworld.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/releases.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/reporting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/upgrade_v2.2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/upgrade_v3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/upgrade_v4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/doc/yinyang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/keymap/emacs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/keymap/sublime.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/keymap/vim.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/lib/codemirror.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/lib/codemirror.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/apl/apl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/apl/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/asciiarmor/asciiarmor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/asciiarmor/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/asn.1/asn.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/asn.1/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/asterisk/asterisk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/asterisk/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/brainfuck/brainfuck.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/brainfuck/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/clike/clike.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/clike/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/clike/scala.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/clike/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/clojure/clojure.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/clojure/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/clojure/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/cmake/cmake.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/cmake/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/cobol/cobol.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/cobol/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/coffeescript/coffeescript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/coffeescript/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/commonlisp/commonlisp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/commonlisp/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/crystal/crystal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/crystal/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/css/css.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/css/gss.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/css/gss_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/css/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/css/less.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/css/less_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/css/scss.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/css/scss_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/css/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/cypher/cypher.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/cypher/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/cypher/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/d/d.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/d/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/d/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dart/dart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dart/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/diff/diff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/diff/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/django/django.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/django/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dockerfile/dockerfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dockerfile/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dockerfile/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dtd/dtd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dtd/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dylan/dylan.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dylan/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/dylan/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ebnf/ebnf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ebnf/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ecl/ecl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ecl/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/eiffel/eiffel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/eiffel/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/elm/elm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/elm/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/erlang/erlang.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/erlang/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/factor/factor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/factor/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/fcl/fcl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/fcl/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/forth/forth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/forth/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/fortran/fortran.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/fortran/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/gas/gas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/gas/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/gfm/gfm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/gfm/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/gfm/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/gherkin/gherkin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/gherkin/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/go/go.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/go/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/groovy/groovy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/groovy/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/haml/haml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/haml/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/haml/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/handlebars/handlebars.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/handlebars/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/haskell-literate/haskell-literate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/haskell-literate/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/haskell/haskell.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/haskell/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/haxe/haxe.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/haxe/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/htmlembedded/htmlembedded.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/htmlembedded/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/htmlmixed/htmlmixed.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/htmlmixed/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/http/http.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/http/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/idl/idl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/idl/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/javascript/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/javascript/javascript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/javascript/json-ld.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/javascript/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/javascript/typescript.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/jinja2/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/jinja2/jinja2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/jsx/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/jsx/jsx.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/jsx/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/julia/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/julia/julia.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/livescript/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/livescript/livescript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/lua/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/lua/lua.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/markdown/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/markdown/markdown.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/markdown/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mathematica/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mathematica/mathematica.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mbox/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mbox/mbox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/meta.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mirc/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mirc/mirc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mllike/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mllike/mllike.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/modelica/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/modelica/modelica.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mscgen/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mscgen/mscgen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mscgen/mscgen_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mscgen/msgenny_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mscgen/xu_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mumps/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/mumps/mumps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/nginx/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/nginx/nginx.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/nsis/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/nsis/nsis.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ntriples/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ntriples/ntriples.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/octave/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/octave/octave.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/oz/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/oz/oz.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/pascal/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/pascal/pascal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/pegjs/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/pegjs/pegjs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/perl/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/perl/perl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/php/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/php/php.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/php/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/pig/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/pig/pig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/powershell/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/powershell/powershell.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/powershell/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/properties/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/properties/properties.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/protobuf/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/protobuf/protobuf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/pug/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/pug/pug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/puppet/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/puppet/puppet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/python/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/python/python.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/python/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/q/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/q/q.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/r/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/r/r.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/rpm/changes/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/rpm/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/rpm/rpm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/rst/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/rst/rst.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ruby/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ruby/ruby.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ruby/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/rust/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/rust/rust.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/rust/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sas/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sas/sas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sass/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sass/sass.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sass/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/scheme/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/scheme/scheme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/shell/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/shell/shell.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/shell/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sieve/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sieve/sieve.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/slim/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/slim/slim.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/slim/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/smalltalk/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/smalltalk/smalltalk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/smarty/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/smarty/smarty.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/solr/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/solr/solr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/soy/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/soy/soy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/soy/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sparql/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sparql/sparql.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/spreadsheet/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/spreadsheet/spreadsheet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sql/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/sql/sql.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/stex/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/stex/stex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/stex/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/stylus/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/stylus/stylus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/swift/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/swift/swift.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/swift/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tcl/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tcl/tcl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/textile/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/textile/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/textile/textile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tiddlywiki/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tiddlywiki/tiddlywiki.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tiddlywiki/tiddlywiki.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tiki/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tiki/tiki.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tiki/tiki.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/toml/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/toml/toml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tornado/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/tornado/tornado.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/troff/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/troff/troff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ttcn-cfg/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ttcn-cfg/ttcn-cfg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ttcn/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/ttcn/ttcn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/turtle/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/turtle/turtle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/twig/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/twig/twig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/vb/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/vb/vb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/vbscript/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/vbscript/vbscript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/velocity/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/velocity/velocity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/verilog/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/verilog/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/verilog/verilog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/vhdl/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/vhdl/vhdl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/vue/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/vue/vue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/webidl/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/webidl/webidl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/xml/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/xml/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/xml/xml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/xquery/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/xquery/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/xquery/xquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/yacas/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/yacas/yacas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/yaml-frontmatter/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/yaml-frontmatter/yaml-frontmatter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/yaml/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/yaml/yaml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/z80/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/mode/z80/z80.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/rollup.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/codemirror.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/Display.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/focus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/gutters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/highlight_worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/line_numbers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/mode_state.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/operations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/scroll_events.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/scrollbars.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/scrolling.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/selection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/update_display.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/update_line.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/update_lines.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/display/view_tracking.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/CodeMirror.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/commands.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/deleteNearSelection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/drop_events.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/fromTextArea.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/global_events.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/key_events.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/legacy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/methods.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/mouse_events.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/options.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/edit/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/input/ContentEditableInput.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/input/TextareaInput.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/input/indent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/input/input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/input/keymap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/input/keynames.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/input/movement.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/line/highlight.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/line/line_data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/line/pos.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/line/saw_special_spans.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/line/spans.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/line/utils_line.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/measurement/position_measurement.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/measurement/widgets.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/Doc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/change_measurement.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/changes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/document_data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/history.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/line_widget.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/mark_text.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/selection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/model/selection_updates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/modes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/util/StringStream.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/util/bidi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/util/browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/util/dom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/util/event.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/util/feature_detection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/util/misc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/src/util/operation_group.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/comment_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/contenteditable_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/doc_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/driver.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/emacs_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/html-hint-test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/lint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/mode_test.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/mode_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/multi_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/phantom_driver.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/run.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/scroll_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/search_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/sql-hint-test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/sublime_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/test/vim_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/3024-day.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/3024-night.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/abcdef.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/ambiance-mobile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/ambiance.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/base16-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/base16-light.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/bespin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/blackboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/cobalt.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/colorforth.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/darcula.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/dracula.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/duotone-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/duotone-light.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/eclipse.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/elegant.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/erlang-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/gruvbox-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/hopscotch.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/icecoder.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/idea.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/isotope.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/lesser-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/liquibyte.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/lucario.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/material-darker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/material-ocean.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/material-palenight.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/material.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/mbo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/mdn-like.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/midnight.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/monokai.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/moxer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/neat.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/neo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/night.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/nord.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/oceanic-next.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/panda-syntax.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/paraiso-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/paraiso-light.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/pastel-on-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/railscasts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/rubyblue.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/seti.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/shadowfox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/solarized.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/ssms.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/the-matrix.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/tomorrow-night-bright.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/tomorrow-night-eighties.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/ttcn.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/twilight.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/vibrant-ink.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/xq-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/xq-light.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/yeti.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/yonce.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/codemirror/theme/zenburn.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../wwwroot/lib/moment/moment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../.vs/ascsite/DesignTimeBuild/.dtbcache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.vs/ascsite/DesignTimeBuild/.dtbcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../.vs/ascsite/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.vs/ascsite/config/applicationhost.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../.vs/ascsite/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.vs/ascsite/v16/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../.vs/ascsite/v16/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.vs/ascsite/v16/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../.vs/ascsite/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.vs/ascsite/v16/Server/sqlite3/storage.ide-shm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../.vs/ascsite/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.vs/ascsite/v16/Server/sqlite3/storage.ide-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../AscSci/AscCalc.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Hubs/ChatHub.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Pages/Index.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Pages/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Pages/Shared/_ValidationScriptsPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Pages/about.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Pages/about.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Pages/about.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Pages/about.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Pages/calc.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Pages/calc.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ascsite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ascsite.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ascsite.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ascsite.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Const.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Const.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -622,7 +19,8 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -650,12 +48,12 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/executor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+            <state relative-caret-position="286">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
                 <marker date="1573363254175" expanded="true" signature="93:131" ph="..." />
@@ -674,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/text.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="135" column="43" lean-forward="true" selection-start-line="135" selection-start-column="43" selection-end-line="135" selection-end-column="43" />
+            <state relative-caret-position="630">
+              <caret line="135" column="43" selection-start-line="135" selection-start-column="43" selection-end-line="135" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -720,6 +118,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -731,7 +130,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -814,22 +212,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18601191" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18598525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38625205" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3856988" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -895,25 +294,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ascmath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/executor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <marker date="1573363254175" expanded="true" signature="93:131" ph="..." />
-            <marker date="1573363254175" expanded="true" signature="110:112" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../../../programs/miniconda3/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-822">
@@ -921,10 +301,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ascmath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/text.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="135" column="43" lean-forward="true" selection-start-line="135" selection-start-column="43" selection-end-line="135" selection-end-column="43" />
+        <state relative-caret-position="630">
+          <caret line="135" column="43" selection-start-line="135" selection-start-column="43" selection-end-line="135" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/executor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1573363254175" expanded="true" signature="93:131" ph="..." />
+            <marker date="1573363254175" expanded="true" signature="110:112" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
