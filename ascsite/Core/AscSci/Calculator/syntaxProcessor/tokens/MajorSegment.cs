@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using processor.lexicProcessor;
+using ascsite.Core;
 
 namespace processor.syntaxProcessor.tokens
 {

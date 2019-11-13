@@ -1,0 +1,29 @@
+﻿namespace Program
+{
+    using namespace System;
+    
+    class ProgramClass
+    {
+        public static function Main()
+        {
+            const var N = 10000;
+            var ints = Array(N + 1);
+            var primes = Array();
+
+            for (var i = 0; i <= N; i += 1)
+                ints[i] = true;
+
+            ints[0] = ints[1] = false;
+
+            for (var i = 2; i <= N; i += 1)
+                if (ints[i])
+                {
+                    primes.Append(i);
+                    for (var j = i * i; j <= N; j += i)
+                        ints[j] = false;
+                }
+
+            Console.PrintLine(primes);
+        }
+    }
+    }

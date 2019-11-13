@@ -42,9 +42,8 @@ namespace ascsite.Pages
     {
         private List<string> SampleList = new List<string>()
         {
-            "asc_interop.msl",
-            "math.msl",
-            "utils.msl"
+            "vectors.msl",
+            "arrays.msl"
         };
 
         public MSLModel()

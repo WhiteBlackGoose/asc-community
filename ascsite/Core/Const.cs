@@ -64,5 +64,8 @@ namespace ascsite.Core
 
         /*  ADDDATA  */
         public static readonly string ADD_LATEXSCRIPT = "<script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>" + "<script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>";
+
+        public static char DEL_RANGE => throw new Exception("change DEL_RANGE to char");
+        public static char DEL_LIST => throw new Exception("change DEL_LIST to char");
     }
 }
