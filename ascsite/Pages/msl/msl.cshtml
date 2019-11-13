@@ -14,25 +14,25 @@
         <link rel="stylesheet" type="text/css" href="~/css/styles.css">
     </head>
 
-<<form method="post">
-    <div>
-        <div class="div-to-left">
+    <form method="post">
+        <div>
+            <div class="div-to-left">
             <textarea spellcheck="false" id=demotext rows="30" cols="80" name="CodeText">@Model.CodeText</textarea>
+            </div>
+            <div class="div-to-right">
+                <ul>
+                    <li>sample1</li>
+                    <li>sample2</li>
+                    <li>sample3</li>
+                    <li>sample4</li>
+                </ul>
+            </div>
         </div>
-        <div class="div-to-right">
-            <ul>
-                <li>sample1</li>
-                <li>sample2</li>
-                <li>sample3</li>
-                <li>sample4</li>
-            </ul>
-        </div>
-    </div>
 
-    <div>
-        <input class="asc-button big-asc-button" type="submit" value="Compile" id="send-button" />
-    </div>
-</form>
+        <div>
+            <input class="asc-button big-asc-button" type="submit" value="Compile" id="send-button" />
+        </div>
+    </form>
 
 <div id="response">
     <textarea spellcheck="false" id="msl-output" rows="10" cols="80">@Model.OutputMSL</textarea>

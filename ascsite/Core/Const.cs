@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Runtime.Serialization;
 
-namespace processor
+namespace ascsite.Core
 {
-    public class Const
+    public static class Const
     {
         /*  ERROR MESSAGES  */
         public static readonly string ERMSG_PREOUTPUT = "During parsing an error occurred: ";
@@ -26,7 +25,7 @@ namespace processor
         public static readonly string PATH_SUBSAMPLES = @"Pages\msl\samples";
         public static readonly string PATH_ASSOCPRJS = @"Pages\projects\assoc";
         public static readonly string PATH_LAYOUT = @"Pages\Shared\_Layout.cshtml";
-        public static readonly string PATH_PYOUT = @"Core/PyInterface/pyout";
+        public static readonly string PATH_PYOUT = @"Core/PyInterface/pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
 
         /*  TITLES  */
         public static readonly string TITLE_INTERPRETEDAS = "Interpreted as";
@@ -62,11 +61,8 @@ namespace processor
         public static readonly string DEL_PRJSPAGES = "|";
         public static readonly string DEL_ANNSTART = "@annstart";
         public static readonly string DEL_ANNEND = "@annend";
-        public static readonly string DEL_LIST = ",";
-        public static readonly string DEL_RANGE = ";";
 
         /*  ADDDATA  */
         public static readonly string ADD_LATEXSCRIPT = "<script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>" + "<script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>";
-
     }
 }
