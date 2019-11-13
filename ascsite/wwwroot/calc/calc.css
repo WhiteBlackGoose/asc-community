@@ -1,0 +1,44 @@
+﻿.calc-form {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.text-center {
+
+}
+
+.calc-line {
+    border: 3px solid;
+    border-color: #8888ff;
+}
+
+.calc-class {
+
+}
+
+.calc-input {
+
+}
+
+.calc-button {
+
+}
+
+.calc-block {
+    text-align: center;
+    border: solid 1px gray;
+    border-radius: 3px;
+    margin: 3px;
+}
+
+.calc-title {
+
+}
+
+.asc-button {
+
+}
+
+.sample-block {
+
+}
