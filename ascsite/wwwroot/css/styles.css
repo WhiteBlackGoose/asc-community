@@ -20,16 +20,17 @@
     padding: 4px;
 }
 
-.div-inline {
-    display:inline-block;
+.huge-asc-button {
+    font-size: 13pt;
+    padding: 6px;
+    text-align: center;
 }
 
-.div-to-left {
-    float: left;
-    position: relative;
+.div-container {
+    display: table-cell;
 }
 
-.div-to-right {
-    float: right;
-    position: relative;
+.msl-sample-block {
+    display: table-cell;
+    width: 5%;
 }

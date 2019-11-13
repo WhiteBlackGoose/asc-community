@@ -33,8 +33,8 @@ namespace ascsite.Core.MSLInterface
 
         public void Execute(string code)
         {
-            ImportLibraries(process);
             process.StandardInput.WriteLine(code);
+            ImportLibraries(process);
             process.StandardInput.WriteLine(Const.PREFIX_MSL_END_FILEREAD);
             process.StandardInput.Flush();
         }
@@ -85,7 +85,7 @@ namespace ascsite.Core.MSLInterface
             LibraryPaths.ForEach(path =>
             {
                 string code = GetSample(path);
-                process.StandardInput.Write(code);
+                process.StandardInput.WriteLine(code);
             });
         }
 

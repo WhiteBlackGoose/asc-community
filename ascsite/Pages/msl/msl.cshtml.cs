@@ -40,6 +40,13 @@ namespace ascsite.Pages
     }
     public class MSLModel : PageModel
     {
+        private List<string> SampleList = new List<string>()
+        {
+            "asc_interop.msl",
+            "math.msl",
+            "utils.msl"
+        };
+
         public MSLModel()
         {
             CodeText = MSLInterface.GetSample("sample.msl");
@@ -50,6 +57,7 @@ namespace ascsite.Pages
 
         public string OutputMSL { get; set; }
 
+        public string Samples { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string InputMSL { get; set; }
@@ -63,14 +71,12 @@ namespace ascsite.Pages
         {
             if (!string.IsNullOrEmpty(InputMSL))
             {
-                // INPUT INTO MSL
-                this.HttpContext.Response.Body.WriteAsync(Encoding.UTF8.GetBytes("4len"));
-                //¬вестим в маю кансоль текстик
+                // INPUT INTO MSL TO DO
                 return;
             }
             if (!string.IsNullOrEmpty(IfPull))
             {
-                if(!string.IsNullOrEmpty(ReturnedId))
+                if (!string.IsNullOrEmpty(ReturnedId))
                 {
                     string output = MSLProgramPool.GetById(ReturnedId).PullOutput();
                     if (!string.IsNullOrEmpty(output))
@@ -81,6 +87,31 @@ namespace ascsite.Pages
                 }
                 ResponseVoid();
             }
+
+            // add samples to list
+            AddSamplesList();
+        }
+
+        private void AddSamplesList()
+        {
+            Samples = string.Empty;
+            StringBuilder builder = new StringBuilder();
+            foreach (var file in SampleList)
+            {
+                string fileName = file.Remove(file.IndexOf(".msl"), ".msl".Length);
+                builder
+                    .Append("<li class=\"asc-button huge-asc-button\" onclick=\"loadSample('")
+                    .Append(fileName)
+                    .Append("')\">")
+                    .Append(fileName)
+                    .Append("</li>")
+                    .Append("<p id=\"")
+                    .Append(fileName)
+                    .Append("\" style=\"display: none\">")
+                    .Append(MSLInterface.GetSample(file))
+                    .Append("</p>");
+            }
+            Samples = builder.ToString();
         }
 
         [BindProperty(SupportsGet = true)]
@@ -96,9 +127,11 @@ namespace ascsite.Pages
                 
             MSLProgramPool.KillById(id);
             if (timeout)
-                OutputMSL = Const.ERMSG_EXECUTE_TIMEOUT;
+                OutputMSL = Const.ERMSG_EXECUTE_TIMEOUT + ": " + Const.LIMIT_MSL_EXECUTE_MS.ToString() + "ms passed";
             else
                 OutputMSL = output;
+
+            AddSamplesList();
         }
     }
 }
