@@ -34,7 +34,16 @@ namespace processor.lexicProcessor
             Names.LOG,
             Names.SQRT,
             Names.BFUNC,
-            Names.TBFUNC
+            Names.TBFUNC,
+            Names.PIECEWISE
+        };
+
+        private static readonly IEnumerable<string> constList = new HashSet<string>
+        {
+            Names.CONST_E,
+            Names.CONST_PI,
+            Names.CONST_TRUE,
+            Names.CONST_EQ,
         };
 
         /// <summary>
@@ -68,6 +77,8 @@ namespace processor.lexicProcessor
                         token.type = Token.Type.KEYWORD;
                     else if (functionList.Contains(token.value))
                         token.type = Token.Type.SYSTEM_FUNCTION;
+                    else if (constList.Contains(token.value))
+                        token.type = Token.Type.SYSTEM_CONST;
                     tokenList.Add(token);
                 }
                 else if (char.IsDigit(expr[idx]))

@@ -40,12 +40,9 @@ namespace ascsite
                     AscCalc calc = new AscCalc(Expression, latex: true);
                     CalcResult cr;
                     cr = calc.Compute();
-                    CalcResponse = cr.Result;
-                    InterpretedAs = string.Join("<br>", cr.InterpretedAs);
-
-                    AscCalc calc_pl = new AscCalc(Expression, latex: false);
-                    cr = calc_pl.Compute();
                     PlainCalcResponse = cr.Result;
+                    CalcResponse = cr.LatexResult;
+                    InterpretedAs = string.Join("<br>", cr.InterpretedAs);
                 }
                 catch(Exception e)
                 {

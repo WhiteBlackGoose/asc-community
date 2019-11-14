@@ -22,13 +22,12 @@ while True:
     conn, addr = sock.accept()
     try:
         while True:
-            data = conn.recv(1024)
+            data = conn.recv(8192)
             console_log("Received data of size", len(data))
             if not data:
                 console_log("Connection closed")
                 break
             req = data.decode(encoding)    # convert to string (Python 3 only)
-            console_log(data)
             resp = ""
             for linecode in req.split("\n"):
                 if len(linecode) == 0:
@@ -50,6 +49,7 @@ while True:
                     console_log("Error:", e)
             b = bytes(resp, encoding=encoding)
             conn.sendall(b)
+            console_log("Responded with data of size", len(b))
     except Exception as e:
         console_log("Error:", e)
     for vr in syms:

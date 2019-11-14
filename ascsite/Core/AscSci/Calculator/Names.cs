@@ -24,6 +24,11 @@ namespace processor
         public static string BFUNC = "B";
         public static string TBFUNC = "tB";
         public static string SQRT = "sqrt";
+        public static string PIECEWISE = "Piecewise";
+        public static string CONST_PI = "pi";
+        public static string CONST_TRUE = "True";
+        public static string CONST_E = "e";
+        public static string CONST_EQ = "Eq";
 
         public static string PIPE = "|";
         public static string NOERRORS = "no_errors";

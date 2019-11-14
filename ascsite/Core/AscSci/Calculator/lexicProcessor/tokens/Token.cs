@@ -17,6 +17,7 @@ namespace processor.lexicProcessor
             TAG,
             SYSTEM_FUNCTION,
             KEYWORD,
+            SYSTEM_CONST
         }
 
         public Type type;

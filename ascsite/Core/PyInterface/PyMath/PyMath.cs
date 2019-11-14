@@ -10,7 +10,6 @@ namespace ascsite.Core.PyInterface.PyMath
     public class PyMath
     {
         private PyInterface pyInterface;
-        public bool latex;
 
         public void Destroy()
         {
@@ -20,7 +19,6 @@ namespace ascsite.Core.PyInterface.PyMath
         public PyMath()
         {
             pyInterface = new PyInterface(Const.PATH_PYOUT);
-            this.latex = false;
         }
 
         public void TokensAdd(PyInterface pyInterface, IEnumerable<string> tokens)
@@ -32,7 +30,7 @@ namespace ascsite.Core.PyInterface.PyMath
             }
             pyInterface.Run(code);
         }
-        private string PrintExpr(string sympyCommand, bool multiAns = false)
+        private string PrintExpr(string sympyCommand, bool multiAns = false, bool latex = false)
         {
             string res = Const.PYINTERFACE_EVALREQ.ToString();
             if (!latex)
@@ -52,10 +50,12 @@ namespace ascsite.Core.PyInterface.PyMath
             return res;
         }
 
-        private string LatexOnNeed(string expr)
+        private string LatexOnNeed(string expr, bool latex)
         {
             if (latex)
-                return @"\[" + expr + @"\]";
+            {
+                return @"$$" + expr + @"$$";
+            }
             else
                 return expr;
         }
@@ -91,20 +91,20 @@ namespace ascsite.Core.PyInterface.PyMath
                 return expr;
         }
 
-        public string Derivative(string expr, string variable, IEnumerable<string> tokens)
+        public string Derivative(string expr, string variable, IEnumerable<string> tokens, bool latex = false)
         {
             TokensAdd(pyInterface, tokens);
             expr = ExprPrepare(expr);
             string res = pyInterface.Run(PrintExpr("sympy.diff(" + expr + ", " + variable + ")"));
-            return LatexOnNeed(ExprPostProc(res).Replace("**", "^"));
+            return LatexOnNeed(ExprPostProc(res).Replace("**", "^"), latex);
         }
 
-        public string Integral(string expr, string variable, IEnumerable<string> tokens)
+        public string Integral(string expr, string variable, IEnumerable<string> tokens, bool latex = false)
         {
             TokensAdd(pyInterface, tokens);
             expr = ExprPrepare(expr);
             string res = pyInterface.Run(PrintExpr("sympy.integrate(" + expr + ", " + variable + ")"));
-            return LatexOnNeed(ExprPostProc(res).Replace("**", "^"));
+            return LatexOnNeed(ExprPostProc(res).Replace("**", "^"), latex);
         }
 
         public static bool IsLetter(char s)
@@ -113,7 +113,7 @@ namespace ascsite.Core.PyInterface.PyMath
             return (A + A.ToUpper()).Contains(s);
         }
 
-        public string Simplify(string expr, IEnumerable<string> tokens, bool appr = true)
+        public string Simplify(string expr, IEnumerable<string> tokens, bool appr = true, bool latex = false)
         {
             TokensAdd(pyInterface, tokens);
             expr = ExprPrepare(expr);
@@ -122,22 +122,22 @@ namespace ascsite.Core.PyInterface.PyMath
             string res = "";
             if (analyt != approx && appr)
             {
-                res = Const.TITLE_ANALYTICAL_SIMPLIFY + LatexOnNeed(analyt.ToString()) + "\n" + Const.TITLE_APPROXIMATE_SIMPLIFY + LatexOnNeed(approx.ToString());
+                res = Const.TITLE_ANALYTICAL_SIMPLIFY + LatexOnNeed(analyt.ToString(), latex) + "\n" + Const.TITLE_APPROXIMATE_SIMPLIFY + LatexOnNeed(approx.ToString(), latex);
             }
             else
-                res = LatexOnNeed(analyt.ToString());
+                res = LatexOnNeed(analyt.ToString(), latex);
             return res;
         }
 
-        public List<string> Solve(string expr, string variable, IEnumerable<string> tokens)
+        public List<string> Solve(string expr, string variable, IEnumerable<string> tokens, bool latex = false)
         {
             TokensAdd(pyInterface, tokens);
             expr = ExprPrepare(expr);
-            expr = PrintExpr("sympy.solve(" + expr + ", " + variable + ")", multiAns: true);
+            expr = PrintExpr("sympy.solve(" + expr + ", " + variable + ")", multiAns: true, latex: latex);
             string pyres = pyInterface.Run(expr).Replace("**", "^");
             List<string> roots = PyInterface.FromPyList(pyres, '@');
             for (int i = 0; i < roots.Count; i++)
-                roots[i] = LatexOnNeed(ExprPostProc(roots[i]));
+                roots[i] = LatexOnNeed(ExprPostProc(roots[i]), latex);
             return roots;
         }
     }

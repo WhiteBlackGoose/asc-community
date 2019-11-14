@@ -16,6 +16,7 @@ namespace ascsite.Core.AscSci.Calculator
     {
         public List<string> InterpretedAs { get; set; }
         public string Result { get; set; }
+        public string LatexResult { get; set; }
         public string SolidResult { get { return Result.Replace("\n", ", ").Replace('I', 'i'); } }
 
         public string ProcessedResult
@@ -133,7 +134,6 @@ namespace ascsite.Core.AscSci.Calculator
                 foreach (var fieldOpts in list)
                 {
                     bool isLast = fieldOpts == list[list.Count - 1];
-                    pymath.latex = isLast && latex;
 
                     // PROCESSING SOME `WHERE` AND `FOR` TOKENS
                     foreach (var expressionSegment in expressionSegments)
@@ -152,11 +152,10 @@ namespace ascsite.Core.AscSci.Calculator
                     var fieldType = FindField(fieldOpts[0].Keyname);
 
                     List<string> newExprs = new List<string>();
+                    List<string> newLatexExprs = new List<string>();
 
                     foreach (var expressionSegment in expressionSegments)
                     {
-                        //string newExpr = "";
-                        // BOOLEAN FIELD
                         if (fieldType == FieldType.BOOL)
                         {
                             if (!isLast)
@@ -186,6 +185,8 @@ namespace ascsite.Core.AscSci.Calculator
                                 newExpr = "<table id=\"bool-res\">" + res.Result + "</table>";
                             }
                             newExprs.Add(newExpr);
+                            if (isLast)
+                                newLatexExprs.Add(newExpr);
                         }
                         else if (AscCalc.MathAnalysis.Contains(fieldType))
                         {
@@ -209,11 +210,23 @@ namespace ascsite.Core.AscSci.Calculator
                             vars = Functions.MakeUnique(vars);
                             string req = expressionSegment.Build();
                             if (fieldType == FieldType.DERIVATIVE)
+                            {
                                 newExprs.Add(pymath.Derivative(req, diffVar, vars));
+                                if (isLast && latex)
+                                    newLatexExprs.Add(pymath.Derivative(req, diffVar, vars, true));
+                            }
                             else if (fieldType == FieldType.INTEGRAL)
+                            {
                                 newExprs.Add(pymath.Integral(req, diffVar, vars));
+                                if (isLast && latex)
+                                    newLatexExprs.Add(pymath.Integral(req, diffVar, vars, true));
+                            }
                             else if (fieldType == FieldType.SOLVE)
+                            {
                                 newExprs.AddRange(pymath.Solve(req, diffVar, vars));
+                                if (isLast && latex)
+                                    newLatexExprs.AddRange(pymath.Solve(req, diffVar, vars, true));
+                            }
                         }
                         else if (fieldType == FieldType.SIMPLIFICATION)
                         {
@@ -222,8 +235,13 @@ namespace ascsite.Core.AscSci.Calculator
                             vars = Functions.MakeUnique(vars);
                             string req = expressionSegment.Build();
                             string newExpr;
-                            newExpr = pymath.Simplify(req, vars, true);
+                            newExpr = pymath.Simplify(req, vars, isLast && expressionSegments.Count < 2);
                             newExprs.Add(newExpr);
+                            if(isLast && latex)
+                            {
+                                newExpr = pymath.Simplify(req, vars, isLast && expressionSegments.Count < 2, true);
+                                newLatexExprs.Add(newExpr);
+                            }
                         }
                     }
                     if (newExprs.Count == 0)
@@ -233,7 +251,6 @@ namespace ascsite.Core.AscSci.Calculator
                     }
                     if (!isLast)
                     {
-                        string keyname = expressionSegments[0].Keyname;
                         expressionSegments = new List<ExpressionSegment>();
                         foreach (var nexp in newExprs)
                             expressionSegments.Add(new ExpressionSegment("expression", nexp));
@@ -242,7 +259,10 @@ namespace ascsite.Core.AscSci.Calculator
                     {
                         res.Result = "";
                         foreach (var segm in newExprs)
-                            res.Result += segm + "<br>";
+                            res.Result += segm + " ";
+                        res.LatexResult = "";
+                        foreach (var segm in newLatexExprs)
+                            res.LatexResult += segm + " ";
                     }
                 }
 
