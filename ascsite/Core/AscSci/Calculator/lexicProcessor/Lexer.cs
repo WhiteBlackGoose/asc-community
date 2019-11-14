@@ -167,7 +167,7 @@ namespace processor.lexicProcessor
                 idx++;
             }
 
-            if (expr[idx] == '.' || expr[idx] == ',')
+            if (expr[idx] == '.')
                 builder.Append(expr[idx++]);
             else
                 return new Token(Token.Type.NUMBER, builder.ToString());

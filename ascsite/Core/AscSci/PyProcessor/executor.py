@@ -6,54 +6,55 @@ from ascmath import *
 def console_log(*text):
     print(*text)
 
-encoding = "utf8"
+encoding_ = "utf8"
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 server_address = ('localhost', 7000)
-sock.bind(server_address)
-sock.listen(1)
-Error = "E"
-OK = "O"
+sock_.bind(server_address)
+sock_.listen(1)
+Error_ = "E"
+OK_ = "O"
 
-syms = []
+syms_ = []
 
 while True:
-    conn, addr = sock.accept()
+    conn_, addr_ = sock_.accept()
     try:
         while True:
-            data = conn.recv(8192)
-            console_log("Received data of size", len(data))
-            if not data:
+            received_data = conn_.recv(8192)
+            console_log("Received data of size", len(received_data))
+            if not received_data:
                 console_log("Connection closed")
                 break
-            req = data.decode(encoding)    # convert to string (Python 3 only)
-            resp = ""
-            for linecode in req.split("\n"):
-                if len(linecode) == 0:
+            req_ = received_data.decode(encoding_)    # convert to string (Python 3 only)
+            resp_ = ""
+            for line_code in req_.split("\n"):
+                if len(line_code) == 0:
                     continue
-                cmd, line = linecode[0].rstrip('\x00'), linecode[1:].rstrip('\x00')
+                cmd_, line_ = line_code[0].rstrip('\x00'), line_code[1:].rstrip('\x00')
                 try:
-                    if cmd == "S":
-                        vars()[line] = Symbol(line)
-                        resp = OK
-                        syms.append(line)
-                    elif cmd == "E":
-                        evres = eval(line)
-                        resp = OK + str(evres)
+                    if cmd_ == "S":
+                        vars()[line_] = Symbol(line_)
+                        resp_ = OK_
+                        syms_.append(line_)
+                    elif cmd_ == "E":
+                        evres_ = eval(line_)
+                        resp_ = OK_ + str(evres_)
                     else:
-                        raise Exception("Symbol " + cmd + " unresolved");
-                    console_log("OK on " + cmd)
-                except Exception as e:
-                    resp = Error
-                    console_log("Error:", e)
-            b = bytes(resp, encoding=encoding)
-            conn.sendall(b)
-            console_log("Responded with data of size", len(b))
-    except Exception as e:
-        console_log("Error:", e)
-    for vr in syms:
-        if vr in vars():
-            del vars()[vr]
+                        raise Exception("Symbol " + cmd_ + " unresolved");
+                    console_log("OK on " + cmd_)
+                except Exception as e_:
+                    resp_ = Error_
+                    console_log("Error:", e_)
+            very_long_name_for_variable = bytes(resp_, encoding=encoding_)
+            conn_.sendall(very_long_name_for_variable)
+            console_log("Responded with data of size", len(very_long_name_for_variable))
+    except Exception as e_:
+        console_log("Error:", e_)
+    for vr_ in syms_:
+        if vr_ in vars():
+            del vars()[vr_]
+    syms_ = []
 
-    conn.close()
+    conn_.close()

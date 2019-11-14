@@ -5,6 +5,7 @@ using System.Linq;
 using processor.syntaxProcessor.tokens.types;
 using processor.syntaxProcessor.tokens;
 using ascsite.Core;
+using processor.lexicProcessor;
 
 namespace processor.syntaxProcessor
 {
@@ -46,7 +47,7 @@ namespace processor.syntaxProcessor
 
         }
 
-        public bool LastFinished()
+        public bool LastFinished(Token token, bool knowLast = false)
         {
             if (this.Count() == 0)
                 return true;
@@ -55,6 +56,11 @@ namespace processor.syntaxProcessor
                 return true;
             if (last.Data == "")
                 return false;
+            if (knowLast)
+            {
+                if (token.CannotCloseWith())
+                    return false;
+            }
             var lastsym = last.Data[last.Data.Length - 1];
             if (BracketProcessor.IsValidEnd(lastsym) && BracketProcessor.BracketCheck(last.Data) != BracketProcessor.ERRORTYPE.UNCLOSED)
                 return true;

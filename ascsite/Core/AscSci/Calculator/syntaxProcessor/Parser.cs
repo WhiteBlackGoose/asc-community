@@ -25,17 +25,21 @@ namespace processor.syntaxProcessor
         public PostTokenList Parse()
         {
             var res = new PostTokenList();
+            Token last = null;
+            bool know = false;
             for (var i = 0; i < tokens.Count(); i++)
             {
                 Token token = tokens[i];
                 if (token.type != Token.Type.KEYWORD)
                 {
-                    if (res.LastFinished() && !token.IsAmbiguous() && (res.Count == 0 || res.Last.Keyname != "expression"))
+                    if (res.LastFinished(last, know) && !token.CannotOpenWith() && (res.Count == 0 || res.Last.Keyname != "expression"))
                         res.Add(new PostToken("expression"));
                     res.Last.AddData(token.value);
                 }
                 else
                     res.Add(new PostToken(token.value));
+                last = token;
+                know = true;
             }
             return res;
         }

@@ -16,7 +16,12 @@ namespace ascsite.Core
             "\\n",
             "system",
             "import",
-            "eval"
+            "eval",
+            "_",
+            "vars",
+            "Symbol",
+            "socket",
+            "sympy",
         };
 
         public static bool ExprSecure(string expr)

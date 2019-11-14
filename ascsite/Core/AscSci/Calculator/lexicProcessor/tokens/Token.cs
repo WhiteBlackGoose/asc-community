@@ -29,9 +29,14 @@ namespace processor.lexicProcessor
             this.value = value;
         }
 
-        public bool IsAmbiguous()
+        public bool CannotOpenWith()
         {
-            return type == Type.MATH_OP || type == Type.BRACKET_CLOSE || type == Type.BRACKET_OPEN;
+            return type == Type.MATH_OP || type == Type.BRACKET_CLOSE;
+        }
+
+        public bool CannotCloseWith()
+        {
+            return type == Type.MATH_OP || type == Type.BRACKET_OPEN || type == Type.SYSTEM_FUNCTION;
         }
 
         public override string ToString()

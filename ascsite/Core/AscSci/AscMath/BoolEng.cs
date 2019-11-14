@@ -167,7 +167,7 @@ namespace AscSite.Core.AscSci.AscMath
 
         private List<string> Permutations(int l, string values)
         {
-            if (l == 1)
+            if (l <= 1)
                 return new List<string>() { "0", "1" };
             var res = new List<string>();
             foreach (var v in values)
