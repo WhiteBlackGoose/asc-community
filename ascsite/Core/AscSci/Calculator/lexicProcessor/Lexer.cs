@@ -106,10 +106,7 @@ namespace processor.lexicProcessor
                 }
                 else
                 {
-                    throw new Exception(); // TODO
-                    //tokenList.Add(new Token(Token.TYPE.ERROR, Const.ERMSG_UNRESOLVED_SYMBOL + expr[idx]));
-                    //break;
-
+                    throw new LexisException(expr[idx].ToString()); // TODO
                 }
             }
 

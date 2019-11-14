@@ -15,9 +15,13 @@ namespace ascsite.Core
         public static readonly string ERMSG_MSL_STARTERR = "Server cannot process MSL program: ";
         public static readonly string ERMSG_UNABLE_TO_SOLVE = "Unable to respond to the request";
         public static readonly string ERMSG_EXECUTE_TIMEOUT = "Execution cancelled because of timeout";
+        public static readonly string ERMSG_EXECUTE_CPUMEMOUT = "CPU or memory out";
         public static readonly string ERMSG_PYINTERFACE_RESP = "Response with an error from py interface";
         public static readonly string ERMSG_BOOLENGAMEXC = "Amount of variables exceeded";
         public static readonly string ERMSG_BOOLENG_UNRESOLVEDSYMBOL = "Invalid syntax";
+        public static readonly string ERMSG_INVALID_SYNTAX = "Invalid syntax";
+        public static readonly string ERMSG_INVALID_SYMBOL = "Invalid symbol";
+        public static readonly string ERMSG_INTERNAL_ERROR = "Internal error";
 
         /*  PATHS  */
         public static readonly string PATH_PYTHON = @"D:\main\programs\miniconda3\python.exe";

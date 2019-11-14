@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ascsite.Core;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -26,7 +27,7 @@ namespace processor.syntaxProcessor
         public void Freeze()
         {
             if (BracketProcessor.BracketCheck(Data) != BracketProcessor.ERRORTYPE.OK)
-                throw new Exception(); // TODO
+                throw new ParsingException("Invalid brackets in `" + Data + "`"); // TODO
             frozen = true;
             if (string.IsNullOrEmpty(Data))
                 this.type = PostTokenType.VOID;
@@ -39,18 +40,18 @@ namespace processor.syntaxProcessor
         public string GetBeforeEq()
         {
             if (!frozen)
-                throw new Exception(); // TODO
+                throw new InternalException(); // TODO
             if (type != PostTokenType.EQUALITY)
-                throw new Exception(); // TODO
+                throw new ParsingException("Expected `=`"); // TODO
             return Data.Substring(0, Data.IndexOf("="));
         }
 
         public string GetAfterEq()
         {
             if (!frozen)
-                throw new Exception(); // TODO
+                throw new InternalException(); // TODO
             if (type != PostTokenType.EQUALITY)
-                throw new Exception(); // TODO
+                throw new ParsingException("Expected `=`"); // TODO
             return Data.Substring(Data.IndexOf("=") + 1);
         }
 

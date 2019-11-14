@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using processor.syntaxProcessor.tokens.types;
 using processor.syntaxProcessor.tokens;
+using ascsite.Core;
 
 namespace processor.syntaxProcessor
 {
@@ -12,7 +13,7 @@ namespace processor.syntaxProcessor
         public PostToken Item()
         {
             if (this.Count() != 1)
-                throw new Exception(); // TODO
+                throw new InternalException(); // TODO
             return this[0];
         }
 
@@ -89,7 +90,7 @@ namespace processor.syntaxProcessor
             var res = new PostTokenList();
             int pos = Pos(token);
             if (pos == -1)
-                throw new Exception(); // TODO
+                throw new InternalException(); // TODO
             for (int i = pos; i < this.Count(); i++)
                 res.Add(this[i]);
             return res;

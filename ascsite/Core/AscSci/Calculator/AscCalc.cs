@@ -92,6 +92,7 @@ namespace ascsite.Core.AscSci.Calculator
                 TokenList tokenList = lexer.GenerateTokens();
                 Parser parser = new Parser(tokenList);
                 PostTokenList postTokenList = parser.Parse();
+                postTokenList.Freeze();
                 MathPreprocessor mathPreprocessor = new MathPreprocessor(postTokenList);
                 mathPreprocessor.Process();
                 MajorSegmentList majorSegmentList = mathPreprocessor.GetSegments();
@@ -164,7 +165,7 @@ namespace ascsite.Core.AscSci.Calculator
                             vars = Functions.MakeUnique(vars);
                             foreach (var v in vars)
                                 if (v.Length > 1)
-                                    throw new Exception(); // TODO
+                                    throw new ParsingException("Multi-symbol vars are forbidden in boolean mode"); // TODO
                             var be = new BoolEng(expressionSegment.Build());
                             string newExpr;
                             newExpr = be.CompileTable();
@@ -201,7 +202,7 @@ namespace ascsite.Core.AscSci.Calculator
                                     diffVar = "y";
                                 else
                                     diffVar = vars[0];
-                                res.InterpretedAs.Add("As " + Names.FOR + " " + diffVar); // TODO
+                                res.InterpretedAs.Add(Names.FOR + " " + diffVar); // TODO
                             }
                             else if (fieldOpts.Select(Names.FOR).Count == 1)
                                 diffVar = (fieldOpts.Select(Names.FOR).Item() as FixedKeyword).GetVariable();

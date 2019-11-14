@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using ascsite.Core;
 
 namespace processor.lexicProcessor
 {
@@ -13,7 +14,7 @@ namespace processor.lexicProcessor
         public Token Item()
         {
             if (this.Count() != 1)
-                throw new Exception(); // TODO
+                throw new ParsingException("Unexpected token"); // TODO
             return this[0];
         }
         public List<string> ExtractVariables()

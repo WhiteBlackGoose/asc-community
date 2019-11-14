@@ -243,7 +243,7 @@ namespace AscSite.Core.AscSci.AscMath
                 }
                 string value = Subs(variables);
                 if (value.Length > 1)
-                    throw new ParseException(Const.ERMSG_BOOLENG_UNRESOLVEDSYMBOL);
+                    throw new ParsingException(Const.ERMSG_BOOLENG_UNRESOLVEDSYMBOL);
                 if (string.IsNullOrEmpty(val) || val == value)
                 {
                     line += "[ " + value + " ]";

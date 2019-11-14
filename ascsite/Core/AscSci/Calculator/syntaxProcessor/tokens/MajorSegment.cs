@@ -52,7 +52,7 @@ namespace processor.syntaxProcessor.tokens
         public override void Validate()
         {
             if (Type == Field.Type.NONE)
-                throw new Exception(); // TODO
+                throw new ParsingException("Unknown field type `" + Keyname + "`"); // TODO
         }
 
         public Field.Type Type { get; set; }
@@ -86,7 +86,7 @@ namespace processor.syntaxProcessor.tokens
         public override void Validate()
         {
             if (Type == Keyword.Type.NONE)
-                throw new Exception(); // TODO
+                throw new ParsingException("Unknown keyword `" + Keyname + "`"); // TODO
         }
         public Keyword.Type Type { get; set; }
         public KeywordSegment(string Keyname, string Data, Keyword.Type type) : base(Keyname, Data)
@@ -113,7 +113,7 @@ namespace processor.syntaxProcessor.tokens
         public string GetVariable()
         {
             if (!IsVariable(Data))
-                throw new Exception(); // TODO
+                throw new ParsingException("Expected variable but got `" + Data + "`"); // TODO
             return Data;
         }
     }
@@ -125,10 +125,10 @@ namespace processor.syntaxProcessor.tokens
         {
             var pos = Data.IndexOf("=");
             if (pos == -1)
-                throw new Exception(); // TODO
+                throw new ParsingException("Expected `=`"); // TODO
             var res = Data.Substring(0, pos);
             if (!FixedKeyword.IsVariable(res))
-                throw new Exception(); // TODO
+                throw new ParsingException("Expected variable before `=` but got `" + res + "`"); // TODO
             return res;
         }
 
@@ -136,12 +136,12 @@ namespace processor.syntaxProcessor.tokens
         {
             var pos = Data.IndexOf("=");
             if (pos == -1)
-                throw new Exception(); // TODO
+                throw new ParsingException("Expected `=`"); // TODO
             var res = Data.Substring(pos + 1);
             if (string.IsNullOrEmpty(res))
-                throw new Exception(); // TODO
+                throw new ParsingException("Expected expression after `=`"); // TODO
             if (BracketProcessor.BracketCheck(res) != BracketProcessor.ERRORTYPE.OK)
-                throw new Exception(); // TODO
+                throw new ParsingException("Invalid brackets"); // TODO
             return res;
         }
 
@@ -164,7 +164,7 @@ namespace processor.syntaxProcessor.tokens
         public override void Validate()
         {
             if (BracketProcessor.BracketCheck(Data) != BracketProcessor.ERRORTYPE.OK)
-                throw new Exception(); // TODO
+                throw new ParsingException("Invalid brackets"); // TODO
         }
         public TokenList tokens;
         public ExpressionSegment(string Keyname, string Data) : base(Keyname, Data)
@@ -218,7 +218,7 @@ namespace processor.syntaxProcessor.tokens
         public MajorSegment Item()
         {
             if (this.Count != 1)
-                throw new Exception(); // TODO
+                throw new InternalException(); // TODO
             return this[0];
         }
 

@@ -52,7 +52,7 @@ namespace ascsite
             calcTask.Start();
 
             if (!calcTask.Join(millisecondsTimeout: Const.LIMIT_CALC_EXECUTE_MS))
-                throw new TimeOutException(Const.LIMIT_MSL_EXECUTE_MS + "ms passed");
+                throw new TimeOutException();
             if (exc != null)
                 throw exc;
             // TO DO
@@ -72,20 +72,31 @@ namespace ascsite
             Visib4 = "none";
             if (!string.IsNullOrEmpty(Expression))
             {
-
                 try
                 {
                     Process(Expression);
                     ShowIntepretedAs();
                     ShowResult();
                 }
-                catch (Exception e)
+                catch (UserException e)
                 {
-                    Error = Const.ERMSG_UNABLE_TO_SOLVE;
-                    Console.WriteLine("Error: " + e.Message);
+                    Error = e.Message;
                     ShowError();
                     ShowExamples();
                 }
+                catch (InternalException)
+                {
+                    Error = Const.ERMSG_INTERNAL_ERROR;
+                    ShowError();
+                    ShowExamples();
+                }
+                catch
+                {
+                    Error = Const.ERMSG_UNABLE_TO_SOLVE;
+                    ShowError();
+                    ShowExamples();
+                }
+
             }
             else
             {
