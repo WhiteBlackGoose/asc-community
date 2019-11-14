@@ -154,13 +154,11 @@ namespace ascsite.Core.AscSci.Calculator
 
                     List<string> newExprs = new List<string>();
                     List<string> newLatexExprs = new List<string>();
-
+                    bool quickExit = false;
                     foreach (var expressionSegment in expressionSegments)
                     {
                         if (fieldType == FieldType.BOOL)
                         {
-                            if (!isLast)
-                                continue;
                             var vars = expressionSegment.tokens.ExtractVariables();
                             vars = Functions.MakeUnique(vars);
                             foreach (var v in vars)
@@ -174,7 +172,7 @@ namespace ascsite.Core.AscSci.Calculator
                                 line += ": " + onevar + " %";
                             line += ": F %}\n";
                             newExpr = line + newExpr;
-                            if (latex)
+                            newExprs.Add(newExpr);
                             {
                                 newExpr = newExpr.Replace(":", "<th>");
                                 newExpr = newExpr.Replace("%", "</th>");
@@ -183,11 +181,11 @@ namespace ascsite.Core.AscSci.Calculator
                                 newExpr = newExpr.Replace("[", "<td class=\"cellbool-res\">");
                                 newExpr = newExpr.Replace("]", "</td>");
                                 newExpr = newExpr.Replace("\n", "");
-                                newExpr = "<table id=\"bool-res\">" + res.Result + "</table>";
+                                newExpr = "<table id=\"bool-res\">" + newExpr + "</table>";
                             }
-                            newExprs.Add(newExpr);
-                            if (isLast)
-                                newLatexExprs.Add(newExpr);
+                            newLatexExprs.Add(newExpr);
+                            quickExit = true;
+                            break;
                         }
                         else if (AscCalc.MathAnalysis.Contains(fieldType))
                         {
@@ -250,7 +248,7 @@ namespace ascsite.Core.AscSci.Calculator
                         res.Result = "No answer";
                         break;
                     }
-                    if (!isLast)
+                    if (!isLast && !quickExit)
                     {
                         expressionSegments = new List<ExpressionSegment>();
                         foreach (var nexp in newExprs)
@@ -264,6 +262,7 @@ namespace ascsite.Core.AscSci.Calculator
                         res.LatexResult = "";
                         foreach (var segm in newLatexExprs)
                             res.LatexResult += segm + " ";
+                        break; // For quickExit case
                     }
                 }
 

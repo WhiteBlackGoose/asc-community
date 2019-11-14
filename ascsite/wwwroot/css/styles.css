@@ -34,3 +34,13 @@
     display: table-cell;
     width: 5%;
 }
+
+#bool-res {
+    width: 30%;
+    margin-left: 35%;
+    border-radius: 3px;
+}
+
+#bool-res tr {
+    border: 1px solid gray;
+}
