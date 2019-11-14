@@ -192,9 +192,10 @@ namespace ascsite.Core.AscSci.Calculator
                             expressionSegment.tokens.AddOmittedOps();
                             var vars = expressionSegment.tokens.ExtractVariables();
                             string diffVar;
+                            vars = Functions.MakeUnique(vars);
                             if (fieldOpts.Select(Names.FOR).Count == 0)
                             {
-                                if (vars.Contains("x"))
+                                if (vars.Contains("x") || vars.Count == 0)
                                     diffVar = "x";
                                 else if (vars.Contains("y"))
                                     diffVar = "y";
@@ -206,6 +207,7 @@ namespace ascsite.Core.AscSci.Calculator
                                 diffVar = (fieldOpts.Select(Names.FOR).Item() as FixedKeyword).GetVariable();
                             else
                                 diffVar = (fieldOpts.Select(Names.FOR)[0] as FixedKeyword).GetVariable();
+                            vars.Add(diffVar);
                             vars = Functions.MakeUnique(vars);
                             string req = expressionSegment.Build();
                             if (fieldType == FieldType.DERIVATIVE)

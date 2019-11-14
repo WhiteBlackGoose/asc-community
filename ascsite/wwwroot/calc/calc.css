@@ -52,3 +52,15 @@
 #examplecalc:hover {
     color: gray;
 }
+
+.asc-calc-title {
+    text-align: center;
+    margin: 40px;
+    font-size: 50pt;
+    color: #8888ff;
+    font-family: "Courier New";
+}
+
+.asc-calc-title img {
+    max-width: 13%;
+}
