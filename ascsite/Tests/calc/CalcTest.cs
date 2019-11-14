@@ -31,7 +31,13 @@ namespace AscSite.Tests.calc
             "x where z=3",
             "derivative integrate sin(x) * tan(x) - sqrt(log(sqrt(3), 3) - x) + y3x - 6cos(y + x)",
             "solve for var integrate var2 - 2var + 1",
-
+            "pi2",
+            "e2",
+            "log(3)",
+            "log(3, 2)",
+            "sin(3)",
+            "cos(3)",
+            "tan(4)"
         };
         public override UnitTestReport Test()
         {
