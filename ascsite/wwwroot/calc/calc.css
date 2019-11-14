@@ -66,6 +66,17 @@
 }
 
 .input-calc-field {
-    width: 100%;
+    width: 96%;
     border: none;
+    margin-left: 0;
+}
+
+.calc-eval-button {
+    border: 3px solid #8888ff;
+    background-color: #8888ff;
+    border-radius: 3px;
+    color: white;
+    font-family: "Consolas";
+    font-weight: bold;
+    font-size: 13pt;
 }

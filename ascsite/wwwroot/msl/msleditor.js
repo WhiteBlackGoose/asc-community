@@ -1,7 +1,6 @@
 ﻿var cm = CodeMirror.fromTextArea(document.getElementById("msl-editor"), {
     lineNumbers: true,
     mode: "text/x-csharp",
-    lineWrapping: true,
     matchBrackets: true,
 });
 

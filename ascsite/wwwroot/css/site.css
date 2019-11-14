@@ -107,3 +107,9 @@ body {
     color: black;
     background-color: white;
 }
+
+code {
+    color: #8888ff;
+    font-weight: bold;
+    font-family: "Courier New";
+}

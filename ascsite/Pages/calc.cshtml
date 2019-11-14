@@ -18,10 +18,10 @@
             <div class="calc-form">
                 <div class="text-center">
                     <div class="calc-line calc-class calc-input">
-                        <input id="prompt" type="text" value="@Model.Expression" name="Expression" class="input-calc-field" /><!--<input type="submit" value="Compute" class="calc-class calc-button" id="sendButton" />-->
+                        <input id="prompt" type="text" value="@Model.Expression" name="Expression" class="input-calc-field" /><input type="submit" value="=" class="calc-eval-button" id="sendButton" />
                     </div>
                 </div>
-                <div class="calc-block" style="display: @Model.Visib1">
+                <div class="calc-block" id="inter-as" style="display: @Model.Visib1">
                     <h6 class="calc-title">Solution progress</h6>
                     <p>@Html.Raw(Model.InterpretedAs)</p>
                 </div>
@@ -38,7 +38,7 @@
                     <p>@Model.Error</p>
                 </div>
             </div>
-            <div class="sample-block calc-form calc-block" style="margin-top: 30px; text-align: left; padding: 30px; display: @Model.Visib4">
+            <div id="example-block-calc" class="sample-block calc-form calc-block" style="margin-top: 30px; text-align: left; padding: 30px; display: @Model.Visib4">
                 <a onclick="calc_sample_tog_onclick()" class="hyperlink">Examples</a>
                 <div id="samples" style="display: block">
                     <ul>

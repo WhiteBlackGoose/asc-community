@@ -28,6 +28,7 @@
 
 .div-container {
     display: table-cell;
+    max-width: 1000px;
 }
 
 .msl-sample-block {
