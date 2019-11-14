@@ -37,7 +37,7 @@ namespace processor.syntaxProcessor
                 else
                     res.Add(new PostToken(token.value));
             }
-            return res;
+            return res;//
         }
     }
 }

@@ -122,7 +122,7 @@ namespace ascsite.Core.AscSci.Calculator
                 simplOpt.Add(new FieldSegment("simplify", "", Field.Type.SIMPLIFICATION));
                 list.Insert(0, simplOpt);
 
-                // SEQUENTIAL PROCESSING
+                // SEQUENTIAL PROCESSING  
                 list.Reverse();
                 foreach (var fieldOpts in list)
                 {
