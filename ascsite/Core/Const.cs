@@ -22,7 +22,7 @@ namespace ascsite.Core
         /*  PATHS  */
         public static readonly string PATH_PYTHON = @"D:\main\programs\miniconda3\python.exe";
         public static readonly string PATH_MSL = @"Resources\MSL.exe";
-        public static readonly string PATH_SUBSAMPLES = @"Pages\msl\samples";
+        public static readonly string PATH_SUBSAMPLES = @"Pages\msl\source";
         public static readonly string PATH_ASSOCPRJS = @"Pages\projects\assoc";
         public static readonly string PATH_LAYOUT = @"Pages\Shared\_Layout.cshtml";
         public static readonly string PATH_PYOUT = @"Core/PyInterface/pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
@@ -64,5 +64,8 @@ namespace ascsite.Core
 
         /*  ADDDATA  */
         public static readonly string ADD_LATEXSCRIPT = "<script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>" + "<script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>";
+
+        public static char DEL_RANGE => throw new Exception("change DEL_RANGE to char");
+        public static char DEL_LIST => throw new Exception("change DEL_LIST to char");
     }
 }

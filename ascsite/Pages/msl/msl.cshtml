@@ -3,7 +3,6 @@
 @{
 
 }
-
     <head>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" type="text/css" href="~/lib/codemirror/lib/codemirror.css">
@@ -16,15 +15,13 @@
 
     <form method="post">
         <div>
-            <div class="div-to-left">
-            <textarea spellcheck="false" id=demotext rows="30" cols="80" name="CodeText">@Model.CodeText</textarea>
+            <div class="div-container">
+                <textarea spellcheck="false" id="msl-editor" rows="30" cols="40" name="CodeText">@Model.CodeText</textarea>
             </div>
-            <div class="div-to-right">
-                <ul>
-                    <li>sample1</li>
-                    <li>sample2</li>
-                    <li>sample3</li>
-                    <li>sample4</li>
+            <div class="msl-sample-block">
+                <h6 style="text-align: center; padding-left: 28pt;">MSL samples</h6>
+                <ul style="list-style-type: none;">
+                    @Html.Raw(Model.Samples)
                 </ul>
             </div>
         </div>
@@ -42,7 +39,4 @@
 <script>
     var MSLID = "@Model.ReturnedId";
 </script>
-<script src="~/msl/msleditor.js">
-    
-</script>
-
+<script language="javascript" src="~/msl/msleditor.js"></script>
