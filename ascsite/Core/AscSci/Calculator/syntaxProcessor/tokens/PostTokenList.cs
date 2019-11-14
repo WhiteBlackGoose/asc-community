@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using processor.syntaxProcessor.tokens.types;
+using processor.syntaxProcessor.tokens;
 
 namespace processor.syntaxProcessor
 {
@@ -48,6 +50,8 @@ namespace processor.syntaxProcessor
             if (this.Count() == 0)
                 return true;
             var last = this.Last;
+            if (FieldSegment.GetType(last.Keyname) != Field.Type.NONE)
+                return true;
             if (last.Data == "")
                 return false;
             var lastsym = last.Data[last.Data.Length - 1];
