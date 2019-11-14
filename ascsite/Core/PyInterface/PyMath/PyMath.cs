@@ -95,7 +95,7 @@ namespace ascsite.Core.PyInterface.PyMath
         {
             TokensAdd(pyInterface, tokens);
             expr = ExprPrepare(expr);
-            string res = pyInterface.Run(PrintExpr("sympy.diff(" + expr + ", " + variable + ")"));
+            string res = pyInterface.Run(PrintExpr("sympy.diff(" + expr + ", " + variable + ")", latex: latex));
             return LatexOnNeed(ExprPostProc(res).Replace("**", "^"), latex);
         }
 
@@ -103,7 +103,7 @@ namespace ascsite.Core.PyInterface.PyMath
         {
             TokensAdd(pyInterface, tokens);
             expr = ExprPrepare(expr);
-            string res = pyInterface.Run(PrintExpr("sympy.integrate(" + expr + ", " + variable + ")"));
+            string res = pyInterface.Run(PrintExpr("sympy.integrate(" + expr + ", " + variable + ")", latex: latex));
             return LatexOnNeed(ExprPostProc(res).Replace("**", "^"), latex);
         }
 
@@ -117,8 +117,8 @@ namespace ascsite.Core.PyInterface.PyMath
         {
             TokensAdd(pyInterface, tokens);
             expr = ExprPrepare(expr);
-            string analyt = ExprPostProc(pyInterface.Run(PrintExpr("sympy.simplify(" + expr + ")")).Replace("**", "^"));
-            string approx = ExprPostProc(pyInterface.Run(PrintExpr("sympy.simplify(expand(" + expr + ")).evalf()")).Replace("**", "^"));
+            string analyt = ExprPostProc(pyInterface.Run(PrintExpr("sympy.simplify(" + expr + ")", latex: latex)).Replace("**", "^"));
+            string approx = ExprPostProc(pyInterface.Run(PrintExpr("sympy.simplify(expand(" + expr + ")).evalf()", latex: latex)).Replace("**", "^"));
             string res = "";
             if (analyt != approx && appr)
             {

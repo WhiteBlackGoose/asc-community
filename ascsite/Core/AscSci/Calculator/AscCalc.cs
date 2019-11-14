@@ -51,8 +51,7 @@ namespace ascsite.Core.AscSci.Calculator
             FieldType.SOLVE,
         };
 
-        private bool latex;
-
+        private readonly bool latex;
         public AscCalc(string expr, bool latex = false)
         {
             rawExpression = expr.Trim();
@@ -236,11 +235,11 @@ namespace ascsite.Core.AscSci.Calculator
                             vars = Functions.MakeUnique(vars);
                             string req = expressionSegment.Build();
                             string newExpr;
-                            newExpr = pymath.Simplify(req, vars, isLast && expressionSegments.Count < 2);
+                            newExpr = pymath.Simplify(req, vars, appr: isLast && expressionSegments.Count < 2);
                             newExprs.Add(newExpr);
                             if(isLast && latex)
                             {
-                                newExpr = pymath.Simplify(req, vars, isLast && expressionSegments.Count < 2, true);
+                                newExpr = pymath.Simplify(req, vars, appr: isLast && expressionSegments.Count < 2, true);
                                 newLatexExprs.Add(newExpr);
                             }
                         }
