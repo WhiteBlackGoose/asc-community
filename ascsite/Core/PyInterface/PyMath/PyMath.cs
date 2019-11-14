@@ -19,7 +19,7 @@ namespace ascsite.Core.PyInterface.PyMath
 
         public PyMath()
         {
-            pyInterface = new PyInterface(Const.PATH_PYOUT);            
+            pyInterface = new PyInterface(Const.PATH_PYOUT);
             this.latex = false;
         }
 
@@ -32,11 +32,16 @@ namespace ascsite.Core.PyInterface.PyMath
             }
             pyInterface.Run(code);
         }
-        private string PrintExpr(string sympyCommand, bool multiAns=false)
+        private string PrintExpr(string sympyCommand, bool multiAns = false)
         {
             string res = Const.PYINTERFACE_EVALREQ.ToString();
             if (!latex)
-                res += sympyCommand;
+            {
+                if (!multiAns)
+                    res += sympyCommand;
+                else
+                    res += "\"@\".join([str(i) for i in " + sympyCommand + "])";
+            }
             else
             {
                 if (!multiAns)
@@ -85,7 +90,7 @@ namespace ascsite.Core.PyInterface.PyMath
             else
                 return expr;
         }
-        //
+
         public string Derivative(string expr, string variable, IEnumerable<string> tokens)
         {
             TokensAdd(pyInterface, tokens);
@@ -101,7 +106,7 @@ namespace ascsite.Core.PyInterface.PyMath
             string res = pyInterface.Run(PrintExpr("sympy.integrate(" + expr + ", " + variable + ")"));
             return LatexOnNeed(ExprPostProc(res).Replace("**", "^"));
         }
-        
+
         public static bool IsLetter(char s)
         {
             string A = "qwertyuiopasdfghjklzxcvbnm";
@@ -124,17 +129,16 @@ namespace ascsite.Core.PyInterface.PyMath
             return res;
         }
 
-        public string Solve(string expr, string variable, IEnumerable<string> tokens)
+        public List<string> Solve(string expr, string variable, IEnumerable<string> tokens)
         {
             TokensAdd(pyInterface, tokens);
             expr = ExprPrepare(expr);
             expr = PrintExpr("sympy.solve(" + expr + ", " + variable + ")", multiAns: true);
             string pyres = pyInterface.Run(expr).Replace("**", "^");
             List<string> roots = PyInterface.FromPyList(pyres, '@');
-            List<string> result = new List<string>();
-            foreach (var root in roots)
-                    result.Add(LatexOnNeed(variable + " = " + ExprPostProc(root)));
-            return string.Join("\n", result.ToArray());
+            for (int i = 0; i < roots.Count; i++)
+                roots[i] = LatexOnNeed(ExprPostProc(roots[i]));
+            return roots;
         }
     }
 }

@@ -18,7 +18,7 @@
     "ascsite": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://127.0.0.1:64321",
+      "applicationUrl": "http://95.24.126.129:64321",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

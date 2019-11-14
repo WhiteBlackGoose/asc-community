@@ -18,7 +18,8 @@ namespace processor.syntaxProcessor.tokens
         public bool Ignored { get; set; } = false;
         protected string Data { get; set; }
         public abstract void Validate();
-        public MajorSegment(string Keyname, string Data) {
+        public MajorSegment(string Keyname, string Data)
+        {
             this.Keyname = Keyname;
             this.Data = Data;
         }
@@ -55,7 +56,7 @@ namespace processor.syntaxProcessor.tokens
         }
 
         public Field.Type Type { get; set; }
-        public FieldSegment(string Keyname, string Data, Field.Type type): base(Keyname, Data)
+        public FieldSegment(string Keyname, string Data, Field.Type type) : base(Keyname, Data)
         {
             Type = type;
             Validate();
@@ -111,7 +112,7 @@ namespace processor.syntaxProcessor.tokens
         }
         public string GetVariable()
         {
-            if(!IsVariable(Data))
+            if (!IsVariable(Data))
                 throw new Exception(); // TODO
             return Data;
         }
@@ -157,12 +158,12 @@ namespace processor.syntaxProcessor.tokens
             return GetAfterEq().Split(Const.DEL_LIST).ToList();
         }
     }
-    
+
     class ExpressionSegment : MajorSegment
     {
         public override void Validate()
         {
-            if(BracketProcessor.BracketCheck(Data) != BracketProcessor.ERRORTYPE.OK)
+            if (BracketProcessor.BracketCheck(Data) != BracketProcessor.ERRORTYPE.OK)
                 throw new Exception(); // TODO
         }
         public TokenList tokens;
@@ -225,7 +226,7 @@ namespace processor.syntaxProcessor.tokens
         {
             var res = "";
             foreach (var segm in this)
-                if(!segm.Ignored)
+                if (!segm.Ignored)
                     res += " " + segm.Keyname + " " + segm.Build();
             if (!string.IsNullOrEmpty(res))
                 return res;

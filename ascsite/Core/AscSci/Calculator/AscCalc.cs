@@ -18,10 +18,13 @@ namespace ascsite.Core.AscSci.Calculator
         public string Result { get; set; }
         public string SolidResult { get { return Result.Replace("\n", ", ").Replace('I', 'i'); } }
 
-        public string ProcessedResult { get
+        public string ProcessedResult
+        {
+            get
             {
                 return Result.Replace("\n", "<br>");
-            } }
+            }
+        }
         public CalcResult()
         {
             InterpretedAs = new List<string>();
@@ -49,7 +52,7 @@ namespace ascsite.Core.AscSci.Calculator
 
         private bool latex;
 
-        public AscCalc(string expr, bool latex=false)
+        public AscCalc(string expr, bool latex = false)
         {
             rawExpression = expr.Trim();
             this.latex = latex;
@@ -58,7 +61,7 @@ namespace ascsite.Core.AscSci.Calculator
         public List<MajorSegmentList> DivideByField(MajorSegmentList list)
         {
             var res = new List<MajorSegmentList>();
-            foreach(var elem in list)
+            foreach (var elem in list)
             {
                 if (elem is FieldSegment)
                 {
@@ -91,38 +94,41 @@ namespace ascsite.Core.AscSci.Calculator
                 MathPreprocessor mathPreprocessor = new MathPreprocessor(postTokenList);
                 mathPreprocessor.Process();
                 MajorSegmentList majorSegmentList = mathPreprocessor.GetSegments();
-                ExpressionSegment expressionSegment = (ExpressionSegment)majorSegmentList.Select("expression").Item();
+                List<ExpressionSegment> expressionSegments = new List<ExpressionSegment>();
+                expressionSegments.Add(
+                    (ExpressionSegment)majorSegmentList.Select("expression").Item()
+                    );
 
                 // PROCESSING SOME `WHERE` AND `FOR` TOKENS
                 for (int i = majorSegmentList.Count - 1; i >= 0; i--)
                 {
                     if (majorSegmentList[i] is ExpressionSegment)
                         break;
-                    if (majorSegmentList[i] is EqKeyword 
-                          && 
-                          (((EqKeyword)majorSegmentList[i]).Type == Keyword.Type.WHERE || 
-                          ((EqKeyword)majorSegmentList[i]).Type == Keyword.Type.FOR)
-                          &&
+                    if (majorSegmentList[i] is EqKeyword
+                            &&
+                            (((EqKeyword)majorSegmentList[i]).Type == Keyword.Type.WHERE ||
+                            ((EqKeyword)majorSegmentList[i]).Type == Keyword.Type.FOR)
+                            &&
                         FixedKeyword.IsVariable(((EqKeyword)majorSegmentList[i]).GetBeforeEq())
-                          &&
+                            &&
                         (CustomData.GetType(((EqKeyword)majorSegmentList[i]).GetAfterEq()) == CustomData.Type.FIXED))
                     {
                         string v = ((EqKeyword)majorSegmentList[i]).GetBeforeEq();
                         string expr = ((EqKeyword)majorSegmentList[i]).GetAfterEq();
-                        expressionSegment.Substitute(v, expr);
+                        expressionSegments[0].Substitute(v, expr);
                     }
                     else
                         majorSegmentList[i].Ignored = true;
                 }
 
-                MajorSegmentList newExpression = majorSegmentList.CutTill(expressionSegment);
-                res.InterpretedAs.Add(expressionSegment.Build());
+                MajorSegmentList newExpression = majorSegmentList.CutTill(expressionSegments[0]);
+                res.InterpretedAs.Add(expressionSegments[0].Build());
                 List<MajorSegmentList> list = DivideByField(newExpression);
                 var simplOpt = new MajorSegmentList();
                 simplOpt.Add(new FieldSegment("simplify", "", Field.Type.SIMPLIFICATION));
                 list.Insert(0, simplOpt);
 
-                // SEQUENTIAL PROCESSING  
+                // SEQUENTIAL PROCESSING
                 list.Reverse();
                 foreach (var fieldOpts in list)
                 {
@@ -130,99 +136,118 @@ namespace ascsite.Core.AscSci.Calculator
                     pymath.latex = isLast && latex;
 
                     // PROCESSING SOME `WHERE` AND `FOR` TOKENS
-                    for (int i = 1; i < fieldOpts.Count; i++)
-                        if (fieldOpts[i] is EqKeyword &&
-                            ((fieldOpts[i] as EqKeyword).Type == Keyword.Type.WHERE ||
-                            (fieldOpts[i] as EqKeyword).Type == Keyword.Type.FOR) &&
-                            CustomData.GetType((fieldOpts[i] as EqKeyword).GetAfterEq()) == CustomData.Type.FIXED &&
-                            CustomData.GetType((fieldOpts[i] as EqKeyword).GetBeforeEq()) == CustomData.Type.FIXED &&
-                            FixedKeyword.IsVariable((fieldOpts[i] as EqKeyword).GetBeforeEq()))
-                            expressionSegment.Substitute((fieldOpts[i] as EqKeyword).GetBeforeEq(), (fieldOpts[i] as EqKeyword).GetAfterEq());
-                    res.InterpretedAs.Add(fieldOpts.Build() + " " + expressionSegment.Build());
+                    foreach (var expressionSegment in expressionSegments)
+                    {
+                        for (int i = 1; i < fieldOpts.Count; i++)
+                            if (fieldOpts[i] is EqKeyword &&
+                                ((fieldOpts[i] as EqKeyword).Type == Keyword.Type.WHERE ||
+                                (fieldOpts[i] as EqKeyword).Type == Keyword.Type.FOR) &&
+                                CustomData.GetType((fieldOpts[i] as EqKeyword).GetAfterEq()) == CustomData.Type.FIXED &&
+                                CustomData.GetType((fieldOpts[i] as EqKeyword).GetBeforeEq()) == CustomData.Type.FIXED &&
+                                FixedKeyword.IsVariable((fieldOpts[i] as EqKeyword).GetBeforeEq()))
+                                expressionSegment.Substitute((fieldOpts[i] as EqKeyword).GetBeforeEq(), (fieldOpts[i] as EqKeyword).GetAfterEq());
+                        res.InterpretedAs.Add(fieldOpts.Build() + " " + expressionSegment.Build());
+                    }
 
                     var fieldType = FindField(fieldOpts[0].Keyname);
 
-                    string newExpr = expressionSegment.Build();
+                    List<string> newExprs = new List<string>();
 
-                    // BOOLEAN FIELD
-                    if (fieldType == FieldType.BOOL)
+                    foreach (var expressionSegment in expressionSegments)
                     {
-                        if (!isLast)
-                            continue;
-                        var vars = expressionSegment.tokens.ExtractVariables();
-                        vars = Functions.MakeUnique(vars);
-                        foreach (var v in vars)
-                            if (v.Length > 1)
-                                throw new Exception(); // TODO
-                        var be = new BoolEng(expressionSegment.Build());
-                        newExpr = be.CompileTable();
-                        string line = "{";
-                        foreach (var onevar in vars)
-                            line += ": " + onevar + " %";
-                        line += ": F %}\n";
-                        newExpr = line + newExpr;
-                        if (latex)
+                        //string newExpr = "";
+                        // BOOLEAN FIELD
+                        if (fieldType == FieldType.BOOL)
                         {
-                            newExpr = newExpr.Replace(":", "<th>");
-                            newExpr = newExpr.Replace("%", "</th>");
-                            newExpr = newExpr.Replace("{", "<tr>");
-                            newExpr = newExpr.Replace("}", "</tr>");
-                            newExpr = newExpr.Replace("[", "<td class=\"cellbool-res\">");
-                            newExpr = newExpr.Replace("]", "</td>");
-                            newExpr = newExpr.Replace("\n", "");
-                            newExpr = "<table id=\"bool-res\">" + res.Result + "</table>";
+                            if (!isLast)
+                                continue;
+                            var vars = expressionSegment.tokens.ExtractVariables();
+                            vars = Functions.MakeUnique(vars);
+                            foreach (var v in vars)
+                                if (v.Length > 1)
+                                    throw new Exception(); // TODO
+                            var be = new BoolEng(expressionSegment.Build());
+                            string newExpr;
+                            newExpr = be.CompileTable();
+                            string line = "{";
+                            foreach (var onevar in vars)
+                                line += ": " + onevar + " %";
+                            line += ": F %}\n";
+                            newExpr = line + newExpr;
+                            if (latex)
+                            {
+                                newExpr = newExpr.Replace(":", "<th>");
+                                newExpr = newExpr.Replace("%", "</th>");
+                                newExpr = newExpr.Replace("{", "<tr>");
+                                newExpr = newExpr.Replace("}", "</tr>");
+                                newExpr = newExpr.Replace("[", "<td class=\"cellbool-res\">");
+                                newExpr = newExpr.Replace("]", "</td>");
+                                newExpr = newExpr.Replace("\n", "");
+                                newExpr = "<table id=\"bool-res\">" + res.Result + "</table>";
+                            }
+                            newExprs.Add(newExpr);
                         }
-                    }
-                    else if(AscCalc.MathAnalysis.Contains(fieldType))
-                    {
-                        expressionSegment.tokens.AddOmittedOps();
-                        var vars = expressionSegment.tokens.ExtractVariables();
-                        string diffVar;
-                        if (fieldOpts.Select(Names.FOR).Count == 0)
+                        else if (AscCalc.MathAnalysis.Contains(fieldType))
                         {
-                            if (vars.Contains("x"))
-                                diffVar = "x";
-                            else if (vars.Contains("y"))
-                                diffVar = "y";
+                            expressionSegment.tokens.AddOmittedOps();
+                            var vars = expressionSegment.tokens.ExtractVariables();
+                            string diffVar;
+                            if (fieldOpts.Select(Names.FOR).Count == 0)
+                            {
+                                if (vars.Contains("x"))
+                                    diffVar = "x";
+                                else if (vars.Contains("y"))
+                                    diffVar = "y";
+                                else
+                                    diffVar = vars[0];
+                                res.InterpretedAs.Add("As " + Names.FOR + " " + diffVar); // TODO
+                            }
+                            else if (fieldOpts.Select(Names.FOR).Count == 1)
+                                diffVar = (fieldOpts.Select(Names.FOR).Item() as FixedKeyword).GetVariable();
                             else
-                                diffVar = vars[0];
-                            res.InterpretedAs.Add("As " + Names.FOR + " " + diffVar); // TODO
+                                diffVar = (fieldOpts.Select(Names.FOR)[0] as FixedKeyword).GetVariable();
+                            vars = Functions.MakeUnique(vars);
+                            string req = expressionSegment.Build();
+                            if (fieldType == FieldType.DERIVATIVE)
+                                newExprs.Add(pymath.Derivative(req, diffVar, vars));
+                            else if (fieldType == FieldType.INTEGRAL)
+                                newExprs.Add(pymath.Integral(req, diffVar, vars));
+                            else if (fieldType == FieldType.SOLVE)
+                                newExprs.AddRange(pymath.Solve(req, diffVar, vars));
                         }
-                        else if(fieldOpts.Select(Names.FOR).Count == 1)
-                            diffVar = (fieldOpts.Select(Names.FOR).Item() as FixedKeyword).GetVariable();
-                        else
-                            diffVar = (fieldOpts.Select(Names.FOR)[0] as FixedKeyword).GetVariable();
-                        vars = Functions.MakeUnique(vars);
-                        string req = expressionSegment.Build();
-                        if(fieldType == FieldType.DERIVATIVE)
-                            newExpr = pymath.Derivative(req, diffVar, vars);
-                        else if(fieldType == FieldType.INTEGRAL)
-                            newExpr = pymath.Integral(req, diffVar, vars);
-                        else if(fieldType == FieldType.SOLVE)
-                            newExpr = pymath.Integral(req, diffVar, vars);
-                    }
-                    else if(fieldType == FieldType.SIMPLIFICATION)
-                    {
-                        expressionSegment.tokens.AddOmittedOps();
-                        var vars = expressionSegment.tokens.ExtractVariables();
-                        vars = Functions.MakeUnique(vars);
-                        string req = expressionSegment.Build();
-                        if (isLast)
+                        else if (fieldType == FieldType.SIMPLIFICATION)
                         {
+                            expressionSegment.tokens.AddOmittedOps();
+                            var vars = expressionSegment.tokens.ExtractVariables();
+                            vars = Functions.MakeUnique(vars);
+                            string req = expressionSegment.Build();
+                            string newExpr;
                             newExpr = pymath.Simplify(req, vars, true);
-                            res.Result = newExpr;
-                            break;
+                            newExprs.Add(newExpr);
                         }
-                        else
-                            newExpr = pymath.Simplify(req, vars, false);
                     }
-
-                    expressionSegment = new ExpressionSegment(expressionSegment.Keyname, newExpr);
-                    res.Result = expressionSegment.Build();
+                    if (newExprs.Count == 0)
+                    {
+                        res.Result = "No answer";
+                        break;
+                    }
+                    if (!isLast)
+                    {
+                        string keyname = expressionSegments[0].Keyname;
+                        expressionSegments = new List<ExpressionSegment>();
+                        foreach (var nexp in newExprs)
+                            expressionSegments.Add(new ExpressionSegment("expression", nexp));
+                    }
+                    else
+                    {
+                        res.Result = "";
+                        foreach (var segm in newExprs)
+                            res.Result += segm + "<br>";
+                    }
                 }
 
-                
-                
+
+
             }
             catch (Exception e)
             {
