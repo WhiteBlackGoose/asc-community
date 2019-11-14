@@ -64,3 +64,8 @@
 .asc-calc-title img {
     max-width: 13%;
 }
+
+.input-calc-field {
+    width: 100%;
+    border: none;
+}
