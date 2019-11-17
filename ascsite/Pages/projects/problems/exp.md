@@ -14,7 +14,7 @@ $ a^{x} + b^{x} = c^{x} \Leftrightarrow ({a \over c})^{x} + ({b \over c})^{x} = 
 for $b = a$, this equation can be easily solved: 
 $ a^{x} + a^{x} = c \Rightarrow a^x = {c \over 2} \Rightarrow x = log_{a}({c \over 2}) $.
 
-In more general way, if we can find $ t $, such that $ b = a^{x t} $ the equation becomes polynomial after 
+In more general way, if we can find $ t \in \mathbb{Z} $, such that $ b = a^{x t} $ the equation becomes polynomial after 
 substitution $ y = a^{x} $ and can be solved using already existing methods: $y^t + y - c = 0$.
 
 @probauthor{MomoDev}
