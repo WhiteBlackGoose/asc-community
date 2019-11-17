@@ -4,13 +4,14 @@
 
 <br>
 
-What is it about? the B-function seems extremely easy at first glance to solve. However, this problem remains unsolved up to today's date.
-
+What is it about? the B-function seems extremely easy at first glance to solve. However, this problem 
+remains unsolved up to today's date. The B-function is defined as $B(x)=xsin(x)$ and the main goal is to
+find all the roots of equation $B(x)=c$ for $c \in R$.
+@annend
 
 #### Terms
 Let $B(x)$ be a function defined as $B(x)=xsin(x)$.<br>
-Then, let's say $B_1(x)=\frac{dB}{dx}$, $B_2(x)=\frac{d^2B}{dx^2}$... Likewise, $B_{-1}(x)=\int B(x)$, $B_{-2}(x)=\int B_{-1}(x) = \int \int B(x)$. We take $B_{n}(x)=B[n](x)$.<br>
-@annend
+Then, let's say $B_1(x)=\frac{dB}{dx}$, $B_2(x)=\frac{d^2B}{dx^2}$... Likewise, $B_{-1}(x)=\int B(x)$, $B_{-2}(x)=\int B_{-1}(x) = \int \int B(x)$. We take $B_{n}(x)=B[n](x)$.
 
 Then, $\overline{B}(x)=xcos(x)$. Other rules from the normal B-function are applicable as well.
 <br><br>The first fundamental B-function equation is 

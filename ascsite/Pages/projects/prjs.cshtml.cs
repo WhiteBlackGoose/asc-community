@@ -90,7 +90,7 @@ namespace ascsite.Pages
                         if (posstart != -1 && posend != -1 && posstart < posend)
                         {
                             ann = mdtext.Substring(posstart + Const.DEL_ANNSTART.Length, posend - posstart - Const.DEL_ANNSTART.Length);
-                            ann += "<br><a class=\"asc-button big-asc-button\" href=\"/projects/prjs?name=" + name + "\">Read more →</a>";
+                            ann += "<br><br><a class=\"asc-button big-asc-button\" href=\"/projects/prjs?name=" + name + "\">Read more →</a>";
                         }
                         else
                             ann = TextPreprocess(mdtext);

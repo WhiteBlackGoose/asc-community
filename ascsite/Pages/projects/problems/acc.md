@@ -10,7 +10,7 @@ We are given two particles with one fixed and one floating, with masses $m_1$ an
 force applied to the first one is $F = \frac{m_1 m_2}{(S - r)^2}$, where $S$ - the initial distance 
 between the particles, $r$ - the current distance traveled by the first particle. We also know 
 $v_1 = v_2 = 0$, $v_2 = const$. The goal is to find out the speed of the first particle at the moment 
-of their collision.<br>
+of their collision.
 @annend
 
 ### Current investigation

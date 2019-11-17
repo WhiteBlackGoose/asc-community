@@ -6,4 +6,5 @@ tas3=./Pages/projects/problems/task3.md
 diffeq=./Pages/projects/problems/diffeq.md
 calchelp=./Pages/calc/help.md
 airres=./Pages/projects/problems/airres.md
-all=bfunc|acc|diffeq|airres
+xpx=./Pages/projects/problems/xpx.md
+all=bfunc|acc|diffeq|airres|xpx

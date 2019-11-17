@@ -1,7 +1,6 @@
 @annstart
 ### Non-trivial function equation
 Find all functions $f(x)$ that satisfy $f(x) = xf(x^2) + x$
-<br>
 @annend
 
 #### Current investigation
