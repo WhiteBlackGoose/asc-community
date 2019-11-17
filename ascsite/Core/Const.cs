@@ -65,6 +65,9 @@ namespace ascsite.Core
         public static readonly string DEL_PRJSPAGES = "|";
         public static readonly string DEL_ANNSTART = "@annstart";
         public static readonly string DEL_ANNEND = "@annend";
+        public static readonly string DEL_PROBAUTHOR = "@probauthor";
+        public static readonly string DEL_INVAUTHOR = "@investauthor";
+        public static readonly string DEL_SOLUTAUTHOR = "@solutauthor";
         public static readonly char DEL_RANGE = ';';
         public static readonly char DEL_LIST = ',';
 
