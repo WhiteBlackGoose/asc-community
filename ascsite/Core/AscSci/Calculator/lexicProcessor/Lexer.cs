@@ -70,7 +70,7 @@ namespace processor.lexicProcessor
 
             while (idx < expr.Length)
             {
-                if (expr[idx] == '_' || char.IsLetter(expr[idx]))
+                if (char.IsLetter(expr[idx]))
                 {
                     Token token = ParseVariable(expr, ref idx);
                     if (keywordList.Contains(token.value))
@@ -149,7 +149,7 @@ namespace processor.lexicProcessor
         private Token ParseVariable(string expr, ref int idx)
         {
             StringBuilder builder = new StringBuilder();
-            while (expr[idx] == '_' || char.IsLetter(expr[idx]))
+            while (char.IsLetter(expr[idx]))
             {
                 builder.Append(expr[idx]);
                 idx++;
