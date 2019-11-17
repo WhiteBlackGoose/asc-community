@@ -28,3 +28,5 @@ $$
 \frac{d[v_y]}{dy} = g - v_y\sqrt{v_x^2 + v_y^2} k \\
 \end{cases}
 $$
+
+@investauthor{WhiteBlackGoose, MomoDev}

@@ -57,4 +57,5 @@ substitute $v(t_0)$ which is the answer to the problem.
 <br>
 <br>
 
-By @WhiteBlackGoose
+@probauthor{WhiteBlackGoose}
+@investauthor{WhiteBlackGoose, MomoDev}

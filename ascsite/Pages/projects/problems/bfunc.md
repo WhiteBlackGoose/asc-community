@@ -33,4 +33,4 @@ Subproblem 2: find any other root assuming that you already have a finite amount
 <br>
 Problem 2: are there any $c$ where $c \ne 0$ and $c \in Q$ so there is at least one root $x$ where $x \in Q$?
 
-By @WhiteBlackGoose
+@probauthor{WhiteBlackGoose}

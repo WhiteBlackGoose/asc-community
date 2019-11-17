@@ -9,4 +9,5 @@ airres=./Pages/projects/problems/airres.md
 xpx=./Pages/projects/problems/xpx.md
 exp=./Pages/projects/problems/exp.md
 all=bfunc|acc|func|airres|xpx|exp
+ourprjs=tron|hi19
 test=./Pages/projects/problems/test.md

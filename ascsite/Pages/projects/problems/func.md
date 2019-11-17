@@ -25,3 +25,6 @@ $ f({1 \over 3}) \approx 0.370828 $
 $ f({1 \over 5}) \approx 0.208013 $
 
 $ \lim \limits_{x \to 1} f(x) = + \infty $
+
+@propauthor{WhiteBlackGoose}
+@investauthor{MomoDev, WhiteBlackGoose}

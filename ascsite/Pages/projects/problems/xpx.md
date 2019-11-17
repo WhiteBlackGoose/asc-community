@@ -3,7 +3,7 @@
 To solve $x^x = c$ for $c \in R^+$
 @annend
 
-#### Solution (by Vladimir Aksenov)
+#### Solution
 $$
 x^x = c
 $$
@@ -25,3 +25,6 @@ $$
 $$
 x = \frac{ln(c)}{W(ln(c))}
 $$
+
+@probauthor{WhiteBlackGoose}
+@solutauthor{Vladimir Aksenov}

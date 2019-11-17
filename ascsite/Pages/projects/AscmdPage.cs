@@ -27,10 +27,6 @@ namespace AscSite.Pages.projects
                 res = System.IO.File.ReadAllText(path);
             return new AscmdPage(res);
         }
-        private void LatexPreprocess()
-        {
-            //text = text.Remove("$$")
-        }
         public AscmdPage(string text)
         {
             Pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
