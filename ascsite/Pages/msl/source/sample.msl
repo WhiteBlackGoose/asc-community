@@ -6,7 +6,7 @@ namespace Program
     {
         public static function Main()
         {
-            var expr = ASC.Eval("solve for x | x^3 + x^2 - 4x - 4");
+            var expr = ASC.Eval("solve x^3 + x^2 - 4x - 4");
             Console.PrintLine(expr);
         }
     }

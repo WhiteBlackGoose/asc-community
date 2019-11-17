@@ -43,7 +43,9 @@ namespace ascsite.Pages
         private List<string> SampleList = new List<string>()
         {
             "vectors.msl",
-            "arrays.msl"
+            "arrays.msl",
+            "methods.msl",
+            "gc.msl"
         };
 
         public MSLModel()

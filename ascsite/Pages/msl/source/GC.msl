@@ -1,0 +1,20 @@
+﻿namespace Program
+{
+
+    class ProgramClass
+    {
+
+        public static function Main()
+        {
+            var Out = System.Console;
+
+            Out.Print("GC output enabled");
+            System.GC.SetLogPermission(true);
+            Out.Print("testing performance:");
+
+            const var size = 5000000;
+            for (var i = 0; i < 10; i += 1)
+                var array = System.Array(size);
+        }
+    }
+}

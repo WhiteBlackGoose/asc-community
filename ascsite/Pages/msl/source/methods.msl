@@ -1,0 +1,46 @@
+﻿namespace Program
+{
+    using namespace System;
+    
+    class ProgramClass
+    {
+        public static function Gcd(a, b)
+        {
+            if (b == 0)
+                return a;
+            else
+                return Gcd(b, a % b);
+        }
+
+        public static function Lcm(a, b)
+        {
+            return a * b / Gcd(a, b);
+        }
+
+        public static function EulerPhi(n)
+        {
+            var result = n;
+            for (var i = 2; i * i <= n; i += 1)
+                if (n % i == 0)
+                {
+                    while (n % i == 0)
+                        n /= i;
+                    result -= result / i;
+                }
+            if (n > 1)
+                result -= result / n;
+            return result;
+        }
+
+        public static function Main()
+        {
+            var a = 35;
+            var b = 20;
+
+            Console.PrintLine("GCD(" + a + ", " + b + ") = " + Gcd(a, b));
+            Console.PrintLine("LCM(" + a + ", " + b + ") = " + Lcm(a, b));
+            Console.PrintLine("EulerPhi(" + a + ") = " + EulerPhi(a));
+            Console.PrintLine("EulerPhi(" + b + ") = " + EulerPhi(b));
+        }
+    }
+}
