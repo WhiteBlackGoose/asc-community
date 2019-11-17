@@ -5,4 +5,5 @@ acc=./Pages/projects/problems/acc.md
 tas3=./Pages/projects/problems/task3.md
 diffeq=./Pages/projects/problems/diffeq.md
 calchelp=./Pages/calc/help.md
-all=bfunc|acc|diffeq
+airres=./Pages/projects/problems/airres.md
+all=bfunc|acc|diffeq|airres

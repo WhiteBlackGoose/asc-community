@@ -13,16 +13,23 @@ Then, let's say $B_1(x)=\frac{dB}{dx}$, $B_2(x)=\frac{d^2B}{dx^2}$... Likewise, 
 @annend
 
 Then, $\overline{B}(x)=xcos(x)$. Other rules from the normal B-function are applicable as well.
-<br>Fundamental B-function equation is $ B(x)^2 + \overline B(x)^2 = x^2 $.<br>
+<br><br>The first fundamental B-function equation is 
+$$ 
+B(x)^2 + \overline B(x)^2 = x^2 
+$$
+And the second fundamental B-function equation is
+$$
+\frac{B(x)}{\overline B(x)} = tan(x)
+$$
 
 <br>
 <br>
 
 ### Problem
-In general: To find all roots of equation $B(x)=c$, $c \in R$<br>
+Problem 1: to find all roots of equation $B(x)=c$, $c \in R$<br>
 Subproblem 1: find any root<br>
 Subproblem 2: find any other root assuming that you already have a finite amount of roots<br>
-
-
+<br>
+Problem 2: are there any $c$ where $c \ne 0$ and $c \in Q$ so there is at least one root $x$ where $x \in Q$?
 
 By @WhiteBlackGoose

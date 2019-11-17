@@ -10,10 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using processor;
 
-/// <summary>
-/// TODO VERY BAD CODE
-/// </summary>
-
 namespace ascsite.Pages
 {
     public class PrjsModel : PageModel
@@ -60,11 +56,16 @@ namespace ascsite.Pages
             }
             return Paths;
         }
+        public string TextPreprocess(string text)
+        {
+            text = text.Replace(Const.DEL_ANNSTART, "");
+            text = text.Replace(Const.DEL_ANNEND, "");
+            return text;
+        }
         public string GetMd2Html(string path)
         {
             string mdtext = GetMDFile(path);
-            mdtext = mdtext.Replace(Const.DEL_ANNSTART, "");
-            mdtext = mdtext.Replace(Const.DEL_ANNEND, "");
+            mdtext = TextPreprocess(mdtext);
             return Markdown.ToHtml(mdtext, Pipeline);
         }
         public void OnGet()
@@ -85,12 +86,15 @@ namespace ascsite.Pages
                         string mdtext = GetMDFile(Paths[prefix][0]);
                         int posstart = mdtext.IndexOf(Const.DEL_ANNSTART);
                         int posend = mdtext.IndexOf(Const.DEL_ANNEND);
-                        if(posstart != -1 && posend != -1 && posstart < posend)
+                        string ann;
+                        if (posstart != -1 && posend != -1 && posstart < posend)
                         {
-                            string ann = mdtext.Substring(posstart + Const.DEL_ANNSTART.Length, posend - posstart - Const.DEL_ANNSTART.Length);
+                            ann = mdtext.Substring(posstart + Const.DEL_ANNSTART.Length, posend - posstart - Const.DEL_ANNSTART.Length);
                             ann += "<br><a class=\"asc-button big-asc-button\" href=\"/projects/prjs?name=" + name + "\">Read more →</a>";
-                            res.Add(Markdown.ToHtml(ann, Pipeline));
                         }
+                        else
+                            ann = TextPreprocess(mdtext);
+                        res.Add(Markdown.ToHtml(ann, Pipeline));
                     }
                     Result = string.Join("<hr>", res.ToArray());
                     Result += Const.ADD_LATEXSCRIPT;

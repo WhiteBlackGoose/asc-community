@@ -65,19 +65,30 @@ namespace processor.lexicProcessor
         {
             var mult = new Token(Token.Type.MATH_OP, "*");
             var pow = new Token(Token.Type.MATH_OP, "**");
-            InsertBetween(Token.Type.VARIABLE, Token.Type.BRACKET_OPEN, mult);
+            
             InsertBetween(Token.Type.NUMBER, Token.Type.BRACKET_OPEN, mult);
 
             InsertBetween(Token.Type.BRACKET_CLOSE, Token.Type.SYSTEM_FUNCTION, mult);
+
+            InsertBetween(Token.Type.VARIABLE, Token.Type.BRACKET_OPEN, mult);
             InsertBetween(Token.Type.VARIABLE, Token.Type.SYSTEM_FUNCTION, mult);
-            InsertBetween(Token.Type.NUMBER, Token.Type.SYSTEM_FUNCTION, mult);
-
-            InsertBetween(Token.Type.BRACKET_CLOSE, Token.Type.NUMBER, pow);
             InsertBetween(Token.Type.VARIABLE, Token.Type.NUMBER, pow);
-
+            InsertBetween(Token.Type.VARIABLE, Token.Type.VARIABLE, mult);
             InsertBetween(Token.Type.BRACKET_CLOSE, Token.Type.VARIABLE, mult);
-            InsertBetween(Token.Type.NUMBER, Token.Type.VARIABLE, mult);
+            
 
+            InsertBetween(Token.Type.SYSTEM_CONST, Token.Type.BRACKET_OPEN, mult);
+            InsertBetween(Token.Type.SYSTEM_CONST, Token.Type.SYSTEM_FUNCTION, mult);
+            InsertBetween(Token.Type.SYSTEM_CONST, Token.Type.NUMBER, pow);
+            InsertBetween(Token.Type.SYSTEM_CONST, Token.Type.SYSTEM_CONST, mult);
+            InsertBetween(Token.Type.BRACKET_CLOSE, Token.Type.SYSTEM_CONST, mult);
+
+            InsertBetween(Token.Type.NUMBER, Token.Type.VARIABLE, mult);
+            InsertBetween(Token.Type.VARIABLE, Token.Type.SYSTEM_CONST, mult);
+            InsertBetween(Token.Type.NUMBER, Token.Type.SYSTEM_CONST, mult);
+
+            InsertBetween(Token.Type.NUMBER, Token.Type.SYSTEM_FUNCTION, mult);
+            InsertBetween(Token.Type.BRACKET_CLOSE, Token.Type.NUMBER, pow);
             InsertBetween(Token.Type.BRACKET_CLOSE, Token.Type.BRACKET_OPEN, mult);
         }
 

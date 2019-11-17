@@ -18,6 +18,8 @@ OK_ = "O"
 
 syms_ = []
 
+e = 2.718281828459045235360287
+
 while True:
     conn_, addr_ = sock_.accept()
     try:

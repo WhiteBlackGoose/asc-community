@@ -49,7 +49,7 @@ namespace ascsite.Core
         /*  LIMITS  */
         public static readonly int LIMIT_REQLEN = 400;
         public static readonly int LIMIT_MSL_EXECUTE_MS = 10000;
-        public static readonly int LIMIT_CALC_EXECUTE_MS = 12000;
+        public static readonly int LIMIT_CALC_EXECUTE_MS = 35000;
         public static readonly int LIMIT_FILE_CREATED = 100;
         public static readonly int LIMIT_BATCH_TIME_AWAIT = 10;
         public static readonly int LIMIT_PYMAXRESPONSESIZE = 262144;
