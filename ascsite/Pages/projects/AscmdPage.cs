@@ -83,12 +83,15 @@ namespace AscSite.Pages.projects
         public string Render()
         {
             string res = Md2Html(Body);
-            if(ProblemAuthor != null)
-                res += "<br>Author(s) of the problem: " + ProblemAuthor;
+            if (ProblemAuthor != null)
+                res += "<br>Author" + (ProblemAuthor.Contains(',') ? "s" : "") + 
+                    "s of the problem " + ProblemAuthor;
             if (InvestigationAuthor != null)
-                res += "<br>Author(s) of the investigation: " + InvestigationAuthor;
+                res += "<br>Author" + (InvestigationAuthor.Contains(',') ? "s" : "") + 
+                    "s of the investigation " + InvestigationAuthor;
             if (SolutionAuthor != null)
-                res += "<br>Author(s) of the solution: " + SolutionAuthor;
+                res += "<br>Author" + (SolutionAuthor.Contains(',') ? "s" : "") + 
+                    "s of the solution " +  SolutionAuthor;
             return res;
         }
         public string RenderAnnotation(string readMoreButton)
