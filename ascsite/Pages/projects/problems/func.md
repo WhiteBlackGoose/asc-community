@@ -14,20 +14,9 @@ If $|x| > 1$, the value of function diverges (as $x^2 > x \Rightarrow f(x^2) > f
 
 In point $x = 1$ the function is not defined, as $f(1) = f(1) + 1 \Rightarrow 0 = 1$.
 
-The most interesting part happens when $ 0 < x < 1 $ as for such values $x^2 < x$ and so 
-$ x * f(x^2) + x > x^2 * f(x^2) + x^2 $. The term $x * f(x^2)$ produces members of diminishing 
-progression as $ \lim \limits_{x \to 0} f(x) = 0 $. This progression can be expressed in form:
+The most interesting part happens when $ 0 < x < 1 $ as for such values $x^2 < x$ and so $ x f(x^2) + x > x^2 f(x^4) + x^2 $. The term $x f(x^2)$ produce members of diminishing progression as $ \lim \limits_{x \to 0} f(x) = 0 $. This progression can be expressed in form:
 
-$$ 
-f(x) = x f(x^2) + x = x (f(x^2) + 1) = x(x^2(f(x^4) + 1) + 1) =
-$$
-$$
-x^{2^1 - 1} + x^{2^2 - 1} + x^{2^3 - 1} + x^{2^4 - 1} + ... \Rightarrow
-$$
-$$
-f(x) = \sum \limits_{i = 1}^{\infty} x^{2^i - 1} = \frac{1}{x} \sum \limits_{i = 1}^{\infty} x^{2^i}
-$$
-This sum can be computed numerically:
+$$ f(x) = \sum \limits_{i = 1}^{\infty} x^{2^i - 1} $$. This sum can be computed numerically:
 
 $ f({1 \over 2}) \approx 0.632843 $
 
