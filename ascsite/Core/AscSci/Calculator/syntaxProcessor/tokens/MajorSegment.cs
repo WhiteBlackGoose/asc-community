@@ -189,15 +189,15 @@ namespace processor.syntaxProcessor.tokens
 
         public override string Build()
         {
-            string res = "";
-            foreach (var token in tokens)
-                res += token.value;
-            return res;
+            return string.Join("", tokens.Select(token => token.value));
         }
     }
 
     public class MajorSegmentList : List<MajorSegment>
     {
+        public MajorSegmentList(IEnumerable<MajorSegment> segments) : base(segments) { }
+        public MajorSegmentList() { }
+
         public override string ToString()
         {
             var res = "";
@@ -208,11 +208,18 @@ namespace processor.syntaxProcessor.tokens
 
         public MajorSegmentList Select(string keyname)
         {
-            var res = new MajorSegmentList();
-            foreach (var segm in this)
-                if (segm.IsKeyname(keyname))
-                    res.Add(segm);
-            return res;
+            return new MajorSegmentList(
+                from segm in this
+                where segm.IsKeyname(keyname)
+                select segm);
+        }
+
+        public MajorSegmentList Select(CustomData.Type type)
+        {
+            return new MajorSegmentList(
+                from segm in this
+                where CustomData.GetType(segm.Build()) == type
+                select segm);
         }
 
         public MajorSegment Item()
