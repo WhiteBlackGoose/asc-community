@@ -62,62 +62,62 @@
 
         public static function Sqrt(value)
         {
-            return Dll.Call(dll, "FloatSqrt", value);
+            return Dll.Call(dll, "FloatSqrt", 1.0 * value);
         }
 
         public static function Abs(value)
         {
-            return Dll.Call(dll, "FloatAbs", value);
+            return Dll.Call(dll, "FloatAbs", 1.0 * value);
         }
 
         public static function Sin(value)
         {
-            return Dll.Call(dll, "FloatSin", value);
+            return Dll.Call(dll, "FloatSin", 1.0 * value);
         }
 
         public static function Cos(value)
         {
-            return Dll.Call(dll, "FloatCos", value);
+            return Dll.Call(dll, "FloatCos", 1.0 * value);
         }
 
         public static function Tan(value)
         {
-            return Dll.Call(dll, "FloatTan", value);
+            return Dll.Call(dll, "FloatTan", 1.0 * value);
         }
 
         public static function Exp(value)
         {
-            return Dll.Call(dll, "FloatExp", value);
+            return Dll.Call(dll, "FloatExp", 1.0 * value);
         }
 
         public static function Asin(value)
         {
-            return Dll.Call(dll, "FloatAsin", value);
+            return Dll.Call(dll, "FloatAsin", 1.0 * value);
         }
 
         public static function Acos(value)
         {
-            return Dll.Call(dll, "FloatAcos", value);
+            return Dll.Call(dll, "FloatAcos", 1.0 * value);
         }
 
         public static function Atan(value)
         {
-            return Dll.Call(dll, "FloatAtan", value);
+            return Dll.Call(dll, "FloatAtan", 1.0 * value);
         }
 
         public static function Log10(value)
         {
-            return Dll.Call(dll, "FloatLog10", value);
+            return Dll.Call(dll, "FloatLog10", 1.0 * value);
         }
 
         public static function Log2(value)
         {
-            return Dll.Call(dll, "FloatLog2", value);
+            return Dll.Call(dll, "FloatLog2", 1.0 * value);
         }
 
         public static function Log(value)
         {
-            return Dll.Call(dll, "FloatLog", value);
+            return Dll.Call(dll, "FloatLog", 1.0 * value);
         }
     }
 }
