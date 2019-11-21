@@ -1,11 +1,7 @@
 ﻿$$
-\frac{1}{x} \sum \limits_{i = 1}^{\infty} x^{2^i}
+a = p_1^{a_1} p_2^{a_2} ... p_n^{a_n}
+
 $$
-
-ahhahah@probauthor{WhiteBlackGoose}hahha
-
-@annstart
-hihi
-@annend
-
-@investauthor{quack quack}
+$$
+(a_1 + 1)(a_2 + 1)...(a_n + 1)
+$$
