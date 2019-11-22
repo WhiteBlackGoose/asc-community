@@ -45,3 +45,7 @@
 #bool-res tr {
     border: 1px solid gray;
 }
+
+.contributor-list {
+    margin-top: 20%;
+}
