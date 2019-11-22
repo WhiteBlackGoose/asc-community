@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace processor.syntaxProcessor.tokens.types
+namespace Processor.syntaxProcessor.tokens.types
 {
     public static class Keyword
     {

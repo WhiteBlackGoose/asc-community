@@ -1,10 +1,10 @@
 ﻿using ascsite.Core.PyInterface.PyMath;
 using AscSite.Core.AscSci.AscMath;
-using processor;
-using processor.lexicProcessor;
-using processor.syntaxProcessor;
-using processor.syntaxProcessor.tokens;
-using processor.syntaxProcessor.tokens.types;
+using Processor;
+using Processor.lexicProcessor;
+using Processor.syntaxProcessor;
+using Processor.syntaxProcessor.tokens;
+using Processor.syntaxProcessor.tokens.types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +41,8 @@ namespace ascsite.Core.AscSci.Calculator
             BOOL,
             INTEGRAL,
             SOLVE,
-            SIMPLIFICATION
+            SIMPLIFICATION,
+            PLOT
         }
 
         private static List<FieldType> MathAnalysis = new List<FieldType>()
@@ -228,6 +229,16 @@ namespace ascsite.Core.AscSci.Calculator
                                     newLatexExprs.AddRange(pymath.Solve(req, diffVar, vars, true));
                             }
                         }
+                        else if(fieldType == FieldType.PLOT)
+                        {
+                            expressionSegment.tokens.AddOmittedOps();
+                            var vars = expressionSegment.tokens.ExtractVariables();
+                            vars = Functions.MakeUnique(vars);
+                            string expr = expressionSegment.Build();
+                            List<string> plotVars = new List<string>();
+                            var whereTags = fieldOpts.Select("where").Select(CustomData.Type.RANGE);
+                            // E{"x": "[20; 3]"}
+                        }
                         else if (fieldType == FieldType.SIMPLIFICATION)
                         {
                             expressionSegment.tokens.AddOmittedOps();
@@ -289,6 +300,8 @@ namespace ascsite.Core.AscSci.Calculator
                 return FieldType.INTEGRAL;
             else if (fieldName == Names.SOLVE)
                 return FieldType.SOLVE;
+            else if (fieldName == Names.PLOT)
+                return FieldType.PLOT;
             else
                 return FieldType.SIMPLIFICATION;
         }

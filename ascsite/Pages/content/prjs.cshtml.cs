@@ -9,7 +9,8 @@ using AscSite.Pages.projects;
 using Markdig;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using processor;
+using Processor;
+using AscSite.Core.Interface.DbInterface;
 
 namespace ascsite.Pages
 {
@@ -63,7 +64,7 @@ namespace ascsite.Pages
                     {
                         var name = prefix;
                         var page = AscmdPage.LoadFrom(Paths[prefix][0]);
-                        res.Add(page.RenderAnnotation("/projects/prjs?name=" + name));
+                        res.Add(page.RenderAnnotation("/content/prjs?name=" + name));
                     }
                     Result = string.Join("<hr>", res.ToArray());
                     Result += Const.ADD_LATEXSCRIPT;
@@ -71,5 +72,6 @@ namespace ascsite.Pages
                 
             }
         }
+        
     }
 }

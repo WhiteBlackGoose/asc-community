@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace processor.syntaxProcessor
+namespace Processor.syntaxProcessor
 {
     public class PostToken
     {

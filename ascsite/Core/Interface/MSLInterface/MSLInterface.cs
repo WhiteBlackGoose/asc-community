@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Security;
 using ascsite.Core.AscSci.Calculator;
-using processor;
+using Processor;
 
 namespace ascsite.Core.MSLInterface
 {
@@ -18,6 +18,7 @@ namespace ascsite.Core.MSLInterface
             LibraryPaths.Add("math.msl");
             LibraryPaths.Add("asc_interop.msl");
             LibraryPaths.Add("utils.msl");
+            LibraryPaths.Add("system.msl");
             
             var config = CreateProcessConfig();
             process = Process.Start(config);

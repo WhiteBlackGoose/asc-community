@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using processor.syntaxProcessor.tokens.types;
-using processor.syntaxProcessor.tokens;
+using Processor.syntaxProcessor.tokens.types;
+using Processor.syntaxProcessor.tokens;
 using ascsite.Core;
-using processor.lexicProcessor;
+using Processor.lexicProcessor;
 
-namespace processor.syntaxProcessor
+namespace Processor.syntaxProcessor
 {
     public class PostTokenList : List<PostToken>
     {

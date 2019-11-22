@@ -22,12 +22,13 @@ namespace ascsite.Core
         public static readonly string ERMSG_INVALID_SYNTAX = "Invalid syntax";
         public static readonly string ERMSG_INVALID_SYMBOL = "Invalid symbol";
         public static readonly string ERMSG_INTERNAL_ERROR = "Internal error";
+        public static readonly string ERMSG_INVALID_REQUEST = "Invalid request";
 
         /*  PATHS  */
         public static readonly string PATH_PYTHON = @"D:\main\programs\miniconda3\python.exe";
         public static readonly string PATH_MSL = @"Resources\MSL.exe";
         public static readonly string PATH_SUBSAMPLES = @"Pages\msl\source";
-        public static readonly string PATH_ASSOCPRJS = @"Pages\projects\assoc";
+        public static readonly string PATH_ASSOCPRJS = @"Pages\content\assoc";
         public static readonly string PATH_LAYOUT = @"Pages\Shared\_Layout.cshtml";
         public static readonly string PATH_PYOUT = @"Core/PyInterface/pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
 

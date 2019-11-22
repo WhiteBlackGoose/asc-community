@@ -4,9 +4,9 @@ using System.Text;
 using System.Linq;
 using ascsite.Core;
 
-namespace processor.syntaxProcessor.tokens.types
+namespace Processor.syntaxProcessor.tokens.types
 {
-    class CustomData
+    public class CustomData
     {
         public enum Type
         {

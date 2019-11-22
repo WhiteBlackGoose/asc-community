@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace processor.lexicProcessor
+namespace Processor.lexicProcessor
 {
     public class Lexer
     {

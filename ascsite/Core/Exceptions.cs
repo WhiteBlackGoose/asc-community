@@ -1,4 +1,4 @@
-﻿using processor;
+﻿using Processor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +33,11 @@ namespace ascsite.Core
     class CPUMEMOutException : ResourceOutException
     {
         public CPUMEMOutException() : base(Const.ERMSG_EXECUTE_CPUMEMOUT) { }
+    }
+
+    class InvalidRequestException : UserException
+    {
+        public InvalidRequestException() : base(Const.ERMSG_INVALID_REQUEST) { }
     }
 
 
