@@ -1,10 +1,10 @@
-﻿using processor.lexicProcessor;
+﻿using Processor.lexicProcessor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace processor.syntaxProcessor
+namespace Processor.syntaxProcessor
 {
     public class Parser
     {

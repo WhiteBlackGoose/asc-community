@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace processor.lexicProcessor
+namespace Processor.lexicProcessor
 {
     public class Token
     {

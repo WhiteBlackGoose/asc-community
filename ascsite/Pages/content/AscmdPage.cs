@@ -76,7 +76,7 @@ namespace AscSite.Pages.projects
             string tagcontent = text.Substring(pos + finaltag.Length, leng);
             return tagcontent;
         }
-        private static string Md2Html(string mdtext)
+        public static string Md2Html(string mdtext)
         {
             return Markdown.ToHtml(mdtext, Pipeline);
         }

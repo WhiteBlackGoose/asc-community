@@ -4,7 +4,7 @@ using System.Text;
 using System.Linq;
 using ascsite.Core;
 
-namespace processor.lexicProcessor
+namespace Processor.lexicProcessor
 {
     public class TokenList : List<Token>
     {

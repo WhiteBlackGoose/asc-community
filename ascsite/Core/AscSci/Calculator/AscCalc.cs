@@ -1,10 +1,10 @@
 ﻿using ascsite.Core.PyInterface.PyMath;
 using AscSite.Core.AscSci.AscMath;
-using processor;
-using processor.lexicProcessor;
-using processor.syntaxProcessor;
-using processor.syntaxProcessor.tokens;
-using processor.syntaxProcessor.tokens.types;
+using Processor;
+using Processor.lexicProcessor;
+using Processor.syntaxProcessor;
+using Processor.syntaxProcessor.tokens;
+using Processor.syntaxProcessor.tokens.types;
 using System;
 using System.Collections.Generic;
 using System.Linq;

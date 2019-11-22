@@ -1,12 +1,12 @@
-﻿using processor.syntaxProcessor.tokens.types;
+﻿using Processor.syntaxProcessor.tokens.types;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using processor.lexicProcessor;
+using Processor.lexicProcessor;
 using ascsite.Core;
 
-namespace processor.syntaxProcessor.tokens
+namespace Processor.syntaxProcessor.tokens
 {
     public abstract class MajorSegment
     {

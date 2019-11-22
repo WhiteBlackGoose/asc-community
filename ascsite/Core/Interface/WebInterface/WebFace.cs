@@ -11,7 +11,7 @@ namespace AscSite.Core.WebInterface
             if (PageCache.ContainsKey(url)) return PageCache[url];
 
             using var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent", "C# console program");
+            client.DefaultRequestHeaders.Add("User-Agent", "ASC site");
 
             var content = client.GetStringAsync(url);
 

@@ -1,0 +1,9 @@
+﻿@page
+@model ascsite.Pages.content.projectsModel
+@{
+    ViewData["Title"] = "projects";
+}
+
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css">
+
+@Html.Raw(Model.RawResult)

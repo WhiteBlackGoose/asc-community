@@ -4,7 +4,7 @@ using System.Text;
 using System.Linq;
 using ascsite.Core;
 
-namespace processor.syntaxProcessor.tokens.types
+namespace Processor.syntaxProcessor.tokens.types
 {
     public class CustomData
     {

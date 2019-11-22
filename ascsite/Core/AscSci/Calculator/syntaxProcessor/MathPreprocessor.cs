@@ -1,11 +1,11 @@
-﻿using processor.syntaxProcessor.tokens;
-using processor.syntaxProcessor.tokens.types;
+﻿using Processor.syntaxProcessor.tokens;
+using Processor.syntaxProcessor.tokens.types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace processor.syntaxProcessor
+namespace Processor.syntaxProcessor
 {
     public class MathPreprocessor
     {

@@ -3,7 +3,7 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://asc-community.org",
+      "applicationUrl": "http://128.72.116.189:80",
       "sslPort": 64321
     }
   },
@@ -18,7 +18,7 @@
     "ascsite": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://asc-community.org",
+      "applicationUrl": "http://128.72.116.189:80",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

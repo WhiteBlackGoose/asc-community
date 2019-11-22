@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Security;
 using ascsite.Core.AscSci.Calculator;
-using processor;
+using Processor;
 
 namespace ascsite.Core.MSLInterface
 {
