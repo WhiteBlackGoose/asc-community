@@ -25,10 +25,10 @@ namespace AscSite.Core.Interface.DbInterface
         {
             using(var db = new DbAscContext())
             {
-                if(limit == -1)
-                    return db.Projects.Skip(offset).ToList();
-                else
-                    return db.Projects.Skip(offset).Take(limit).ToList();
+                var prjs = db.Projects.Skip(offset).Where(p => p.Name != null);
+                if (limit != -1)
+                    prjs = prjs.Take(limit);
+                return prjs.ToList();
             }
         }
 
@@ -47,6 +47,15 @@ namespace AscSite.Core.Interface.DbInterface
                 {
                     db.Projects.Add(project);
                 }
+                db.SaveChanges();
+            }
+        }
+
+        public static void RemoveProjectById(int id)
+        {
+            using (var db = new DbAscContext())
+            {
+                db.Projects.Remove(db.Projects.FirstOrDefault(p => p.Id == id));
                 db.SaveChanges();
             }
         }

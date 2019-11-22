@@ -54,6 +54,12 @@ namespace ascsite.Pages.content
                     LastError = "Incorrect password";
                     return;
                 }
+
+                if(PrjName == "" && PrjAnnouncement == "" && PrjBody == "")
+                {
+                    var Id = Convert.ToInt32(PrjId);
+                    DbInterface.RemoveProjectById(Id);
+                }
                 var prj = new AscSite.Core.Interface.Database.Project
                 {
                     Id = Convert.ToInt32(PrjId),
