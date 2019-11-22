@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 
 namespace AscSite.Core.WebInterface
 {
-    public class WebFace
+    public static class WebFace
     {
+        private static Dictionary<string, string> PageCache = new Dictionary<string, string>();
         public static string Get(string url)
         {
+            if (PageCache.ContainsKey(url)) return PageCache[url];
+
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("User-Agent", "C# console program");
 
             var content = client.GetStringAsync(url);
 
-            return content.Result;
+            PageCache[url] = content.Result;
+            return PageCache[url];
         }
+
+        public static void ResetCache() => PageCache.Clear();
     }
 }
