@@ -3,7 +3,9 @@ using AscSite.Core.Interface.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System.Threading.Tasks;
+
 
 namespace AscSite.Core.Interface.DbInterface
 {
@@ -27,6 +29,25 @@ namespace AscSite.Core.Interface.DbInterface
                     return db.Projects.Skip(offset).ToList();
                 else
                     return db.Projects.Skip(offset).Take(limit).ToList();
+            }
+        }
+
+        //TODO
+        public static void AddOrUpdateProject(Project project)
+        { 
+            using(var db = new DbAscContext())
+            {
+                var found = db.Projects.FirstOrDefault(p => p.Id == project.Id);
+                if (found != null)
+                {
+                    found.Assign(project);
+                    db.Projects.Update(found);
+                }
+                else
+                {
+                    db.Projects.Add(project);
+                }
+                db.SaveChanges();
             }
         }
     }

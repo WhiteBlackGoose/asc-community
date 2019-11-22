@@ -40,5 +40,12 @@ namespace AscSite.Core.Interface.Database
         public string Name { get; set; }
         public string Announcement { get; set; }
         public string Body { get; set; }
+        public void Assign(Project src)
+        {
+            Id = src.Id;
+            Name = src.Name;
+            Announcement = src.Announcement;
+            Body = src.Body;
+        }
     }
 }

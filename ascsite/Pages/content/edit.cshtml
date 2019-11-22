@@ -1,0 +1,36 @@
+﻿@page
+@model ascsite.Pages.content.editModel
+@{
+    ViewData["Title"] = "edit";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/styles.css">
+
+<h1>Edit Project</h1>
+
+<form method="GET">
+    Project Id
+    <input type="text" value="" name="PrjId" />
+    <input type="submit" value="Download" />
+</form>
+
+<hr>
+
+<form method="POST">
+    Change an article<br>
+    Id<br>
+    <input type="text" class="edit-field" value="@Model.PrjId" name="PrjId"><br>
+    Title<br>
+    <input type="text" class="edit-field" value="@Model.PrjName" name="PrjName"><br>
+    Announcement<br>
+    <textarea type="text" rows="5" class="edit-field" value="" name="PrjAnnouncement">@Model.PrjAnnouncement</textarea><br>
+    Body<br>
+    <textarea type="text" rows="40" class="edit-field" name="PrjBody">@Model.PrjBody</textarea><br>
+    Password<br>
+    <input type="password" name="Password"><br>
+    <input type="submit" value="Commit">
+</form>
+
+<hr>
+
+@Model.LastError
