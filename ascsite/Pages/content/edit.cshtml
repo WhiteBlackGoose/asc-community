@@ -10,7 +10,7 @@
 
 <form method="GET">
     Project Id
-    <input type="text" value="" name="PrjId" />
+    <input type="text" value="" name="PostId" />
     <input type="submit" value="Download" />
 </form>
 
@@ -18,14 +18,16 @@
 
 <form method="POST">
     Change an article<br>
-    Id<br>
-    <input type="text" class="edit-field" value="@Model.PrjId" name="PrjId"><br>
+    Id (-1 if need to add)<br>
+    <input type="text" class="edit-field" value="@Model.PostId" name="PostId"><br>
     Title<br>
-    <input type="text" class="edit-field" value="@Model.PrjName" name="PrjName"><br>
+    <input type="text" class="edit-field" value="@Model.PostName" name="PostName"><br>
     Announcement<br>
-    <textarea type="text" rows="5" class="edit-field" value="" name="PrjAnnouncement">@Model.PrjAnnouncement</textarea><br>
+    <textarea type="text" rows="5" class="edit-field" value="" name="PostAnnouncement">@Model.PostAnnouncement</textarea><br>
     Body<br>
-    <textarea type="text" rows="40" class="edit-field" name="PrjBody">@Model.PrjBody</textarea><br>
+    <textarea type="text" rows="40" class="edit-field" name="PostBody">@Model.PostBody</textarea><br>
+    Type<br>
+    <input type="text" class="edit-field" value="@Model.PostType" name="PostType"><br>
     Password<br>
     <input type="password" name="Password"><br>
     <input type="submit" value="Commit">

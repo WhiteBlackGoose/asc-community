@@ -12,13 +12,15 @@ namespace ascsite.Pages.content
     public class editModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
-        public string PrjId { get; set; }
+        public string PostId { get; set; }
         [BindProperty]
-        public string PrjName { get; set; }
+        public string PostName { get; set; }
         [BindProperty]
-        public string PrjAnnouncement { get; set; }
+        public string PostAnnouncement { get; set; }
         [BindProperty]
-        public string PrjBody { get; set; }
+        public string PostBody { get; set; }
+        [BindProperty]
+        public string PostType { get; set; }
         [BindProperty]
         public string Password { get; set; }
 
@@ -26,22 +28,23 @@ namespace ascsite.Pages.content
 
         public void OnGet()
         {
-            if(PrjId == null)
+            if(PostId == null)
             {
                 LastError = "";
                 return;
             }
             try
             {
-                var prj = DbInterface.GetProjectById(Convert.ToInt32(PrjId));
-                PrjName = prj.Name;
-                PrjAnnouncement = prj.Announcement;
-                PrjBody = prj.Body;
+                var prj = DbInterface.GetPostById(Convert.ToInt32(PostId));
+                PostName = prj.Name;
+                PostAnnouncement = prj.Announcement;
+                PostBody = prj.Body;
+                PostType = prj.Type.ToString();
                 LastError = "Loaded";
             }
-            catch
+            catch (Exception e)
             {
-
+                LastError = "Error: " + e.Message;
             }
         }
 
@@ -55,24 +58,31 @@ namespace ascsite.Pages.content
                     return;
                 }
 
-                if(PrjName == "" && PrjAnnouncement == "" && PrjBody == "")
+                if(PostName == "" && PostAnnouncement == "" && PostBody == "")
                 {
-                    var Id = Convert.ToInt32(PrjId);
-                    DbInterface.RemoveProjectById(Id);
+                    var Id = Convert.ToInt32(PostId);
+                    DbInterface.RemovePostById(Id);
                 }
-                var prj = new AscSite.Core.Interface.Database.Project
+                var post = new AscSite.Core.Interface.Database.Post
                 {
-                    Id = Convert.ToInt32(PrjId),
-                    Name = PrjName,
-                    Announcement = PrjAnnouncement,
-                    Body = PrjBody
+                    Id = Convert.ToInt32(PostId),
+                    Name = PostName,
+                    Announcement = PostAnnouncement,
+                    Body = PostBody,
+                    Type = Convert.ToInt32(PostType)
                 };
-                DbInterface.AddOrUpdateProject(prj);
+                if (PostId != "-1")
+                    DbInterface.AddOrUpdatePost(post);
+                else
+                {
+                    post.Id = DbInterface.Count() + 1;
+                    DbInterface.AddPost(post);
+                }
                 LastError = "OK";
             }
-            catch
+            catch (Exception e)
             {
-
+                LastError = "Error: " + e.Message;
             }
         }
     }

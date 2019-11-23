@@ -5,57 +5,81 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace AscSite.Core.Interface.DbInterface
 {
+    using PostType = AscSite.Core.Interface.Database.Post.TYPE;
     public static class DbInterface
     {
-        public static Project GetProjectById(int id)
+        private static IQueryable<Post> GetPostsByType(DbSet<Post> db, PostType type)
+        {
+            var intType = (int)type;
+            return db.Where(p => p.Type == intType);
+        }
+
+        public static int Count()
         {
             using (var db = new DbAscContext())
             {
-                var res = db.Projects.FirstOrDefault(p => p.Id == id);
+                return db.Posts.Count();
+            }
+        }
+        public static Post GetPostById(int id)
+        {
+            using (var db = new DbAscContext())
+            {
+                var res = db.Posts.FirstOrDefault(p => p.Id == id);
                 if (res == null)
                     throw new InvalidRequestException();
                 return res;
             }
         }
-        public static List<Project> GetProjects(int offset = 0, int limit = -1)
+        public static List<Post> GetPosts(PostType type, int offset = 0, int limit = -1)
         {
             using(var db = new DbAscContext())
             {
-                var prjs = db.Projects.Skip(offset).Where(p => p.Name != null);
+                var prjs = GetPostsByType(db.Posts, type).Where(p => p.Name != null).Skip(offset);
                 if (limit != -1)
                     prjs = prjs.Take(limit);
                 return prjs.ToList();
             }
         }
 
-        //TODO
-        public static void AddOrUpdateProject(Project project)
+        //TODO REMOVING
+
+        public static void AddPost(Post project)
+        {
+            using (var db = new DbAscContext())
+            {
+                db.Posts.Add(project);
+                db.SaveChanges();
+            }
+        }
+
+        public static void AddOrUpdatePost(Post project)
         { 
             using(var db = new DbAscContext())
             {
-                var found = db.Projects.FirstOrDefault(p => p.Id == project.Id);
+                var found = db.Posts.FirstOrDefault(p => p.Id == project.Id);
                 if (found != null)
                 {
                     found.Assign(project);
-                    db.Projects.Update(found);
+                    db.Posts.Update(found);
                 }
                 else
                 {
-                    db.Projects.Add(project);
+                    db.Posts.Add(project);
                 }
                 db.SaveChanges();
             }
         }
 
-        public static void RemoveProjectById(int id)
+        public static void RemovePostById(int id)
         {
             using (var db = new DbAscContext())
             {
-                db.Projects.Remove(db.Projects.FirstOrDefault(p => p.Id == id));
+                db.Posts.Remove(db.Posts.FirstOrDefault(p => p.Id == id));
                 db.SaveChanges();
             }
         }

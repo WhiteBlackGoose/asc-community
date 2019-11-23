@@ -1,8 +1,8 @@
-﻿DROP TABLE [dbo].[projects];
-CREATE TABLE [dbo].[projects] (
+﻿drop table [dbo].[Posts];
+CREATE TABLE [dbo].[Posts] (
     [Id]           INT  NOT NULL PRIMARY KEY,
     [Name]         NTEXT NULL,
     [Announcement] NTEXT NULL,
     [Body]         NTEXT NULL,
+	[Type]         INT NULL
 );
-
