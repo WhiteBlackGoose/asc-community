@@ -225,7 +225,7 @@ namespace Processor.syntaxProcessor.tokens
         public MajorSegment Item()
         {
             if (this.Count != 1)
-                throw new InternalException();
+                throw new InternalException("Item error in segments");
             return this[0];
         }
 

@@ -33,6 +33,7 @@ namespace ascsite.Core
         public static readonly string PATH_PYOUT = @"Core/PyInterface/pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
         public static readonly string PATH_PROJECTS = @"/content/projects";
         public static readonly string PATH_PROBLEMS = @"/content/problems";
+        public static readonly string PATH_LOGFILE = @"Logs/errors.log";
 
         /*  TITLES  */
         public static readonly string TITLE_INTERPRETEDAS = "Interpreted as";

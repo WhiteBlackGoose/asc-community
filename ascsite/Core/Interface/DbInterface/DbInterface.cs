@@ -117,7 +117,6 @@ namespace AscSite.Core.Interface.DbInterface
         {
             using(var db = new DbAscContext())
             {
-                int idx = db.UserPostContributions.Count() + 1;
                 foreach(var entry in relations)
                 {
                     if (entry.userData == null) 
@@ -125,7 +124,6 @@ namespace AscSite.Core.Interface.DbInterface
 
                     db.UserPostContributions.Add(new UserPostContribution
                     {
-                        Id = idx++,
                         PostId = postId,
                         UserId = entry.userData.Id,
                         Type = (int)entry.postRelation

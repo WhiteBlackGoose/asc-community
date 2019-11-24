@@ -1,4 +1,5 @@
-﻿using AscSite.Core.Interface.Database;
+﻿using ascsite.Core;
+using AscSite.Core.Interface.Database;
 using AscSite.Core.Interface.DbInterface;
 using AscSite.Pages.projects;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace AscSite.Core.Render.Renderers
 {
+    using RelationType = AscSite.Core.Interface.Database.UserPostContribution.TYPE;
     public class ProjectPageRenderer : PageRenderer
     {
         public ProjectPageRenderer(int postId) : base(postId)
@@ -28,6 +30,21 @@ namespace AscSite.Core.Render.Renderers
                 .Append(AscmdPage.Md2Html(post.Announcement))
                 .Append("<hr>")
                 .Append(AscmdPage.Md2Html(post.Body));
+
+            var entries = DbInterface.GetUsersRelatedToPostById(postId);
+
+            var authors = entries.Where(e => e.postRelation == RelationType.AUTHOR);
+            sb.Append(Functions.MakeRelationString("Author", authors));
+
+            var investigators = entries.Where(e => e.postRelation == RelationType.INVESTIGATOR);
+            sb.Append(Functions.MakeRelationString("Investigator", investigators));
+
+            var solvers = entries.Where(e => e.postRelation == RelationType.SOLVER);
+            sb.Append(Functions.MakeRelationString("Solver", solvers));
+
+            var contributors = entries.Where(e => e.postRelation == RelationType.CONTRIBUTOR);
+            sb.Append(Functions.MakeRelationString("Contributor", contributors));
+
             return sb.ToString();
         }
     }

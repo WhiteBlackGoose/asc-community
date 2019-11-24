@@ -21,27 +21,21 @@ namespace AscSite.Core.Render.Renderers
         {
             StringBuilder builder = new StringBuilder(base.Render());
 
-            // only one request to the database is performed here
             var entries = DbInterface.GetUsersRelatedToPostById(postId);
 
             var authors = entries.Where(e => e.postRelation == RelationType.AUTHOR);
-            builder.Append(MakeRelationString("Author", authors));
+            builder.Append(Functions.MakeRelationString("Author", authors));
 
             var investigators = entries.Where(e => e.postRelation == RelationType.INVESTIGATOR);
-            builder.Append(MakeRelationString("Investigator", investigators));
+            builder.Append(Functions.MakeRelationString("Investigator", investigators));
 
             var solvers = entries.Where(e => e.postRelation == RelationType.SOLVER);
-            builder.Append(MakeRelationString("Solver", solvers));
+            builder.Append(Functions.MakeRelationString("Solver", solvers));
+
+            var contributors = entries.Where(e => e.postRelation == RelationType.CONTRIBUTOR);
+            builder.Append(Functions.MakeRelationString("Contributor", contributors));
 
             return builder.ToString();
-        }
-
-        private string MakeRelationString(string relationName, IEnumerable<DbInterface.PostUserEntry> entries)
-        {
-            if (entries.Count() == 0) return string.Empty;
-
-            relationName += (entries.Count() < 2 ? ": " : "s: ");
-            return "<br>" + relationName + string.Join(", ", entries.Select(e => e.userData.Name));
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text;
+using AscSite.Core.Interface.DbInterface;
 
 namespace ascsite.Core
 {
@@ -41,6 +42,14 @@ namespace ascsite.Core
                 sb.Append(b.ToString("X2"));
 
             return sb.ToString();
+        }
+
+        public static string MakeRelationString(string relationName, IEnumerable<DbInterface.PostUserEntry> entries)
+        {
+            if (entries.Count() == 0) return string.Empty;
+
+            relationName += (entries.Count() < 2 ? ": " : "s: ");
+            return "<br>" + relationName + string.Join(", ", entries.Select(e => e.userData.Name));
         }
     }
 }

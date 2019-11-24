@@ -15,7 +15,7 @@ namespace Processor.syntaxProcessor
         public MajorSegmentList GetSegments()
         {
             if (segms == null)
-                throw new InternalException();
+                throw new InternalException("Segments error (no segments)");
             return segms;
         }
         public MathPreprocessor(PostTokenList tokens)

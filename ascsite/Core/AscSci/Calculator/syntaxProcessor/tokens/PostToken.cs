@@ -40,7 +40,7 @@ namespace Processor.syntaxProcessor
         public string GetBeforeEq()
         {
             if (!frozen)
-                throw new InternalException();
+                throw new InternalException("Attempt to call GetBeforeEq before freezing PostToken");
             if (type != PostTokenType.EQUALITY)
                 throw new ParsingException("Expected `=`");
             return Data.Substring(0, Data.IndexOf("="));
@@ -49,7 +49,7 @@ namespace Processor.syntaxProcessor
         public string GetAfterEq()
         {
             if (!frozen)
-                throw new InternalException();
+                throw new InternalException("Attempt to call GetAfterEq before freezing PostToken");
             if (type != PostTokenType.EQUALITY)
                 throw new ParsingException("Expected `=`");
             return Data.Substring(Data.IndexOf("=") + 1);

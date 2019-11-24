@@ -60,6 +60,7 @@ namespace ascsite.Pages.content
             {
                 StatusColor = "red";
                 Status = "Error: " + e.Message;
+                new InternalException(e);
             }
         }
 
@@ -111,6 +112,7 @@ namespace ascsite.Pages.content
             {
                 Status = "Error: " + e.Message;
                 StatusColor = "red";
+                new InternalException(e);
             }
         }
 
