@@ -45,7 +45,7 @@ namespace AscSite.Core.Render
         {
             var posts = DbInterface.GetPosts(type, Offset, Limit);
             var sb = new StringBuilder();
-            foreach (var post in posts)
+            foreach (var post in posts.Where(p => p.Name != null && p.Announcement != null && p.Body != null))
                 RenderOne(post, sb);
             return sb.ToString();
         }
@@ -53,7 +53,8 @@ namespace AscSite.Core.Render
 
     abstract public class PageRenderer : Renderer
     {
-        private int postId;
+        protected readonly int postId;
+
         public PageRenderer(int postId)
         {
             this.postId = postId;

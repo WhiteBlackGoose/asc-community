@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="~/css/styles.css">
 
 <h1>Edit Project</h1>
+<p><b style="color: @Html.Raw(Model.StatusColor)">@Model.Status</b></p>
 
 <form method="GET">
     Project Id
@@ -28,11 +29,9 @@
     <textarea type="text" rows="40" class="edit-field" name="PostBody">@Model.PostBody</textarea><br>
     Type<br>
     <input type="text" class="edit-field" value="@Model.PostType" name="PostType"><br>
+    Relations<br>
+    <textarea type="text" rows="5" class="edit-field" value="" name="RelationTypes">@Model.RelationTypes</textarea><br>
     Password<br>
     <input type="password" name="Password"><br>
     <input type="submit" value="Commit">
 </form>
-
-<hr>
-
-@Model.LastError

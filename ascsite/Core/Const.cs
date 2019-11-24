@@ -32,6 +32,7 @@ namespace ascsite.Core
         public static readonly string PATH_LAYOUT = @"Pages\Shared\_Layout.cshtml";
         public static readonly string PATH_PYOUT = @"Core/PyInterface/pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
         public static readonly string PATH_PROJECTS = @"/content/projects";
+        public static readonly string PATH_PROBLEMS = @"/content/problems";
 
         /*  TITLES  */
         public static readonly string TITLE_INTERPRETEDAS = "Interpreted as";

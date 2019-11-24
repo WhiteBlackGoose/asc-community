@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ascsite.Core;
+using AscSite.Core.Interface.Database;
 using AscSite.Core.Interface.DbInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ascsite.Pages.content
 {
+    using RelationType = UserPostContribution.TYPE;
     public class editModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
@@ -23,14 +25,19 @@ namespace ascsite.Pages.content
         public string PostType { get; set; }
         [BindProperty]
         public string Password { get; set; }
+        [BindProperty]
+        public string RelationTypes { get; set; }
 
-        public string LastError { get; set; }
+        public string Status { get; set; }
+
+        public string StatusColor { get; set; } = "black";
 
         public void OnGet()
         {
             if(PostId == null)
             {
-                LastError = "";
+                Status = "";
+                StatusColor = "black";
                 return;
             }
             try
@@ -40,11 +47,19 @@ namespace ascsite.Pages.content
                 PostAnnouncement = prj.Announcement;
                 PostBody = prj.Body;
                 PostType = prj.Type.ToString();
-                LastError = "Loaded";
+
+                var users = DbInterface.GetUsersRelatedToPostById(Convert.ToInt32(PostId));
+                RelationTypes = string.Empty;
+                foreach (var entry in users)
+                    RelationTypes += entry.userData.Id + ": " + (int)entry.postRelation + '\n';
+
+                Status = "Loaded";
+                StatusColor = "green";
             }
             catch (Exception e)
             {
-                LastError = "Error: " + e.Message;
+                StatusColor = "red";
+                Status = "Error: " + e.Message;
             }
         }
 
@@ -54,7 +69,8 @@ namespace ascsite.Pages.content
             {
                 if (Functions.GetHashString(Password) != "706B21EA65649CBFD4CF10852FC063740812884D26FBDB2F01F010ADC5F5EA25")
                 {
-                    LastError = "Incorrect password";
+                    Status = "Incorrect password";
+                    StatusColor = "red";
                     return;
                 }
 
@@ -72,18 +88,46 @@ namespace ascsite.Pages.content
                     Type = Convert.ToInt32(PostType)
                 };
                 if (PostId != "-1")
+                {
+                    int postId = Convert.ToInt32(PostId);
                     DbInterface.AddOrUpdatePost(post);
+
+                    DbInterface.DeletePostRelations(postId);
+                    var relations = ParseUserRelations(RelationTypes);
+                    DbInterface.AddRelations(postId, relations);
+                }
                 else
                 {
                     post.Id = DbInterface.Count() + 1;
                     DbInterface.AddPost(post);
+                    var relations = ParseUserRelations(RelationTypes);
+                    DbInterface.AddRelations(post.Id, relations);
                 }
-                LastError = "OK";
+                Status = "Page has been changed successfully";
+                StatusColor = "green";
             }
             catch (Exception e)
             {
-                LastError = "Error: " + e.Message;
+                Status = "Error: " + e.Message;
+                StatusColor = "red";
             }
+        }
+
+        private List<DbInterface.PostUserEntry> ParseUserRelations(string relationTypes)
+        {
+            List<DbInterface.PostUserEntry> result = new List<DbInterface.PostUserEntry>();
+            string[] relations = relationTypes.Split("\r\n");
+            foreach(var rel in relations)
+            {
+                if (string.IsNullOrEmpty(rel)) continue;
+                var pair = rel.Split(':');
+                result.Add(new DbInterface.PostUserEntry
+                {
+                    userData = new User { Id = Convert.ToInt32(pair[0].Trim()) },
+                    postRelation = (RelationType)Convert.ToInt32(pair[1].Trim())
+                });
+            }
+            return result;
         }
     }
 }

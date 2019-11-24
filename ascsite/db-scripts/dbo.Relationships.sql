@@ -1,7 +1,7 @@
-﻿DROP TABLE [dbo].[Relationships];
-CREATE TABLE [dbo].[Relationships] (
-    [UserId]    INT NOT NULL PRIMARY KEY,
-    [ProjectId] INT NOT NULL,
-    [Type]      INT NOT NULL,
+﻿DROP TABLE [dbo].UserPostContributions;
+CREATE TABLE [dbo].[UserPostContributions] (
+	[Id]	INT NOT NULL PRIMARY KEY DEFAULT 0,
+	[PostId]    INT,
+    [UserId]    INT,
+	[Type]   INT,
 );
-

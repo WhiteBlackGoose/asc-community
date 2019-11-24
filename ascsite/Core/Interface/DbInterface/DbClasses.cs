@@ -11,7 +11,7 @@ namespace AscSite.Core.Interface.Database
     public class DbAscContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Relationship> Relationships { get; set; }
+        public DbSet<UserPostContribution> UserPostContributions { get; set; }
         public DbSet<Post> Posts { get; set; }
         /*
         private List<string> logLines;
@@ -38,11 +38,25 @@ namespace AscSite.Core.Interface.Database
         public string Name { get; set; }
     }
 
-    public class Relationship
+    public class UserPostContribution
     {
+        public enum TYPE
+        {
+            AUTHOR,
+            INVESTIGATOR,
+            SOLVER,
+            CONTRIBUTOR,
+        }
+        public TYPE GetRelationType() => (TYPE)Type;
+        public bool IsAuthor() => GetRelationType() == TYPE.AUTHOR;
+        public bool IsInvestigator() => GetRelationType() == TYPE.INVESTIGATOR;
+        public bool IsSolver() => GetRelationType() == TYPE.SOLVER;
+        public bool IsContributor() => GetRelationType() == TYPE.CONTRIBUTOR;
+
         [Key]
+        public int Id { get; set; }
+        public int PostId { get; set; }
         public int UserId { get; set; }
-        public int ProjectId { get; set; }
         public int Type { get; set; }
     }
 
@@ -59,7 +73,6 @@ namespace AscSite.Core.Interface.Database
         public bool IsProblem() => GetPostType() == TYPE.PROBLEM;
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Announcement { get; set; }

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 using AscSite.Core.Interface.DbInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using AscSite.Pages.projects;
 using ascsite.Core;
 using AscSite.Core.Render.Renderers;
 
-namespace ascsite.Pages.content
+namespace ascsite.Pages.Content
 {
-    public class projectsModel : PageModel
+    public class ProjectsModel : PageModel
     {
         public string RawResult { get; set; }
         [BindProperty(SupportsGet = true)]
