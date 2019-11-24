@@ -14,7 +14,7 @@ namespace Processor.lexicProcessor
         public Token Item()
         {
             if (this.Count() != 1)
-                throw new ParsingException("Unexpected token"); // TODO
+                throw new ParsingException("Unexpected token");
             return this[0];
         }
         public List<string> ExtractVariables()

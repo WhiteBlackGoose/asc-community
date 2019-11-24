@@ -14,7 +14,7 @@ namespace Processor.syntaxProcessor
         public PostToken Item()
         {
             if (this.Count() != 1)
-                throw new InternalException(); // TODO
+                throw new InternalException();
             return this[0];
         }
 
@@ -96,7 +96,7 @@ namespace Processor.syntaxProcessor
             var res = new PostTokenList();
             int pos = Pos(token);
             if (pos == -1)
-                throw new InternalException(); // TODO
+                throw new InternalException();
             for (int i = pos; i < this.Count(); i++)
                 res.Add(this[i]);
             return res;

@@ -106,7 +106,7 @@ namespace Processor.lexicProcessor
                 }
                 else
                 {
-                    throw new LexisException(expr[idx].ToString()); // TODO
+                    throw new LexisException(expr[idx].ToString());
                 }
             }
 
