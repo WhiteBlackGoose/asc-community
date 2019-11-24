@@ -37,7 +37,7 @@ namespace AscSite.Core.Render
                 .Append(post.Name)
                 .Append("</h1>")
                 .Append("<br>")
-                .Append(AscmdPage.Md2Html(post.Announcement));
+                .Append(AscmdPage.TextPreprocess(post.Announcement));
             return sb;
         }
 
@@ -69,9 +69,9 @@ namespace AscSite.Core.Render
                 .Append(post.Name)
                 .Append("</h1>")
                 .Append("<br>")
-                .Append(AscmdPage.Md2Html(post.Announcement))
+                .Append(AscmdPage.TextPreprocess(post.Announcement))
                 .Append("<hr>")
-                .Append(AscmdPage.Md2Html(post.Body));
+                .Append(AscmdPage.TextPreprocess(post.Body));
             return sb.ToString();
         }
     }

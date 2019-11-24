@@ -76,13 +76,17 @@ namespace AscSite.Pages.projects
             string tagcontent = text.Substring(pos + finaltag.Length, leng);
             return tagcontent;
         }
+        public static string TextPreprocess(string text)
+        {
+            return text.Replace("\r\n", "<br>");
+        }
         public static string Md2Html(string mdtext)
         {
-            return Markdown.ToHtml(mdtext.Replace(@"\\", @"\\\\"), Pipeline);
+            return Markdown.ToHtml(mdtext, Pipeline);
         }
         public string Render()
         {
-            string res = Md2Html(Body);
+            string res = TextPreprocess(Body);
             if (ProblemAuthor != null)
                 res += "<br>Author" + (ProblemAuthor.Contains(',') ? "s" : "") + 
                     " of the problem " + ProblemAuthor;
@@ -101,7 +105,7 @@ namespace AscSite.Pages.projects
                 res = Annotation;
             else
                 res = Body;
-            return Md2Html(res) + "<br><a class=\"asc-button big-asc-button\" href=\"" + readMoreButton + "\">Read more →</a>";
+            return TextPreprocess(res) + "<br><a class=\"asc-button big-asc-button\" href=\"" + readMoreButton + "\">Read more →</a>";
         }
     }
 }

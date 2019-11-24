@@ -1,4 +1,5 @@
 ﻿using AscSite.Core.Interface.Database;
+using AscSite.Pages.projects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,12 @@ namespace AscSite.Core.Render.Renderers
         private string path;
         public override StringBuilder RenderOne(Post post, StringBuilder sb)
         {
-            return base
-                .RenderOne(post, sb)
+            return sb
+                .Append("<h1>")
+                .Append(post.Name)
+                .Append("</h1>")
+                .Append("<br>")
+                .Append(AscmdPage.Md2Html(post.Announcement))
                 .Append("<br>")
                 .Append(Renderer.AscButton(path + "?ProjectId=" + post.Id.ToString()))
                 .Append("<hr>");
