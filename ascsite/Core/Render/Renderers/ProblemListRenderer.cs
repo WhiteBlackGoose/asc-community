@@ -6,6 +6,7 @@ using AscSite.Core.Interface.Database;
 
 namespace AscSite.Core.Render.Renderers
 {
+    using ascsite.Core;
     using System.Text;
     using PostType = AscSite.Core.Interface.Database.Post.TYPE;
     public class ProblemListRenderer : ListRenderer

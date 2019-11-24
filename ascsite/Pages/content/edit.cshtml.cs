@@ -65,6 +65,7 @@ namespace ascsite.Pages.content
 
         public void OnPost()
         {
+            RelationTypes = Functions.FillStringNa(RelationTypes);
             try
             {
                 if (Functions.GetHashString(Password) != "706B21EA65649CBFD4CF10852FC063740812884D26FBDB2F01F010ADC5F5EA25")

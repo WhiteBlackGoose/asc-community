@@ -78,7 +78,7 @@ namespace AscSite.Pages.projects
         }
         public static string Md2Html(string mdtext)
         {
-            return Markdown.ToHtml(mdtext, Pipeline);
+            return Markdown.ToHtml(mdtext.Replace(@"\\", @"\\\\"), Pipeline);
         }
         public string Render()
         {

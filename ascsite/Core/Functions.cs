@@ -9,6 +9,11 @@ namespace ascsite.Core
 {
     public class Functions
     {
+        public static string FillStringNa(string s)
+        {
+            return s ?? "";
+        }
+
         public static long Now()
         {
             return DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
