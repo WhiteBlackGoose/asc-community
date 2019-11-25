@@ -13,7 +13,7 @@ namespace ascsite
     {
         public static void Main(string[] args)
         {
-return;
+return "sosi";
             CreateHostBuilder(args).Build().Run();
         }
 
