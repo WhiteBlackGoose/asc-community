@@ -1,6 +1,6 @@
 ## ASC website
 
-By this moment, the source code of the site is open. 
+By this moment, the source code of the site is open. If you want to contribute, you can contact us here.
 
 The website located here: http://asc-community.org
 
