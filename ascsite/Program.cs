@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,14 @@ namespace ascsite
                 {
                     webBuilder.UseStartup<Startup>();
                     webBuilder.UseUrls("http://*:64321");
+                    webBuilder.UseKestrel(options =>
+                    {
+                        options.Listen(IPAddress.Loopback, 443);
+                        options.Listen(IPAddress.Loopback, 64320, listenOptions => {
+                            listenOptions.UseHttps("", "testcert");
+                        });
+                    }
+                    );
                 });
     }
 }
