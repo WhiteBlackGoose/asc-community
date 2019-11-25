@@ -1,4 +1,5 @@
-﻿using Processor.syntaxProcessor.tokens;
+﻿using ascsite.Core;
+using Processor.syntaxProcessor.tokens;
 using Processor.syntaxProcessor.tokens.types;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Processor.syntaxProcessor
         public MajorSegmentList GetSegments()
         {
             if (segms == null)
-                throw new Exception(); // TODO
+                throw new InternalException("Segments error (no segments)");
             return segms;
         }
         public MathPreprocessor(PostTokenList tokens)

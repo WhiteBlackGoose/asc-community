@@ -49,3 +49,13 @@
 .contributor-list {
     margin-top: 20%;
 }
+
+.edit-field {
+    width: 80%;
+    margin-left: 10%;
+    padding: 1px;
+}
+
+main pre code {
+    color: #8888ff;
+}

@@ -48,7 +48,8 @@ namespace AscSite.Tests.calc
                 try
                 {
                     calc.Compute();
-                } catch(Exception e)
+                } 
+                catch(Exception e)
                 {
                     report.Add(exp, e.Message);
                 }

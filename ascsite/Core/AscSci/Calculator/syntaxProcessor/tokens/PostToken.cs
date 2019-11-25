@@ -27,7 +27,7 @@ namespace Processor.syntaxProcessor
         public void Freeze()
         {
             if (BracketProcessor.BracketCheck(Data) != BracketProcessor.ERRORTYPE.OK)
-                throw new ParsingException("Invalid brackets in `" + Data + "`"); // TODO
+                throw new ParsingException("Invalid brackets in `" + Data + "`");
             frozen = true;
             if (string.IsNullOrEmpty(Data))
                 this.type = PostTokenType.VOID;
@@ -40,18 +40,18 @@ namespace Processor.syntaxProcessor
         public string GetBeforeEq()
         {
             if (!frozen)
-                throw new InternalException(); // TODO
+                throw new InternalException("Attempt to call GetBeforeEq before freezing PostToken");
             if (type != PostTokenType.EQUALITY)
-                throw new ParsingException("Expected `=`"); // TODO
+                throw new ParsingException("Expected `=`");
             return Data.Substring(0, Data.IndexOf("="));
         }
 
         public string GetAfterEq()
         {
             if (!frozen)
-                throw new InternalException(); // TODO
+                throw new InternalException("Attempt to call GetAfterEq before freezing PostToken");
             if (type != PostTokenType.EQUALITY)
-                throw new ParsingException("Expected `=`"); // TODO
+                throw new ParsingException("Expected `=`");
             return Data.Substring(Data.IndexOf("=") + 1);
         }
 

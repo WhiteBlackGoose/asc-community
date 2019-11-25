@@ -1,6 +1,7 @@
 ﻿using Processor;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,7 +9,29 @@ namespace ascsite.Core
 {
     abstract class ASCException : Exception
     {
-        public ASCException(string msg) : base(msg) { }
+        private static System.IO.StreamWriter fileStream = new System.IO.StreamWriter(Const.PATH_LOGFILE, true);
+        private void Log(string msg)
+        {
+            fileStream.Write('[' + DateTime.Now.ToString() + "]: ");
+            fileStream.Write(msg);
+            fileStream.WriteLine();
+            fileStream.Flush();
+        }
+        public ASCException(string msg) : base(msg) 
+        {
+            Log(msg);
+        }
+
+        public ASCException(Exception e)
+        {
+            string msg = e.Message;
+            while(e.InnerException != null)
+            {
+                msg += "\n>" + e.InnerException.Message;
+                e = e.InnerException;
+            }
+            Log(msg);
+        }
     }
 
 
@@ -68,6 +91,7 @@ namespace ascsite.Core
     /*  INTERNAL EXCEPTION  */
     class InternalException : ASCException
     {
-        public InternalException() : base(Const.ERMSG_INTERNAL_ERROR) { }
+        public InternalException(string msg) : base(Const.ERMSG_INTERNAL_ERROR + ": " + msg) { }
+        public InternalException(Exception e) : base(e) { }
     }
 }
