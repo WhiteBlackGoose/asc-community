@@ -16,6 +16,8 @@ namespace ascsite
             CreateHostBuilder(args).Build().Run();
         }
 
+        // this is test of build system
+        error here
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
