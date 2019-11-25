@@ -23,6 +23,7 @@ namespace ascsite
                 {
                     webBuilder.UseStartup<Startup>();
                     webBuilder.UseUrls("http://*:64321");
+                    /*
                     webBuilder.UseKestrel(options =>
                     {
                         options.Listen(IPAddress.Loopback, 443);
@@ -30,7 +31,7 @@ namespace ascsite
                             listenOptions.UseHttps("", "testcert");
                         });
                     }
-                    );
+                    );*/
                 });
     }
 }
