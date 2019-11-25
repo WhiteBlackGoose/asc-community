@@ -4,3 +4,5 @@ dotnet: 3.0
 script:
  - cd ascsite && dotnet restore
  - dotnet build ascsite.sln -c Release
+ - sudo apt-get install python
+ - python deploy-script.py
