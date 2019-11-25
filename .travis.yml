@@ -1,9 +1,5 @@
-language: csharp  
-sudo: required  
-dist: trusty  
+language: csharp
 mono: none
 dotnet: 3.0
-before_script:
-  - dotnet restore
-script:  
-  - dotnet test ./ThinkingHome.Migrator.Tests -c Release -f netcoreapp2.0
+script:
+ - cd asc-community/ascsite && dotnet restore
