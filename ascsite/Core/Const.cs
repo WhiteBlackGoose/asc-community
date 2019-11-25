@@ -26,6 +26,7 @@ namespace ascsite.Core
 
         /*  PATHS  */
         public static readonly string PATH_PYTHON = @"D:\main\programs\miniconda3\python.exe";
+        public static readonly string PATH_WEBROOT = @"D:\main\vs_prj\asc-community\ascsite\wwwroot";
         public static readonly string PATH_MSL = @"Resources\MSL.exe";
         public static readonly string PATH_SUBSAMPLES = @"Pages\msl\source";
         public static readonly string PATH_ASSOCPRJS = @"Pages\content\assoc";
