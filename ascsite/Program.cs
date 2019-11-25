@@ -13,6 +13,7 @@ namespace ascsite
     {
         public static void Main(string[] args)
         {
+return;
             CreateHostBuilder(args).Build().Run();
         }
 
