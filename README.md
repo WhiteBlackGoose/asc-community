@@ -1,5 +1,7 @@
 ## ASC website
 
+[![Travis](https://img.shields.io/travis/MomoDeve/asc-community.svg)](https://travis-ci.org/MomoDeve/asc-community)
+
 By this moment, the source code of the site is open. 
 
 The website located here: http://asc-community.org
