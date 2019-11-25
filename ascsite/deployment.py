@@ -11,8 +11,6 @@ EXECUTABLE_PATH = r'C:\Users\Momo\source\repos\Angourisoft\asc-community\ascsite
 # os.system('cmd dotnet build ' + PROJECT_DIRECTORY + r'\ascsite.sln -c Release')
 # os.system(EXECUTABLE_PATH)
 
-exit(0)
-
 def console_log(*text):
     print(*text)
 
