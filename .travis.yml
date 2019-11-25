@@ -3,3 +3,4 @@ mono: none
 dotnet: 3.0
 script:
  - cd ascsite && dotnet restore
+ - dotnet build ascsite.sln -c Release
