@@ -18,7 +18,7 @@ namespace ascsite.Core.PyInterface.PyMath
 
         public PyMath()
         {
-            pyInterface = new PyInterface(Const.PATH_PYOUT);
+            pyInterface = new PyInterface();
         }
 
         public void TokensAdd(PyInterface pyInterface, IEnumerable<string> tokens)

@@ -16,7 +16,13 @@ namespace ascsite.Core.PyInterface
 {
     public class PyInterface : ProgramInterface
     {
-        public PyInterface(string outputPath)
+        public static void RunPyProcess(string pyPath)
+        {
+            var prompt = "\"" + Const.PATH_PYTHON + "\"" + " " + "\"" + pyPath + "\"";
+            System.Diagnostics.Process.Start("CMD.exe", prompt);
+        }
+
+        public PyInterface()
         {
             ProcessInit();
         }

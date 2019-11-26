@@ -25,16 +25,18 @@ namespace ascsite.Core
         public static readonly string ERMSG_INVALID_REQUEST = "Invalid request";
 
         /*  PATHS  */
+        public static readonly string PATH_ROOT = @"D:\main\vs_prj\asc-community\ascsite";
         public static readonly string PATH_PYTHON = @"D:\main\programs\miniconda3\python.exe";
-        public static readonly string PATH_WEBROOT = @"D:\main\vs_prj\asc-community\ascsite\wwwroot";
-        public static readonly string PATH_MSL = @"Resources\MSL.exe";
-        public static readonly string PATH_SUBSAMPLES = @"Pages\msl\source";
-        public static readonly string PATH_ASSOCPRJS = @"Pages\content\assoc";
-        public static readonly string PATH_LAYOUT = @"Pages\Shared\_Layout.cshtml";
-        public static readonly string PATH_PYOUT = @"Core/PyInterface/pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
+        public static readonly string PATH_WEBROOT = PATH_ROOT + @"\wwwroot";
+        public static readonly string PATH_MSL = PATH_ROOT + @"\Resources\MSL.exe";
+        public static readonly string PATH_SUBSAMPLES = PATH_ROOT + @"\Pages\msl\source";
+        public static readonly string PATH_ASSOCPRJS = PATH_ROOT + @"\Pages\content\assoc";
+        public static readonly string PATH_LAYOUT = PATH_ROOT + @"\Pages\Shared\_Layout.cshtml";
+        public static readonly string PATH_PYOUT = PATH_ROOT + @"\Core\PyInterface\pyout"; /// BE CAREFUL WITH THIS PATH! IT IS CALLED IN PYTHON
         public static readonly string PATH_PROJECTS = @"/content/projects";
         public static readonly string PATH_PROBLEMS = @"/content/problems";
-        public static readonly string PATH_LOGFILE = @"Logs/errors.log";
+        public static readonly string PATH_LOGFILE = PATH_ROOT + @"/Logs/errors.log";
+        public static readonly string PATH_PYINTERFACE = PATH_ROOT + @"/Code/AscSci/PyProcessor/executor.py";
 
         /*  TITLES  */
         public static readonly string TITLE_INTERPRETEDAS = "Interpreted as";
@@ -65,6 +67,8 @@ namespace ascsite.Core
         public static readonly string PYINTERFACE_ADDRESS = "127.0.0.1";
         public static readonly char PYINTERFACE_ERROR = 'E';
         public static readonly char PYINTERFACE_EVALREQ = 'E';
+        public static readonly char PYINTERFACE_EXITCOMMAND = 'Q';
+       
 
         /*  DELIMITERS  */
         public static readonly string DEL_PRJSPAGES = "|";
