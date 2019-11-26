@@ -44,8 +44,8 @@ while True:
                         evres_ = eval(line_)
                         resp_ = OK_ + str(evres_)
                     elif cmd_ == "Q":
-						exit()
-					else:
+                        exit()
+                    else:
                         raise Exception("Symbol " + cmd_ + " unresolved");
                     console_log("OK on " + cmd_)
                 except Exception as e_:
