@@ -4,6 +4,8 @@ using System.Text;
 
 namespace Processor.lexicProcessor
 {
+#pragma warning disable CS0661 // Type defines operator == or operator != but does not override Object.GetHashCode()
+#pragma warning disable CS0660 // Type defines operator == or operator != but does not override Object.Equals(object o)
     public class Token
     {
         public enum Type
@@ -51,3 +53,5 @@ namespace Processor.lexicProcessor
         public static bool operator !=(Token t, string value) => !(t == value);
     }
 }
+#pragma warning restore CS0661 // Type defines operator == or operator != but does not override Object.GetHashCode()
+#pragma warning restore CS0660 // Type defines operator == or operator != but does not override Object.Equals(object o)

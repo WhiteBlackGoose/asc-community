@@ -1,10 +1,7 @@
-﻿using AscSite.Core.Interface.Database;
-using AscSite.Pages.projects;
-using System;
-using System.Collections.Generic;
+﻿using ascsite.Core;
+using AscSite.Core.Interface.Database;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AscSite.Core.Render.Renderers
 {
@@ -16,12 +13,12 @@ namespace AscSite.Core.Render.Renderers
         {
             return sb
                 .Append("<h1>")
-                .Append(post.Name)
+                .Append(Functions.HtmlTextPreprocess(post.Name))
                 .Append("</h1>")
                 .Append("<br>")
-                .Append(AscmdPage.Md2Html(post.Announcement))
+                .Append(Functions.Md2Html(post.Announcement))
                 .Append("<br>")
-                .Append(Renderer.AscButton(path + "?ProjectId=" + post.Id.ToString()))
+                .Append(AscButton(path + "?ProjectId=" + post.Id.ToString()))
                 .Append("<hr>");
         }
 

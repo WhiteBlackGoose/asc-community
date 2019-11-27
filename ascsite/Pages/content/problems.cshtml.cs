@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ascsite.Core;
-using AscSite.Core.WebInterface;
-using AscSite.Pages.projects;
-using Markdig;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Processor;
-using AscSite.Core.Interface.DbInterface;
 using AscSite.Core.Render.Renderers;
 
 namespace ascsite.Pages
@@ -36,6 +27,7 @@ namespace ascsite.Pages
             }
             catch(Exception e)
             {
+                string _ = e.Message; // for debug
                 RawResult = Const.ERMSG_INTERNAL_ERROR;
             }
         }
