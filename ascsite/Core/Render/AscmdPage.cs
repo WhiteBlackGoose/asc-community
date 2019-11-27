@@ -78,7 +78,7 @@ namespace AscSite.Pages.projects
         }
         public static string TextPreprocess(string text)
         {
-            return text.Replace("\r\n", "<br>");
+            return text.Replace("\r\n", "<br>").Replace("<!--", "< !--").Replace("-->", "-- >");
         }
         public static string Md2Html(string mdtext)
         {
