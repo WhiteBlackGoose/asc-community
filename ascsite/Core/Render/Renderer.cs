@@ -1,11 +1,8 @@
-﻿using AscSite.Core.Interface.Database;
+﻿using ascsite.Core;
+using AscSite.Core.Interface.Database;
 using AscSite.Core.Interface.DbInterface;
-using AscSite.Pages.projects;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AscSite.Core.Render
 {
@@ -37,7 +34,7 @@ namespace AscSite.Core.Render
                 .Append(post.Name)
                 .Append("</h1>")
                 .Append("<br>")
-                .Append(AscmdPage.TextPreprocess(post.Announcement));
+                .Append(Functions.HtmlTextPreprocess(post.Announcement));
             return sb;
         }
 
@@ -69,9 +66,9 @@ namespace AscSite.Core.Render
                 .Append(post.Name)
                 .Append("</h1>")
                 .Append("<br>")
-                .Append(AscmdPage.TextPreprocess(post.Announcement))
+                .Append(Functions.HtmlTextPreprocess(post.Announcement))
                 .Append("<hr>")
-                .Append(AscmdPage.TextPreprocess(post.Body));
+                .Append(Functions.HtmlTextPreprocess(post.Body));
             return sb.ToString();
         }
     }

@@ -1,12 +1,7 @@
 ﻿using ascsite.Core;
-using AscSite.Core.Interface.Database;
 using AscSite.Core.Interface.DbInterface;
-using AscSite.Pages.projects;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AscSite.Core.Render.Renderers
 {
@@ -27,9 +22,9 @@ namespace AscSite.Core.Render.Renderers
                 .Append(post.Name)
                 .Append("</h1>")
                 .Append("<br>")
-                .Append(AscmdPage.Md2Html(post.Announcement))
+                .Append(Functions.Md2Html(post.Announcement))
                 .Append("<hr>")
-                .Append(AscmdPage.Md2Html(post.Body));
+                .Append(Functions.Md2Html(post.Body));
 
             var entries = DbInterface.GetUsersRelatedToPostById(postId);
 

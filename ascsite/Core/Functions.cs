@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text;
 using AscSite.Core.Interface.DbInterface;
+using Markdig;
 
 namespace ascsite.Core
 {
@@ -29,6 +30,12 @@ namespace ascsite.Core
             return result;
         }
 
+        public static string Md2Html(string mdtext)
+        {
+            // some things should be preprocessed to html anyway
+            return HtmlTextPreprocess(Markdown.ToHtml(mdtext));
+        }
+
         public static byte[] GetHash(string inputString)
         {
             HashAlgorithm algorithm = SHA256.Create();
@@ -42,6 +49,14 @@ namespace ascsite.Core
                 sb.Append(b.ToString("X2"));
 
             return sb.ToString();
+        }
+
+        public static string HtmlTextPreprocess(string text)
+        {
+            return text
+                .Replace("\r\n", "<br>")
+                .Replace("<!--", "< !--")
+                .Replace("-->", "-- >");
         }
 
         public static string MakeRelationString(string relationName, IEnumerable<DbInterface.PostUserEntry> entries)
