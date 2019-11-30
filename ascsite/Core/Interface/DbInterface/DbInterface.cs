@@ -113,6 +113,39 @@ namespace AscSite.Core.Interface.DbInterface
                 db.SaveChanges();
             }
         }
+        
+        #region CODELINKS
+        public static int CreateCodeLink(string text)
+        {
+            CodeLink link = new CodeLink { Code = text };
+            using (var db = new DbAscContext())
+            {
+                var newLink = db.CodeLinks.Add(link);
+                db.SaveChanges();
+            }
+            return link.Id;
+        }
+
+        public static CodeLink GetCodeLinkById(int id)
+        {
+            using (var db = new DbAscContext())
+            {
+                return db.CodeLinks.FirstOrDefault(entry => entry.Id == id);
+            }
+        }
+        public static void UpdateCodeLinkById(CodeLink link)
+        {
+            using (var db = new DbAscContext())
+            {
+                var e = GetCodeLinkById(link.Id);
+                if (e != null)
+                    e.Code = link.Code;
+                db.SaveChanges();
+            }
+        }
+
+        #endregion CODELINKS
+
         public static void AddRelations(int postId, List<PostUserEntry> relations)
         {
             using(var db = new DbAscContext())
