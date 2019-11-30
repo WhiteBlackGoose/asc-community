@@ -23,7 +23,7 @@ namespace ascsite
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://*:65321");
+                    webBuilder.UseUrls("http://*:64321");
                     webBuilder.UseWebRoot(Const.PATH_WEBROOT);
                 });
     }
