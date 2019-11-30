@@ -64,7 +64,7 @@ namespace Processor.lexicProcessor
         public void AddOmittedOps()
         {
             var mult = new Token(Token.Type.MATH_OP, "*");
-            var pow = new Token(Token.Type.MATH_OP, "**");
+            var pow = new Token(Token.Type.MATH_OP, "^");
             
             InsertBetween(Token.Type.NUMBER, Token.Type.BRACKET_OPEN, mult);
 

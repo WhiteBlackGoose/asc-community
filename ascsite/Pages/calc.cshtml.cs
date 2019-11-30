@@ -1,8 +1,6 @@
 using ascsite.Core;
 
 using ascsite.Core.AscSci.Calculator;
-using ascsite.Core.PyInterface;
-using ascsite.Core.PyInterface.PyMath;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;

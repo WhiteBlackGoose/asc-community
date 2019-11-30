@@ -1,5 +1,5 @@
-﻿using ascsite.Core.PyInterface.PyMath;
-using AscSite.Core.AscSci.AscMath;
+﻿using AscSite.Core.AscSci.AscMath;
+using MathSharp;
 using Processor;
 using Processor.lexicProcessor;
 using Processor.syntaxProcessor;
@@ -39,7 +39,6 @@ namespace ascsite.Core.AscSci.Calculator
         {
             DERIVATIVE,
             BOOL,
-            INTEGRAL,
             SOLVE,
             SIMPLIFICATION,
             PLOT
@@ -48,7 +47,6 @@ namespace ascsite.Core.AscSci.Calculator
         private static List<FieldType> MathAnalysis = new List<FieldType>()
         {
             FieldType.DERIVATIVE,
-            FieldType.INTEGRAL,
             FieldType.SOLVE,
         };
 
@@ -84,7 +82,6 @@ namespace ascsite.Core.AscSci.Calculator
         {
             CalcResult res = new CalcResult();
 
-            PyMath pymath = new PyMath();
             try
             {
                 // INITIALIZATION OF STUFF
@@ -212,33 +209,23 @@ namespace ascsite.Core.AscSci.Calculator
                             string req = expressionSegment.Build();
                             if (fieldType == FieldType.DERIVATIVE)
                             {
-                                newExprs.Add(pymath.Derivative(req, diffVar, vars));
+                                newExprs.Add(MathS.FromString(req).Derive(MathS.Var(diffVar)).ToString());
                                 if (isLast && latex)
-                                    newLatexExprs.Add(pymath.Derivative(req, diffVar, vars, true));
-                            }
-                            else if (fieldType == FieldType.INTEGRAL)
-                            {
-                                newExprs.Add(pymath.Integral(req, diffVar, vars));
-                                if (isLast && latex)
-                                    newLatexExprs.Add(pymath.Integral(req, diffVar, vars, true));
+                                    newLatexExprs.Add("$$" + MathS.FromString(req).Derive(MathS.Var(diffVar)).Latexise().ToString() + "$$");
                             }
                             else if (fieldType == FieldType.SOLVE)
                             {
-                                newExprs.AddRange(pymath.Solve(req, diffVar, vars));
+                                expressionSegment.tokens.AddOmittedOps();
+                                if (vars.Count > 1)
+                                    throw new InvalidRequestException();
+                                foreach (var root in MathS.FromString(req).SolveNt(MathS.Var(diffVar), precision: 400))
+                                    newExprs.Add(root.ToString());
                                 if (isLast && latex)
-                                    newLatexExprs.AddRange(pymath.Solve(req, diffVar, vars, true));
+                                    foreach (var root in MathS.FromString(req).SolveNt(MathS.Var(diffVar), precision: 400))
+                                        newExprs.Add("$$" + root.Latexise().ToString() + "$$");
                             }
                         }
-                        else if(fieldType == FieldType.PLOT)
-                        {
-                            expressionSegment.tokens.AddOmittedOps();
-                            var vars = expressionSegment.tokens.ExtractVariables();
-                            vars = Functions.MakeUnique(vars);
-                            string expr = expressionSegment.Build();
-                            List<string> plotVars = new List<string>();
-                            var whereTags = fieldOpts.Select("where").Select(CustomData.Type.RANGE);
-                            // E{"x": "[20; 3]"}
-                        }
+                        
                         else if (fieldType == FieldType.SIMPLIFICATION)
                         {
                             expressionSegment.tokens.AddOmittedOps();
@@ -246,12 +233,12 @@ namespace ascsite.Core.AscSci.Calculator
                             vars = Functions.MakeUnique(vars);
                             string req = expressionSegment.Build();
                             string newExpr;
-                            newExpr = pymath.Simplify(req, vars, appr: isLast && expressionSegments.Count < 2);
+                            newExpr = MathS.FromString(req).Simplify().ToString();
                             newExprs.Add(newExpr);
                             if(isLast && latex)
                             {
-                                newExpr = pymath.Simplify(req, vars, appr: isLast && expressionSegments.Count < 2, true);
-                                newLatexExprs.Add(newExpr);
+                                newExpr = MathS.FromString(req).Simplify().Latexise();
+                                newLatexExprs.Add("$$" + newExpr + "$$");
                             }
                         }
                     }
@@ -277,16 +264,11 @@ namespace ascsite.Core.AscSci.Calculator
                         break; // For quickExit case
                     }
                 }
-
-
-
             }
             catch (Exception e)
             {
-                pymath.Destroy();
                 throw e;
             }
-            pymath.Destroy();
             return res;
         }
 
@@ -296,8 +278,6 @@ namespace ascsite.Core.AscSci.Calculator
                 return FieldType.BOOL;
             else if (fieldName == Names.DERIVATIVE)
                 return FieldType.DERIVATIVE;
-            else if (fieldName == Names.INTEGRAL)
-                return FieldType.INTEGRAL;
             else if (fieldName == Names.SOLVE)
                 return FieldType.SOLVE;
             else if (fieldName == Names.PLOT)

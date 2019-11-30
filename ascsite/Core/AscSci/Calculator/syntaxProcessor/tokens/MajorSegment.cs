@@ -38,8 +38,6 @@ namespace Processor.syntaxProcessor.tokens
                 return Field.Type.BOOLEAN;
             else if (keyname == Names.DERIVATIVE)
                 return Field.Type.DERIVATIVE;
-            else if (keyname == Names.INTEGRAL)
-                return Field.Type.INTEGRAL;
             else if (keyname == Names.PLOT)
                 return Field.Type.PLOT;
             else if (keyname == Names.SIMPLIFICATION)
