@@ -20,10 +20,15 @@ namespace Processor
         public static string SIN = "sin";
         public static string COS = "cos";
         public static string TAN = "tan";
+        public static string COTAN = "cotan";
         public static string LOG = "log";
-        public static string BFUNC = "B";
-        public static string TBFUNC = "tB";
+        public static string LN = "ln";
+        public static string SEC = "sec";
+        public static string COSEC = "cosec";
+        public static string BFUNC = "b";
+        public static string TBFUNC = "tb";
         public static string SQRT = "sqrt";
+        public static string SQR = "sqr";
         public static string PIECEWISE = "Piecewise";
         public static string CONST_PI = "pi";
         public static string CONST_TRUE = "True";

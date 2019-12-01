@@ -31,8 +31,13 @@ namespace Processor.lexicProcessor
             Names.COS,
             Names.SIN,
             Names.TAN,
+            Names.COTAN,
             Names.LOG,
+            Names.SEC,
+            Names.COSEC,
+            Names.LN,
             Names.SQRT,
+            Names.SQR,
             Names.BFUNC,
             Names.TBFUNC,
             Names.PIECEWISE
