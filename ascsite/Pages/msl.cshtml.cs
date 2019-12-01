@@ -6,6 +6,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using ascsite.Core;
 using ascsite.Core.MSLInterface;
+using AscSite.Core;
+using AscSite.Core.Interface.Database;
+using AscSite.Core.Interface.DbInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Processor;
@@ -51,46 +54,27 @@ namespace ascsite.Pages
         public MSLModel()
         {
             CodeText = MSLInterface.GetSample("sample.msl");
+            AddSamplesList();
         }
-
-        [BindProperty]
-        public string CodeText { get; set; }
-
+        [BindProperty] public string CodeText { get; set; }
         public string OutputMSL { get; set; }
-
         public string Samples { get; set; }
+        [BindProperty(SupportsGet = true)] public string Link { get; set; }
+        [BindProperty(SupportsGet = true)] public string ReturnedId { get; set; } // currently unsupported
 
-        [BindProperty(SupportsGet = true)]
-        public string InputMSL { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string IfPull { get; set; }
-        public void ResponseVoid()
-        {
-            this.HttpContext.Response.Body.WriteAsync(Encoding.UTF8.GetBytes(string.Empty));
-        }
         public void OnGet()
         {
-            if (!string.IsNullOrEmpty(InputMSL))
+            if (Link != null)
             {
-                // INPUT INTO MSL TO DO
-                return;
-            }
-            if (!string.IsNullOrEmpty(IfPull))
-            {
-                if (!string.IsNullOrEmpty(ReturnedId))
+                try
                 {
-                    string output = MSLProgramPool.GetById(ReturnedId).PullOutput();
-                    if (!string.IsNullOrEmpty(output))
-                    {
-                        this.HttpContext.Response.Body.WriteAsync(Encoding.UTF8.GetBytes(output));
-                        return;
-                    }
+                    int linkId = LinkGenerator.FromString(Link).Integer;
+                    var codeEntry = DbInterface.GetCodeLinkById(linkId);
+                    if (codeEntry != null)
+                        CodeText = codeEntry.Code;
                 }
-                ResponseVoid();
+                catch (Exception e) { }
             }
-
-            // add samples to list
-            AddSamplesList();
         }
 
         private void AddSamplesList()
@@ -114,10 +98,7 @@ namespace ascsite.Pages
             }
             Samples = builder.ToString();
         }
-
-        [BindProperty(SupportsGet = true)]
-        public string ReturnedId { get; set; }
-        public void OnPost()
+        public void OnPostCompileCode()
         {
             string id = MSLProgramPool.CreateProgram();
             MSLProgramPool.GetById(id).Execute(CodeText);
@@ -133,6 +114,14 @@ namespace ascsite.Pages
                 OutputMSL = output;
 
             AddSamplesList();
+        }
+
+        public void OnPostGenerateLink()
+        {
+            if (string.IsNullOrEmpty(CodeText)) return;
+            int linkId = DbInterface.CreateCodeLink(CodeText);
+            Link = LinkGenerator.FromInteger(linkId).Text;
+            Response.Redirect("/msl?Link=" + Link); 
         }
     }
 }

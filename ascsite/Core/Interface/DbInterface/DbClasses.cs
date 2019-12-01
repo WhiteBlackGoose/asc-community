@@ -13,6 +13,7 @@ namespace AscSite.Core.Interface.Database
         public DbSet<User> Users { get; set; }
         public DbSet<UserPostContribution> UserPostContributions { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<CodeLink> CodeLinks { get; set; }
         /*
         private List<string> logLines;
         private void LogWrite(string s)
@@ -86,5 +87,13 @@ namespace AscSite.Core.Interface.Database
             Body = src.Body;
             Type = src.Type;
         }
+    }
+
+    public class CodeLink
+    {
+        [Key]
+        public int Id { get; set; }
+
+        public string Code { get; set; }
     }
 }

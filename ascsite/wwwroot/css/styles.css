@@ -26,14 +26,18 @@
     text-align: center;
 }
 
-.div-container {
+.code-editor-container {
     display: table-cell;
     max-width: 1000px;
 }
 
-.msl-sample-block {
+.horizontal-align-container {
     display: table-cell;
     width: 5%;
+}
+
+.inlined-block {
+    display: inline-block;
 }
 
 #bool-res {
