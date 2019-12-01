@@ -218,11 +218,12 @@ namespace ascsite.Core.AscSci.Calculator
                                 expressionSegment.tokens.AddOmittedOps();
                                 if (vars.Count > 1)
                                     throw new InvalidRequestException();
-                                foreach (var root in MathS.FromString(req).SolveNt(MathS.Var(diffVar), precision: 400))
+                                var roots = MathS.FromString(req).SolveNt(MathS.Var(diffVar), precision: 400);
+                                foreach(var root in roots)
                                     newExprs.Add(root.ToString());
                                 if (isLast && latex)
-                                    foreach (var root in MathS.FromString(req).SolveNt(MathS.Var(diffVar), precision: 400))
-                                        newExprs.Add("$$" + root.Latexise().ToString() + "$$");
+                                    foreach (var root in roots)
+                                        newExprs.Add("$$" + root.ToString() + "$$");
                             }
                         }
                         
