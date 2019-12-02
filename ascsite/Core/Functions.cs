@@ -11,15 +11,6 @@ namespace ascsite.Core
 {
     public class Functions
     {
-        public static string FillStringNa(string s)
-        {
-            return s ?? "";
-        }
-
-        public static long Now()
-        {
-            return DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-        }
 
         public static List<string> MakeUnique(List<string> v)
         {
@@ -40,6 +31,16 @@ namespace ascsite.Core
         {
             HashAlgorithm algorithm = SHA256.Create();
             return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+        }
+
+        public static string FormatDbField(string field)
+        {
+            if (string.IsNullOrEmpty(field))
+                field = "NULL";
+            field = field.Trim(); 
+            if (field.Length >= 20)
+                field = field.Substring(0, 16) + "... ";
+            return field;
         }
 
         public static string GetHashString(string inputString)

@@ -1,0 +1,21 @@
+﻿@page
+@model ascsite.Pages.databaseModel
+@{
+    ViewData["Title"] = "database";
+}
+
+<h1>Edit Database</h1>
+<link rel="stylesheet" type="text/css" href="~/css/styles.css">
+<p><b style="color: @Html.Raw(Model.StatusColor)">@Model.Status</b></p>
+
+<form method="POST">
+    SQL query<br>
+    <textarea type="text" rows="10" class="edit-field"  spellcheck="false"
+              style="font-family: monospace; font-size: 14pt" name="SqlQuery">@Model.SqlQuery</textarea><br>
+    SQL output<br>
+    <textarea type="text" spellcheck="false" rows="10" class="edit-field" 
+              style="font-family: monospace;font-size: 10pt">@Model.DbOutput</textarea><br>
+    Password<br>
+    <input type="password" name="Password"><br>
+    <input type="submit" value="Commit">
+</form>

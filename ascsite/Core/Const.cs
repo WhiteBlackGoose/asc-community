@@ -82,5 +82,8 @@ namespace ascsite.Core
 
         /*  ADDDATA  */
         public static readonly string ADD_LATEXSCRIPT = "<script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>" + "<script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>";
+
+        /* ADMINISTRATION */
+        public static readonly string ADMIN_PASSWORD_HASH = "706B21EA65649CBFD4CF10852FC063740812884D26FBDB2F01F010ADC5F5EA25";
     }
 }
