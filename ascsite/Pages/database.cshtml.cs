@@ -33,7 +33,10 @@ namespace ascsite.Pages
                 if (result.Count > 0)
                 {
                     string format = CreateDbFormatString(result[0].Count);
-                    DbOutput = string.Join('\n', result.Select(row => string.Format(format, row.ToArray<string>())));
+                    DbOutput = "";
+                    DbOutput += string.Format(format, result[0].ToArray<string>());
+                    DbOutput += "\n" + Functions.RepeatString("-", (result[0].Count) * 21) + "\n";
+                    DbOutput += string.Join('\n', result.Select(row => string.Format(format, row.ToArray<string>())).Skip(1));
                 }
 
                 Status = "Success";

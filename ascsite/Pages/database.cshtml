@@ -13,8 +13,13 @@
     <textarea type="text" rows="10" class="edit-field"  spellcheck="false"
               style="font-family: monospace; font-size: 14pt" name="SqlQuery">@Model.SqlQuery</textarea><br>
     SQL output<br>
-    <textarea type="text" spellcheck="false" rows="10" class="edit-field" 
-              style="font-family: monospace;font-size: 10pt">@Model.DbOutput</textarea><br>
+    <textarea type="text" spellcheck="false" rows="10" class="edit-field"
+              style="
+    font-family: monospace; 
+    font-size: 10pt; 
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;">@Model.DbOutput</textarea><br>
     Password<br>
     <input type="password" name="Password"><br>
     <input type="submit" value="Commit">

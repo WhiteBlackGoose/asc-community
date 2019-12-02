@@ -64,6 +64,13 @@ namespace ascsite.Core
                 .Replace("-->", "-- >");
         }
 
+        public static string RepeatString(string str, int count)
+        {
+            var builder = new StringBuilder();
+            for (int i = 0; i < count; i++)
+                builder.Append(str);
+            return builder.ToString();
+        }
         public static string MakeRelationString(string relationName, IEnumerable<DbInterface.PostUserEntry> entries)
         {
             if (entries.Count() == 0) return string.Empty;
