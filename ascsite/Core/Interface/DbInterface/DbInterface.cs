@@ -19,7 +19,10 @@ namespace AscSite.Core.Interface.DbInterface
             using (var db = new DbAscContext())
             using (var command = db.Database.GetDbConnection().CreateCommand())
             {
+                #pragma warning disable CA2100 // Review SQL queries for security vulnerabilities
                 command.CommandText = query;
+                #pragma warning restore CA2100 // Review SQL queries for security vulnerabilities
+
                 command.CommandType = CommandType.Text;
                 db.Database.OpenConnection();
 

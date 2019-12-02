@@ -37,7 +37,11 @@ namespace ascsite.Core
         {
             if (string.IsNullOrEmpty(field))
                 field = "NULL";
-            field = field.Trim(); 
+            field = field
+                .Replace('\n', ' ')
+                .Replace("\r", "")
+                .Replace('\t', ' ')
+                .Trim(); 
             if (field.Length >= 20)
                 field = field.Substring(0, 16) + "... ";
             return field;

@@ -15,12 +15,12 @@ namespace ascsite.Pages
         public string Status { get; set; }
         [BindProperty] public string Password { get; set; }
         public string DbOutput { get; set; }
-        [BindProperty] public string SqlQuery { get; set; } = "use [asc]\nselect* from[dbo].[Posts]";
+        [BindProperty] public string SqlQuery { get; set; } = "use [asc]\nselect * from[dbo].[Posts]";
         public void OnPost()
         {
             try
             {
-                if (Functions.GetHashString(Password) != Const.ADMIN_PASSWORD_HASH)
+                if (Functions.GetHashString(Password ?? "") != Const.ADMIN_PASSWORD_HASH)
                 {
                     Status = "Incorrect password";
                     StatusColor = "red";

@@ -69,7 +69,7 @@ namespace ascsite.Pages.content
             RelationTypes = RelationTypes ?? string.Empty;
             try
             {
-                if (Functions.GetHashString(Password) != Const.ADMIN_PASSWORD_HASH)
+                if (Functions.GetHashString(Password ?? "") != Const.ADMIN_PASSWORD_HASH)
                 {
                     Status = "Incorrect password";
                     StatusColor = "red";
