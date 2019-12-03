@@ -71,3 +71,51 @@ main pre code {
     margin: 5px;
     margin-left: 10%;
 }
+
+#projects-header {
+    text-align: center;
+    font-weight: 400;
+}
+
+.centered {
+    text-align: center;
+}
+
+.project-box {
+    display: inline-flex;
+    margin: 3%;
+    width: 300pt;
+    height: 150pt;
+    vertical-align: top;
+    background-size: cover;
+    border-radius: 5pt;
+    border: 2pt;
+    background-color: black;
+}
+
+.project-name {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    padding-left: 5pt;
+}
+
+.project-name:hover {
+    color: white;
+}
+
+#msl-project {
+    background-image: url(/res/msl-logo.png);
+}
+
+#mathSharp-project {
+    background-image: url(/res/mathSharp-logo.png);
+}
+
+#fluid2d-project {
+    background-image: url(/res/fluid2d-logo.png)
+}
+
+#electronics-project {
+    background-image: url(/res/electronics-logo.png)
+}

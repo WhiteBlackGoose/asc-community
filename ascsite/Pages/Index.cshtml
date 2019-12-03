@@ -4,20 +4,44 @@
     ViewData["Title"] = "Home page";
 }
 
-<script src="https://momentjs.com/downloads/moment.min.js"></script>
 <link rel="stylesheet" type="text/css" href="~/css/styles.css">
 
 <div class="text-center">
     <h1 class="display-4">Welcome to ASC community!</h1>
-    <p>ASC is a non-commercial organization whose goal is to solve complicated problems and develop modern science. We also have some projects.</p>
-    <p id="timeDisplay"></p>
+    <p class="centered">
+        ASC is a non-commercial organization whose goal is to solve complicated problems and develop modern science. <br>
+        We also develop multiple scientific, graphic or entartainment open-source applications
+    </p>
 </div>
 
-<script type="text/javascript">
-    setInterval(function displayCurrentTime() {
-        document.getElementById("timeDisplay").innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
-    }, 1000);
-</script>
+<!--MomoDev is working here-->
+<!--TODO: use C# to generate project list-->
 
-So far, the project is open-source and available <a href="https://github.com/Angourisoft/asc-community">here</a>.<br>
-You can join our <a href="https://discord.gg/mzxUzpu">discord server</a> if you are interested in this project. Feel free to contribute!
+<h2 id="projects-header">Our Projects</h2>
+
+<div class="horizontal-align-container centered">
+    <div id="msl-project" class="project-box">
+        <a href="http://asc-community.org/content/projects?ProjectId=2" class="project-name">MSL language</a>
+    </div>
+    <div id="mathSharp-project" class="project-box">
+        <a href="http://asc-community.org/content/projects?ProjectId=4" class="project-name">Math#</a>
+    </div>
+    <div id="fluid2d-project" class="project-box">
+        <a href="https://github.com/MomoDeve/FluidSimulation" class="project-name">2D Fluid Simulation</a>
+    </div>
+    <div id="electronics-project" class="project-box">
+        <a href="https://github.com/MomoDeve/Electronics" class="project-name">Electronics</a>
+    </div>
+    <div class="project-box">
+        <a href="http://asc-community.org/content/projects?ProjectId=1" class="project-name">HI19</a>
+    </div>
+    <div class="project-box">
+        <a href="http://asc-community.org/content/projects?ProjectId=3" class="project-name">TRON</a>
+    </div>
+</div>
+
+<hr>
+<p class="centered">
+    So far, the project is open-source and available <a href="https://github.com/Angourisoft/asc-community">here</a>.<br>
+    You can join our <a href="https://discord.gg/mzxUzpu">discord server</a> if you are interested in this project. Feel free to contribute!
+</p>you are interested in this project. Feel free to contribute!
