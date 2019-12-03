@@ -14,20 +14,8 @@ namespace AscSite.Core.Interface.Database
         public DbSet<UserPostContribution> UserPostContributions { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<CodeLink> CodeLinks { get; set; }
-        /*
-        private List<string> logLines;
-        private void LogWrite(string s)
-        {
-            logLines.Add(s);
-        }
-        public string GetLog()
-        {
-            return string.Join("\n", logLines.ToArray());
-        }
-        */
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //Database.Log = LogWrite;
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=asc;Integrated Security=True");
         }
     }

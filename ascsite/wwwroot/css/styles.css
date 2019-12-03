@@ -58,6 +58,7 @@
     width: 80%;
     margin-left: 10%;
     padding: 1px;
+    font-family: monospace !important;
 }
 
 main pre code {

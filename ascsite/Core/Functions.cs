@@ -11,15 +11,6 @@ namespace ascsite.Core
 {
     public class Functions
     {
-        public static string FillStringNa(string s)
-        {
-            return s ?? "";
-        }
-
-        public static long Now()
-        {
-            return DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-        }
 
         public static List<string> MakeUnique(List<string> v)
         {
@@ -42,6 +33,20 @@ namespace ascsite.Core
             return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
         }
 
+        public static string FormatDbField(string field)
+        {
+            if (string.IsNullOrEmpty(field))
+                field = "NULL";
+            field = field
+                .Replace('\n', ' ')
+                .Replace("\r", "")
+                .Replace('\t', ' ')
+                .Trim(); 
+            if (field.Length >= 20)
+                field = field.Substring(0, 16) + "... ";
+            return field;
+        }
+
         public static string GetHashString(string inputString)
         {
             StringBuilder sb = new StringBuilder();
@@ -59,6 +64,13 @@ namespace ascsite.Core
                 .Replace("-->", "-- >");
         }
 
+        public static string RepeatString(string str, int count)
+        {
+            var builder = new StringBuilder();
+            for (int i = 0; i < count; i++)
+                builder.Append(str);
+            return builder.ToString();
+        }
         public static string MakeRelationString(string relationName, IEnumerable<DbInterface.PostUserEntry> entries)
         {
             if (entries.Count() == 0) return string.Empty;

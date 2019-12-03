@@ -6,6 +6,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace AscSite.Core.Interface.DbInterface
 {
@@ -13,6 +14,52 @@ namespace AscSite.Core.Interface.DbInterface
     using PostType = AscSite.Core.Interface.Database.Post.TYPE;
     public static class DbInterface
     {
+        public static List<List<string>> ExecuteRawSqlQuery(string query)
+        {
+            using (var db = new DbAscContext())
+            using (var command = db.Database.GetDbConnection().CreateCommand())
+            {
+                #pragma warning disable CA2100 // Review SQL queries for security vulnerabilities
+                command.CommandText = query;
+                #pragma warning restore CA2100 // Review SQL queries for security vulnerabilities
+
+                command.CommandType = CommandType.Text;
+                db.Database.OpenConnection();
+
+                using (var reader = command.ExecuteReader())
+                {
+                    var list = new List<List<string>>();
+
+                    if (reader.HasRows)
+                    {
+                        var innerList = new List<string>();
+                        // read rows names
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            string rowName = $"{reader.GetName(i)}";
+                            innerList.Add(Functions.FormatDbField(rowName));
+                        }
+                        list.Add(innerList);
+
+                        // read values
+                        while (reader.Read())
+                        {
+                            innerList = new List<string>();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                string field = $"{reader[i]}";
+                                innerList.Add(Functions.FormatDbField(field));
+                            }
+                            list.Add(innerList);
+                        }
+                    }
+                    db.SaveChanges();
+                    return list;
+                }
+            }
+        }
+
+        #region POSTS
         public class PostUserEntry
         {
             public RelationType postRelation;
@@ -72,8 +119,6 @@ namespace AscSite.Core.Interface.DbInterface
             }
         }
 
-        //TODO REMOVING
-
         public static void AddPost(Post project)
         {
             using (var db = new DbAscContext())
@@ -113,7 +158,16 @@ namespace AscSite.Core.Interface.DbInterface
                 db.SaveChanges();
             }
         }
-        
+        public static void RemovePostById(int id)
+        {
+            using (var db = new DbAscContext())
+            {
+                db.Posts.Remove(db.Posts.FirstOrDefault(p => p.Id == id));
+                db.SaveChanges();
+            }
+        }
+        #endregion POSTS
+
         #region CODELINKS
         public static int CreateCodeLink(string text)
         {
@@ -146,6 +200,7 @@ namespace AscSite.Core.Interface.DbInterface
 
         #endregion CODELINKS
 
+        #region RELATIONS
         public static void AddRelations(int postId, List<PostUserEntry> relations)
         {
             using(var db = new DbAscContext())
@@ -167,13 +222,6 @@ namespace AscSite.Core.Interface.DbInterface
             }
         }
 
-        public static void RemovePostById(int id)
-        {
-            using (var db = new DbAscContext())
-            {
-                db.Posts.Remove(db.Posts.FirstOrDefault(p => p.Id == id));
-                db.SaveChanges();
-            }
-        }
+        #endregion RELATIONS
     }
 }
