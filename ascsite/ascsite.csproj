@@ -7,7 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\.well-known - Copy\**" />
+    <Content Remove="wwwroot\.well-known - Copy\**" />
+    <EmbeddedResource Remove="wwwroot\.well-known - Copy\**" />
+    <None Remove="wwwroot\.well-known - Copy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Pages\msl\source\vectors.msl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\.well-known\acme-challenge\W32QpLtF3yxsp1ALYgrWITHU7cLIz9kBS__-qiYZ9Jg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\.well-known\acme-challenge\web.config" />
     <None Include="wwwroot\robots.txt" />
   </ItemGroup>
 
