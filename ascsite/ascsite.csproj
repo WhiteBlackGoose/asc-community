@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\.well-known\acme-challenge\W32QpLtF3yxsp1ALYgrWITHU7cLIz9kBS__-qiYZ9Jg" />
+    <Content Include="wwwroot\.well-known\acme-challenge\CcL_h2VzQh6Z91lJgpt8tt1qdiqvGeAeylWW1hoA_KA" />
   </ItemGroup>
 
   <ItemGroup>
