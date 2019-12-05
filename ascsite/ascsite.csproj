@@ -44,7 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\.well-known\acme-challenge\web.config" />
     <None Include="wwwroot\robots.txt" />
   </ItemGroup>
 
