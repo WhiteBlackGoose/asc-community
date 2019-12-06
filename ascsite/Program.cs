@@ -26,8 +26,8 @@ namespace ascsite
                     webBuilder.UseUrls(
                         "http://*:64321",
                         "https://*:443");
+                    
                     webBuilder.UseWebRoot(Const.PATH_WEBROOT);
-                    webBuilder.UseKestrel();
                 });
     }
 }
