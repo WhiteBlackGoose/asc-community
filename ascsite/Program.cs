@@ -23,13 +23,17 @@ namespace ascsite
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             string password = File.ReadAllText(@"D:\main\ASC-community\cert\password.txt", Encoding.UTF8);
-
+            var ip = IPAddress.Parse("128.72.116.189");
             return Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseKestrel(options =>
                     {
-                        options.Listen(IPAddress.Loopback, 64321, listenOptions =>
+                        options.Listen(ip, 64321, listenOptions =>
+                        {
+                            listenOptions.UseHttps(@"D:\main\ASC-community\cert\cert.pfx", password);
+                        });
+                        options.Listen(ip, 443, listenOptions =>
                         {
                             listenOptions.UseHttps(@"D:\main\ASC-community\cert\cert.pfx", password);
                         });
