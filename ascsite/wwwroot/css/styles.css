@@ -90,6 +90,7 @@ main pre code {
     border-radius: 5pt;
     border: 2pt;
     background-color: black;
+    max-width: 75%;
 }
 
 .project-name {
