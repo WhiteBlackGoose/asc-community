@@ -23,12 +23,11 @@ namespace ascsite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            /*
             services.AddHttpsRedirection(options =>
             {
                 options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
                 options.HttpsPort = 443;
-            });*/
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +43,7 @@ namespace ascsite
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             }
             app.UseHsts();
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseStaticFiles(new StaticFileOptions {
                 FileProvider = new PhysicalFileProvider(Const.PATH_WEBROOT),
                 ServeUnknownFileTypes = true    

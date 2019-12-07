@@ -29,20 +29,12 @@ namespace ascsite
                 {
                     webBuilder.UseKestrel(options =>
                     {
-                        options.Listen(ip, 64321, listenOptions =>
-                        {
-                            listenOptions.UseHttps(@"D:\main\ASC-community\cert\cert.pfx", password);
-                        });
                         options.Listen(ip, 443, listenOptions =>
                         {
                             listenOptions.UseHttps(@"D:\main\ASC-community\cert\cert.pfx", password);
                         });
                     });
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls(
-                        "http://*:64321",
-                        "https://*:443");
-
                     webBuilder.UseWebRoot(Const.PATH_WEBROOT);
                 });
         }
