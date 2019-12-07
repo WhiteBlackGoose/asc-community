@@ -1,0 +1,28 @@
+﻿namespace Program
+{
+    using namespace System;
+    
+    class ProgramClass
+    {
+        public static function Main()
+        {
+            Console.PrintLine("Catching some exceptions...");
+            try
+            {
+                Console.PrintLine(ProgramClass.ErrorField);
+            }
+            Console.PrintLine("No errors till now!");
+            try
+            {
+                var v = MathUtils.Vector3(2, 3, "2");
+                Console.PrintLine(v.x * v.x + v.y * v.y + v.z * v.z);
+            }
+            catch (e)
+            {
+                Console.Print("Caught exception: ");
+                Console.PrintLine(e.message);
+            }
+            Console.PrintLine("Successfuly returning from Main...");
+        }
+    }
+}

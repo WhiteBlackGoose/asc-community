@@ -15,7 +15,7 @@ namespace ascsite.Core.MSLInterface
         public MSLInterface()
         {
             CompilerPath = Const.PATH_MSL;
-            LibraryPaths.Add("math.msl");
+            LibraryPaths.Add("math_utils.msl");
             LibraryPaths.Add("asc_interop.msl");
             LibraryPaths.Add("utils.msl");
             LibraryPaths.Add("system.msl");

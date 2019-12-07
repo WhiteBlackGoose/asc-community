@@ -1,7 +1,7 @@
 ﻿namespace Program
 {
     using namespace System;
-    using namespace Math;
+    using namespace MathUtils;
     
     class ProgramClass
     {

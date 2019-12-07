@@ -1,4 +1,4 @@
-namespace Math
+namespace MathUtils
 {
 	public class Vector2
 	{

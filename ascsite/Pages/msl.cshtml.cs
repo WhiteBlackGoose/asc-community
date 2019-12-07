@@ -48,7 +48,8 @@ namespace ascsite.Pages
             "vectors.msl",
             "arrays.msl",
             "methods.msl",
-            "gc.msl"
+            "gc.msl",
+            "exceptions.msl",
         };
 
         public MSLModel()
