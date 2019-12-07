@@ -14,6 +14,7 @@ namespace AscSite.Core.Interface.Database
         public DbSet<UserPostContribution> UserPostContributions { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<CodeLink> CodeLinks { get; set; }
+        public DbSet<ProjectTile> ProjectTiles { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=asc;Integrated Security=True");
@@ -83,5 +84,14 @@ namespace AscSite.Core.Interface.Database
         public int Id { get; set; }
 
         public string Code { get; set; }
+    }
+
+    public class ProjectTile
+    {
+        [Key]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string ProjectLink { get; set; }
+        public string ImagePath { get; set; }
     }
 }

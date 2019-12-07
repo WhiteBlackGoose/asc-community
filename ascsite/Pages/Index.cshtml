@@ -14,46 +14,21 @@
     </p>
 </div>
 
-<!--MomoDev is working here-->
-<!--TODO: use C# to generate project list-->
-
 <h2 id="projects-header">Our Projects</h2>
 
 <div class="horizontal-align-container centered">
-    <a href="http://asc-community.org/content/projects?ProjectId=2">
-        <div id="msl-project" class="project-box">
-            <text class="project-name">MSL language</text>
-        </div>
-    </a>
-    <a href="http://asc-community.org/content/projects?ProjectId=1">
-    <div class="project-box">
-        <text class="project-name">HI19</text>
-    </div>
-    </a>
-    <a href="https://github.com/Angourisoft/MathS">
-        <div id="mathSharp-project" class="project-box">
-            <text class="project-name">Math#</text>
-        </div>
-    </a>
-    <a href="http://asc-community.org/content/projects?ProjectId=3">
-        <div id="tron-project" class="project-box">
-            <text class="project-name">TRON</text>
-        </div>
-    </a>
-    <a href="https://github.com/MomoDeve/FluidSimulation">
-        <div id="fluid2d-project" class="project-box">
-            <text class="project-name">2D Fluid Simulation</text>
-        </div>
-    </a>
-    <a href="https://github.com/MomoDeve/Electronics">
-        <div id="electronics-project" class="project-box">
-            <text class="project-name">Electronics</text>
-        </div>
-    </a>
+    @foreach (var project in Model.Projects)
+    {
+        <a href=@project.ProjectLink>
+            <div style="background-image: url(@project.ImagePath)" class="project-box">
+                <text class="project-name">@project.Name</text>
+            </div>
+        </a>
+    }
 </div>
 
 <hr>
 <p class="centered">
     So far, the project is open-source and available <a href="https://github.com/Angourisoft/asc-community">here</a>.<br>
     You can join our <a href="https://discord.gg/mzxUzpu">discord server</a> if you are interested in this project. Feel free to contribute!
-</p>you are interested in this project. Feel free to contribute!
+</p>

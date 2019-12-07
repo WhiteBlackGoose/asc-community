@@ -83,8 +83,8 @@ main pre code {
 .project-box {
     display: inline-flex;
     margin: 3%;
-    width: 300pt;
-    height: 150pt;
+    width: 25em;
+    height: 12.5em;
     vertical-align: top;
     background-size: cover;
     border-radius: 5pt;
@@ -101,24 +101,4 @@ main pre code {
 
 .project-name:hover {
     color: white;
-}
-
-#msl-project {
-    background-image: url(/res/msl-new-logo.png);
-}
-
-#mathSharp-project {
-    background-image: url(/res/mathsharp-bg.png);
-}
-
-#fluid2d-project {
-    background-image: url(/res/fluid2d-logo.png)
-}
-
-#electronics-project {
-    background-image: url(/res/electronics-logo.png)
-}
-
-#tron-project {
-    background-image: url(/res/tron-logo.png)
 }

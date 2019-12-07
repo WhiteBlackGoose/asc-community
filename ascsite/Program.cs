@@ -22,7 +22,7 @@ namespace ascsite
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            string password = File.ReadAllText(Const.CERTIFICARE_PATH + @"\password.txt", Encoding.UTF8);
+            string password = File.ReadAllText(Const.CERTIFICATE_PATH + @"\password.txt", Encoding.UTF8);
             
             return Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -32,7 +32,7 @@ namespace ascsite
                         options.Listen(IPAddress.Any, 80); // http, redirects to https
                         options.Listen(IPAddress.Any, 443, listenOptions =>
                         {
-                            listenOptions.UseHttps(Const.CERTIFICARE_PATH + @"\cert.pfx", password);
+                            listenOptions.UseHttps(Const.CERTIFICATE_PATH + @"\cert.pfx", password);
                         }); // https
                     });
                     webBuilder.UseStartup<Startup>();

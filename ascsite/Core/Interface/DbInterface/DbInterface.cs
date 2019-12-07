@@ -59,6 +59,19 @@ namespace AscSite.Core.Interface.DbInterface
             }
         }
 
+        #region PROJECT_TILES
+        public static List<ProjectTile> GetProjectTiles(int offset = 0, int limit = -1)
+        {
+            using (var db = new DbAscContext())
+            {
+                var tiles = db.ProjectTiles.Skip(offset);
+                if (limit != -1)
+                    tiles = tiles.Take(limit);
+                return tiles.ToList();
+            }
+        }
+        #endregion PROJECT_TILES
+
         #region POSTS
         public class PostUserEntry
         {
@@ -112,7 +125,7 @@ namespace AscSite.Core.Interface.DbInterface
         {
             using(var db = new DbAscContext())
             {
-                var prjs = GetPostsByType(db.Posts, type).Where(p => p.Name != null).Skip(offset);
+                var prjs = GetPostsByType(db.Posts, type).Skip(offset);
                 if (limit != -1)
                     prjs = prjs.Take(limit);
                 return prjs.ToList();
