@@ -29,6 +29,7 @@
 .code-editor-container {
     display: table-cell;
     max-width: 1000px;
+    height: 600px;
 }
 
 .horizontal-align-container {

@@ -14,15 +14,14 @@
             Console.PrintLine("No errors till now!");
             try
             {
-                var v = MathUtils.Vector3(2, 3, "2");
-                Console.PrintLine(v.x * v.x + v.y * v.y + v.z * v.z);
+                var array = Array(100000000000000000000);
             }
             catch (e)
             {
                 Console.Print("Caught exception: ");
                 Console.PrintLine(e.message);
             }
-            Console.PrintLine("Successfuly returning from Main...");
+            Console.PrintLine("Successfully returning from Main...");
         }
     }
 }
