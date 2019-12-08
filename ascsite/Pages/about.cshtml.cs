@@ -16,9 +16,10 @@ namespace ascsite.Pages
         {
             this.logger = logger;
         }
-
+        
         public void OnGet()
         {
+            
         }
     }
 }
