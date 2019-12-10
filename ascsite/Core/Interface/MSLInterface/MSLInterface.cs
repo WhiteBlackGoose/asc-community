@@ -101,8 +101,8 @@ namespace ascsite.Core.MSLInterface
                     if (!Security.ExprSecure(line))
                         throw new SecurityException();
 
-                    string result = new AscCalc(line).Compute().SolidResult.Split('\n')[0] + '\n';
-                    process.StandardInput.Write(result);
+                    string result = new AscCalc(line).Compute().SolidResult.Split('\n')[0];
+                    process.StandardInput.WriteLine(result);
                     return true;
                 }
                 catch (Exception e)

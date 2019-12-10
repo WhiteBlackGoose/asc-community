@@ -43,7 +43,7 @@ namespace ascsite.Pages
     }
     public class MSLModel : PageModel
     {
-        private List<string> SampleList = new List<string>()
+        public List<string> SampleList { get; } = new List<string>()
         {
             "vectors.msl",
             "arrays.msl",
@@ -51,15 +51,12 @@ namespace ascsite.Pages
             "gc.msl",
             "exceptions.msl",
         };
-
         public MSLModel()
         {
             CodeText = MSLInterface.GetSample("sample.msl");
-            AddSamplesList();
         }
         [BindProperty] public string CodeText { get; set; }
         public string OutputMSL { get; set; }
-        public string Samples { get; set; }
         [BindProperty(SupportsGet = true)] public string Link { get; set; }
         [BindProperty(SupportsGet = true)] public string ReturnedId { get; set; } // currently unsupported
 
@@ -77,28 +74,6 @@ namespace ascsite.Pages
                 catch (Exception e) { }
             }
         }
-
-        private void AddSamplesList()
-        {
-            Samples = string.Empty;
-            StringBuilder builder = new StringBuilder();
-            foreach (var file in SampleList)
-            {
-                string fileName = file.Remove(file.IndexOf(".msl"), ".msl".Length);
-                builder
-                    .Append("<li class=\"asc-button huge-asc-button\" onclick=\"loadSample('")
-                    .Append(fileName)
-                    .Append("')\">")
-                    .Append(fileName)
-                    .Append("</li>")
-                    .Append("<p id=\"")
-                    .Append(fileName)
-                    .Append("\" style=\"display: none\">")
-                    .Append(MSLInterface.GetSample(file))
-                    .Append("</p>");
-            }
-            Samples = builder.ToString();
-        }
         public void OnPostCompileCode()
         {
             string id = MSLProgramPool.CreateProgram();
@@ -113,9 +88,9 @@ namespace ascsite.Pages
                 OutputMSL = Const.ERMSG_EXECUTE_TIMEOUT + ": " + Const.LIMIT_MSL_EXECUTE_MS.ToString() + "ms passed";
             else
                 OutputMSL = output;
-
-            AddSamplesList();
         }
+
+        public string LoadSample(string file) => MSLInterface.GetSample(file);
 
         public void OnPostGenerateLink()
         {

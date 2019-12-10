@@ -55,6 +55,11 @@
     margin-top: 20%;
 }
 
+.CodeMirror {
+    width: 100%;
+    height: 100%;
+}
+
 .edit-field {
     width: 80%;
     margin-left: 10%;

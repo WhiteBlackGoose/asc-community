@@ -1,5 +1,51 @@
 ﻿namespace System
 {
+    public static class GC
+    {
+        private static var dll;
+
+        public static function GC()
+        {
+            dll = "msl_gc.dll";
+            Dll.LoadLibrary(dll);
+        }
+
+        public static function Collect()
+        {
+            return Dll.Call(dll, "Collect");
+        }
+
+        public static function Disable()
+        {
+            return Dll.Call(dll, "Disable");
+        }
+
+        public static function Enable()
+        {
+            return Dll.Call(dll, "Enable");
+        }
+
+        public static function ReleaseMemory()
+        {
+            return Dll.Call(dll, "ReleaseMemory");
+        }
+
+        public static function SetMinimalMemory(value)
+        {
+            return Dll.Call(dll, "SetMinimalMemory", value);
+        }
+
+        public static function SetMaximalMemory(value)
+        {
+            return Dll.Call(dll, "SetMaximalMemory", value);
+        }
+
+        public static function SetLogPermissions(value)
+        {
+            return Dll.Call(dll, "SetLogPermissions", value);
+        }
+    }
+
     public static class Console
     {
         private static var dll;
@@ -26,27 +72,27 @@
 
         public static function Read()
         {
-            return Dll.Call(dll, "Read", "");
+            return Dll.Call(dll, "Read");
         }
 
         public static function ReadLine()
         {
-            return Dll.Call(dll, "ReadLine", "");
+            return Dll.Call(dll, "ReadLine");
         }
 
         public static function ReadBool()
         {
-            return Dll.Call(dll, "ReadBool", false, true);
+            return Dll.Call(dll, "ReadBool");
         }
 
         public static function ReadFloat()
         {
-            return Dll.Call(dll, "ReadFloat", 0.0);
+            return Dll.Call(dll, "ReadFloat");
         }
 
         public static function ReadInt()
         {
-            return Dll.Call(dll, "ReadInt", 0);
+            return Dll.Call(dll, "ReadInt");
         }
     }
 
