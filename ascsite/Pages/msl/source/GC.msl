@@ -9,7 +9,7 @@
             var Out = System.Console;
 
             Out.Print("GC output enabled");
-            System.GC.SetLogPermission(true);
+            System.GC.SetLogPermissions(true);
             Out.Print("testing performance:");
 
             const var size = 5000000;
