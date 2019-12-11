@@ -1,5 +1,56 @@
 ﻿namespace System
 {
+    public static class Reflection
+    {
+        private static var dll;
+
+        public static function Reflection()
+        {
+            dll = "msl_reflection.dll";
+            Dll.LoadLibrary(dll);
+        }
+
+        public static function GetType(object)
+        {
+            return Dll.Call(dll, "GetType", object);
+        }
+
+        public static function CreateInstance(type, args)
+        {
+            return Dll.Call(dll, "CreateInstance", type, args);
+        }
+
+        public static function Invoke(object, method, args)
+        {
+            return Dll.Call(dll, "Invoke", object, method, args);
+        }
+
+        public static function ContainsMethod(object, method, argCount)
+        {
+            return Dll.Call(dll, "ContainsMethod", object, method, argCount);
+        }
+
+        public static function GetNamespace(name)
+        {
+            return Dll.Call(dll, "GetNamespace", name);
+        }
+
+        public static function GetMember(parent, child)
+        {
+            return Dll.Call(dll, "GetMember", parent, child);
+        }
+
+        public static function IsNamespaceExists(name)
+        {
+            return Dll.Call(dll, "IsNamespaceExists", name);
+        }
+
+        public static function ContainsMember(object, member)
+        {
+            return Dll.Call(dll, "ContainsMember", object, member);
+        }
+    }
+
     public static class GC
     {
         private static var dll;
