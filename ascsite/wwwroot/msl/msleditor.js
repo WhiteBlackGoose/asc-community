@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    if (width < 640) {
+    if (width < 800) {
         var padding = 30;
         width = width - padding;
         $(".code-editor-container").css("max-width", width);
