@@ -80,6 +80,7 @@ main pre code {
 #projects-header {
     text-align: center;
     font-weight: 400;
+    margin-bottom: 25px;
 }
 
 .centered {
@@ -88,7 +89,6 @@ main pre code {
 
 .project-box {
     display: inline-flex;
-    margin: 3%;
     width: 25em;
     height: 12.5em;
     vertical-align: top;
@@ -97,6 +97,7 @@ main pre code {
     border: 2pt;
     background-color: black;
     max-width: 75%;
+    margin-bottom: 3%;
 }
 
 .project-name {
@@ -104,6 +105,10 @@ main pre code {
     color: white;
     font-size: 20px;
     padding-left: 5pt;
+}
+
+.project-link {
+    margin-left: 3%;
 }
 
 .project-name:hover {

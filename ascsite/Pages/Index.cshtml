@@ -19,7 +19,7 @@
 <div class="horizontal-align-container centered">
     @foreach (var project in Model.Projects)
     {
-        <a href=@project.ProjectLink>
+        <a href=@project.ProjectLink class="project-link">
             <div style="background-image: url(@project.ImagePath)" class="project-box">
                 <text class="project-name">@project.Name</text>
             </div>
@@ -33,3 +33,5 @@
     You can join our <a href="https://discord.gg/mzxUzpu">discord server</a> if you are interested in this project. Feel free to contribute!<br>
     If you have any questions or ideas, please contact us contact@asc-community.org
 </p>
+
+<script language="javascript" src="~/index/index.js"></script>

@@ -10,7 +10,7 @@ function loadSample(sampleName) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     if (width < 640) {
         var padding = 30;
         width = width - padding;
