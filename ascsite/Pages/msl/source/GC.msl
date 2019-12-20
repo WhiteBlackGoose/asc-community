@@ -8,9 +8,9 @@
         {
             var Out = System.Console;
 
-            Out.Print("GC output enabled");
-            System.GC.SetLogPermission(true);
-            Out.Print("testing performance:");
+            Out.PrintLine("GC output enabled");
+            System.GC.SetLogPermissions(true);
+            Out.PrintLine("testing performance:");
 
             const var size = 5000000;
             for (var i = 0; i < 10; i += 1)

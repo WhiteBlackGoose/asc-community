@@ -1,5 +1,217 @@
 ﻿namespace System
 {
+    public class Array
+    {
+        private static var dll;
+        private var array;
+
+        public static function Array()
+        {
+            dll = "msl_array.dll";
+            Dll.LoadLibrary(dll);
+        }
+
+        public function Array()
+        {
+            return Array(0);
+        }
+
+        public function Array(size)
+        {
+            return Dll.Call(dll, "ArrayConstructor", size);
+        }
+
+        public function Append(object)
+        {
+            return Dll.Call(dll, "Append", array, object);
+        }
+
+        public function GetByIndex(index)
+        {
+            return Dll.Call(dll, "GetByIndex", array, index);
+        }
+
+        public function GetByIter(iterator)
+        {
+            return GetByIndex(iterator);
+        }
+
+        public function Next(iterator)
+        {
+            return iterator + 1;
+        }
+
+        public function Pop()
+        {
+            return Dll.Call(dll, "Pop", array);
+        }
+
+        public function Empty()
+        {
+            return Size() == 0;
+        }
+
+        public function Size()
+        {
+            return Dll.Call(dll, "Size", array);
+        }
+
+        public function ToString()
+        {
+            return Dll.Call(dll, "ToString", array);
+        }
+
+        public function Begin()
+        {
+            return 0;
+        }
+
+        public function End()
+        {
+            return Size();
+        }
+
+        public function Back()
+        {
+            return GetByIndex(Size() - 1);
+        }
+
+        public function Front()
+        {
+            return GetByIndex(0);
+        }
+
+        public function Cloned()
+        {
+            var size = Size();
+            var result = Array(size);
+            for (var i = 0; i < size; i += 1)
+            {
+                result[i] = array[i];
+            }
+            return result;
+        }
+
+        public function Merged(array)
+        {
+            var result = Cloned();
+            var size = Size();
+            for (var i = 0; i < size; i += 1)
+            {
+                result.Append(array[i]);
+            }
+            return result;
+        }
+
+        public function Reversed()
+        {
+            var size = Size();
+            var result = Array(size);
+            for (var i = 0; i < size; i += 1)
+            {
+                result[i] = this[size - i - 1];
+            }
+            return result;
+        }
+    }
+
+    public static class Reflection
+    {
+        private static var dll;
+
+        public static function Reflection()
+        {
+            dll = "msl_reflection.dll";
+            Dll.LoadLibrary(dll);
+        }
+
+        public static function GetType(object)
+        {
+            return Dll.Call(dll, "GetType", object);
+        }
+
+        public static function CreateInstance(type, args)
+        {
+            return Dll.Call(dll, "CreateInstance", type, args);
+        }
+
+        public static function Invoke(object, method, args)
+        {
+            return Dll.Call(dll, "Invoke", object, method, args);
+        }
+
+        public static function ContainsMethod(object, method, argCount)
+        {
+            return Dll.Call(dll, "ContainsMethod", object, method, argCount);
+        }
+
+        public static function GetNamespace(name)
+        {
+            return Dll.Call(dll, "GetNamespace", name);
+        }
+
+        public static function GetMember(parent, child)
+        {
+            return Dll.Call(dll, "GetMember", parent, child);
+        }
+
+        public static function IsNamespaceExists(name)
+        {
+            return Dll.Call(dll, "IsNamespaceExists", name);
+        }
+
+        public static function ContainsMember(object, member)
+        {
+            return Dll.Call(dll, "ContainsMember", object, member);
+        }
+    }
+
+    public static class GC
+    {
+        private static var dll;
+
+        public static function GC()
+        {
+            dll = "msl_gc.dll";
+            Dll.LoadLibrary(dll);
+        }
+
+        public static function Collect()
+        {
+            return Dll.Call(dll, "Collect");
+        }
+
+        public static function Disable()
+        {
+            return Dll.Call(dll, "Disable");
+        }
+
+        public static function Enable()
+        {
+            return Dll.Call(dll, "Enable");
+        }
+
+        public static function ReleaseMemory()
+        {
+            return Dll.Call(dll, "ReleaseMemory");
+        }
+
+        public static function SetMinimalMemory(value)
+        {
+            return Dll.Call(dll, "SetMinimalMemory", value);
+        }
+
+        public static function SetMaximalMemory(value)
+        {
+            return Dll.Call(dll, "SetMaximalMemory", value);
+        }
+
+        public static function SetLogPermissions(value)
+        {
+            return Dll.Call(dll, "SetLogPermissions", value);
+        }
+    }
+
     public static class Console
     {
         private static var dll;
@@ -26,27 +238,27 @@
 
         public static function Read()
         {
-            return Dll.Call(dll, "Read", "");
+            return Dll.Call(dll, "Read");
         }
 
         public static function ReadLine()
         {
-            return Dll.Call(dll, "ReadLine", "");
+            return Dll.Call(dll, "ReadLine");
         }
 
         public static function ReadBool()
         {
-            return Dll.Call(dll, "ReadBool", false, true);
+            return Dll.Call(dll, "ReadBool");
         }
 
         public static function ReadFloat()
         {
-            return Dll.Call(dll, "ReadFloat", 0.0);
+            return Dll.Call(dll, "ReadFloat");
         }
 
         public static function ReadInt()
         {
-            return Dll.Call(dll, "ReadInt", 0);
+            return Dll.Call(dll, "ReadInt");
         }
     }
 

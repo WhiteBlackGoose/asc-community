@@ -21,7 +21,12 @@
         <div class="horizontal-align-container">
             <h6 style="text-align: center; padding-left: 28pt;">MSL samples</h6>
             <ul style="list-style-type: none;">
-                @Html.Raw(Model.Samples)
+                @foreach (var file in @Model.SampleList)
+                {
+                    string fileName = file.Remove(file.IndexOf(".msl"), ".msl".Length);
+                    <li class="asc-button huge-asc-button" onclick="loadSample('@fileName')">@fileName</li>
+                    <p id=@fileName style="display: none">@Model.LoadSample(file)</p>
+                }
             </ul>
         </div>
     </div>
