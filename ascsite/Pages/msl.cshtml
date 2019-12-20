@@ -15,10 +15,10 @@
 
 <form method="post">
     <div>
-        <div class="code-editor-container ">
+        <div class="code-editor-container">
             <textarea spellcheck="false" id="msl-editor" rows="50" cols="40" name="CodeText">@Model.CodeText</textarea>
         </div>
-        <div class="horizontal-align-container">
+        <div class="horizontal-align-container" id="samples-div">
             <h6 style="text-align: center; padding-left: 28pt;">MSL samples</h6>
             <ul style="list-style-type: none;">
                 @foreach (var file in @Model.SampleList)

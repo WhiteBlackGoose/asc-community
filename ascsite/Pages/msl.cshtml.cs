@@ -71,7 +71,7 @@ namespace ascsite.Pages
                     if (codeEntry != null)
                         CodeText = codeEntry.Code;
                 }
-                catch (Exception e) { }
+                catch { }
             }
         }
         public void OnPostCompileCode()
