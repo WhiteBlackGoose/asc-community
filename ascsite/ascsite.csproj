@@ -8,9 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Logs\**" />
     <Compile Remove="wwwroot\.well-known - Copy\**" />
+    <Content Remove="Logs\**" />
     <Content Remove="wwwroot\.well-known - Copy\**" />
+    <EmbeddedResource Remove="Logs\**" />
     <EmbeddedResource Remove="wwwroot\.well-known - Copy\**" />
+    <None Remove="Logs\**" />
     <None Remove="wwwroot\.well-known - Copy\**" />
   </ItemGroup>
 
@@ -40,7 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Logs\" />
     <Folder Include="wwwroot\res\" />
   </ItemGroup>
 

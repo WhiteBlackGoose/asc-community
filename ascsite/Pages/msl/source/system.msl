@@ -1,5 +1,153 @@
-﻿namespace System
+﻿
+namespace System
 {
+    public static class Reflection
+    {
+        private static var dll;
+
+        public static function Reflection()
+        {
+            dll = "msl_system.dll";
+            Dll.LoadLibrary(dll);
+        }
+
+        public static function GetType(object)
+        {
+            return Dll.Call(dll, "ReflectionGetType", object);
+        }
+
+        public static function CreateInstance(type, args)
+        {
+            return Dll.Call(dll, "ReflectionCreateInstance", type, args);
+        }
+
+        public static function Invoke(object, method, args)
+        {
+            return Dll.Call(dll, "ReflectionInvoke", object, method, args);
+        }
+
+        public static function ContainsMethod(object, method, argCount)
+        {
+            return Dll.Call(dll, "ReflectionContainsMethod", object, method, argCount);
+        }
+
+        public static function GetNamespace(name)
+        {
+            return Dll.Call(dll, "ReflectionGetNamespace", name);
+        }
+
+        public static function GetMember(parent, child)
+        {
+            return Dll.Call(dll, "ReflectionGetMember", parent, child);
+        }
+
+        public static function IsNamespaceExists(name)
+        {
+            return Dll.Call(dll, "ReflectionIsNamespaceExists", name);
+        }
+
+        public static function ContainsMember(object, member)
+        {
+            return Dll.Call(dll, "ReflectionContainsMember", object, member);
+        }
+    }
+
+    public static class GC
+    {
+        private static var dll;
+
+        public static function GC()
+        {
+            dll = "msl_system.dll";
+            Dll.LoadLibrary(dll);
+        }
+
+        public static function Collect()
+        {
+            return Dll.Call(dll, "GCCollect");
+        }
+
+        public static function Disable()
+        {
+            return Dll.Call(dll, "GCDisable");
+        }
+
+        public static function Enable()
+        {
+            return Dll.Call(dll, "GCEnable");
+        }
+
+        public static function ReleaseMemory()
+        {
+            return Dll.Call(dll, "GCReleaseMemory");
+        }
+
+        public static function SetMinimalMemory(value)
+        {
+            return Dll.Call(dll, "GCSetMinimalMemory", value);
+        }
+
+        public static function SetMaximalMemory(value)
+        {
+            return Dll.Call(dll, "GCSetMaximalMemory", value);
+        }
+
+        public static function SetLogPermissions(value)
+        {
+            return Dll.Call(dll, "GCSetLogPermissions", value);
+        }
+    }
+
+    public static class Console
+    {
+        private static var dll;
+
+        public static function Console()
+        {
+            dll = "msl_system.dll";
+            Dll.LoadLibrary(dll);
+        }
+
+        public static function Print(object)
+        {
+            if (Reflection.ContainsMethod(object, "ToString", 0))
+                object = object.ToString();
+            return Dll.Call(dll, "ConsolePrint", object);
+        }
+
+        public static function PrintLine(object)
+        {
+            if (Reflection.ContainsMethod(object, "ToString", 0))
+                object = object.ToString();
+            return Dll.Call(dll, "ConsolePrintLine", object);
+        }
+
+        public static function Read()
+        {
+            return Dll.Call(dll, "ConsoleRead");
+        }
+
+        public static function ReadLine()
+        {
+            return Dll.Call(dll, "ConsoleReadLine");
+        }
+
+        public static function ReadBool()
+        {
+            return Dll.Call(dll, "ConsoleReadBool");
+        }
+
+        public static function ReadFloat()
+        {
+            return Dll.Call(dll, "ConsoleReadFloat");
+        }
+
+        public static function ReadInt()
+        {
+            return Dll.Call(dll, "ConsoleReadInt");
+        }
+    }
+
     public class Array
     {
         private static var dll;
@@ -7,7 +155,7 @@
 
         public static function Array()
         {
-            dll = "msl_array.dll";
+            dll = "msl_system.dll";
             Dll.LoadLibrary(dll);
         }
 
@@ -23,12 +171,13 @@
 
         public function Append(object)
         {
-            return Dll.Call(dll, "Append", array, object);
+            Dll.Call(dll, "ArrayAppend", array, object);
+            return this;
         }
 
         public function GetByIndex(index)
         {
-            return Dll.Call(dll, "GetByIndex", array, index);
+            return Dll.Call(dll, "ArrayGetByIndex", array, index);
         }
 
         public function GetByIter(iterator)
@@ -43,7 +192,7 @@
 
         public function Pop()
         {
-            return Dll.Call(dll, "Pop", array);
+            return Dll.Call(dll, "ArrayPop", array);
         }
 
         public function Empty()
@@ -53,12 +202,12 @@
 
         public function Size()
         {
-            return Dll.Call(dll, "Size", array);
+            return Dll.Call(dll, "ArraySize", array);
         }
 
         public function ToString()
         {
-            return Dll.Call(dll, "ToString", array);
+            return Dll.Call(dll, "ArrayToString", array);
         }
 
         public function Begin()
@@ -113,152 +262,11 @@
             }
             return result;
         }
-    }
 
-    public static class Reflection
-    {
-        private static var dll;
-
-        public static function Reflection()
+        public function Sort()
         {
-            dll = "msl_reflection.dll";
-            Dll.LoadLibrary(dll);
-        }
-
-        public static function GetType(object)
-        {
-            return Dll.Call(dll, "GetType", object);
-        }
-
-        public static function CreateInstance(type, args)
-        {
-            return Dll.Call(dll, "CreateInstance", type, args);
-        }
-
-        public static function Invoke(object, method, args)
-        {
-            return Dll.Call(dll, "Invoke", object, method, args);
-        }
-
-        public static function ContainsMethod(object, method, argCount)
-        {
-            return Dll.Call(dll, "ContainsMethod", object, method, argCount);
-        }
-
-        public static function GetNamespace(name)
-        {
-            return Dll.Call(dll, "GetNamespace", name);
-        }
-
-        public static function GetMember(parent, child)
-        {
-            return Dll.Call(dll, "GetMember", parent, child);
-        }
-
-        public static function IsNamespaceExists(name)
-        {
-            return Dll.Call(dll, "IsNamespaceExists", name);
-        }
-
-        public static function ContainsMember(object, member)
-        {
-            return Dll.Call(dll, "ContainsMember", object, member);
-        }
-    }
-
-    public static class GC
-    {
-        private static var dll;
-
-        public static function GC()
-        {
-            dll = "msl_gc.dll";
-            Dll.LoadLibrary(dll);
-        }
-
-        public static function Collect()
-        {
-            return Dll.Call(dll, "Collect");
-        }
-
-        public static function Disable()
-        {
-            return Dll.Call(dll, "Disable");
-        }
-
-        public static function Enable()
-        {
-            return Dll.Call(dll, "Enable");
-        }
-
-        public static function ReleaseMemory()
-        {
-            return Dll.Call(dll, "ReleaseMemory");
-        }
-
-        public static function SetMinimalMemory(value)
-        {
-            return Dll.Call(dll, "SetMinimalMemory", value);
-        }
-
-        public static function SetMaximalMemory(value)
-        {
-            return Dll.Call(dll, "SetMaximalMemory", value);
-        }
-
-        public static function SetLogPermissions(value)
-        {
-            return Dll.Call(dll, "SetLogPermissions", value);
-        }
-    }
-
-    public static class Console
-    {
-        private static var dll;
-
-        public static function Console()
-        {
-            dll = "msl_console.dll";
-            Dll.LoadLibrary(dll);
-        }
-
-        public static function Print(object)
-        {
-            if (Reflection.ContainsMethod(object, "ToString", 0))
-                object = object.ToString();
-            return Dll.Call(dll, "Print", object);
-        }
-
-        public static function PrintLine(object)
-        {
-            if (Reflection.ContainsMethod(object, "ToString", 0))
-                object = object.ToString();
-            return Dll.Call(dll, "PrintLine", object);
-        }
-
-        public static function Read()
-        {
-            return Dll.Call(dll, "Read");
-        }
-
-        public static function ReadLine()
-        {
-            return Dll.Call(dll, "ReadLine");
-        }
-
-        public static function ReadBool()
-        {
-            return Dll.Call(dll, "ReadBool");
-        }
-
-        public static function ReadFloat()
-        {
-            return Dll.Call(dll, "ReadFloat");
-        }
-
-        public static function ReadInt()
-        {
-            return Dll.Call(dll, "ReadInt");
+            Dll.Call(dll, "ArraySort", array);
+            return this;
         }
     }
 
@@ -268,68 +276,67 @@
 
         public static function Math()
         {
-            dll = "msl_math.dll";
+            dll = "msl_system.dll";
             Dll.LoadLibrary(dll);
         }
 
         public static function Sqrt(value)
         {
-            return Dll.Call(dll, "FloatSqrt", 1.0 * value);
+            return Dll.Call(dll, "MathSqrt", value);
         }
 
-        public static function Abs(value)
-        {
-            return Dll.Call(dll, "FloatAbs", 1.0 * value);
+        public static function Abs(value) {
+            return Dll.Call(dll, "MathAbs", value);
         }
 
         public static function Sin(value)
         {
-            return Dll.Call(dll, "FloatSin", 1.0 * value);
+            return Dll.Call(dll, "MathSin", value);
         }
 
         public static function Cos(value)
         {
-            return Dll.Call(dll, "FloatCos", 1.0 * value);
+            return Dll.Call(dll, "MathCos", value);
         }
 
         public static function Tan(value)
         {
-            return Dll.Call(dll, "FloatTan", 1.0 * value);
+            return Dll.Call(dll, "MathTan", value);
         }
 
         public static function Exp(value)
         {
-            return Dll.Call(dll, "FloatExp", 1.0 * value);
+            return Dll.Call(dll, "MathExp", value);
         }
 
         public static function Asin(value)
         {
-            return Dll.Call(dll, "FloatAsin", 1.0 * value);
+            return Dll.Call(dll, "MathAsin", value);
         }
 
         public static function Acos(value)
         {
-            return Dll.Call(dll, "FloatAcos", 1.0 * value);
+            return Dll.Call(dll, "MathAcos", value);
         }
 
         public static function Atan(value)
         {
-            return Dll.Call(dll, "FloatAtan", 1.0 * value);
+            return Dll.Call(dll, "MathAtan", value);
         }
 
         public static function Log10(value)
         {
-            return Dll.Call(dll, "FloatLog10", 1.0 * value);
+            return Dll.Call(dll, "MathLog10", value);
         }
 
         public static function Log2(value)
         {
-            return Dll.Call(dll, "FloatLog2", 1.0 * value);
+            return Dll.Call(dll, "MathLog2", value);
         }
 
         public static function Log(value)
         {
-            return Dll.Call(dll, "FloatLog", 1.0 * value);
+            return Dll.Call(dll, "MathLog", value);
         }
     }
 }
