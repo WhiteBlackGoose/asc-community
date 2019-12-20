@@ -29,7 +29,6 @@ namespace ascsite
                 {
                     webBuilder.UseKestrel(options =>
                     {
-                        options.Listen(IPAddress.Any, 80); // http, redirects to https
                         options.Listen(IPAddress.Any, 443, listenOptions =>
                         {
                             listenOptions.UseHttps(Const.CERTIFICATE_PATH + @"\cert.pfx", password);
