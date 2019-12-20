@@ -20,7 +20,9 @@
 <div class="horizontal-align-container centered">
     @foreach (var project in Model.Projects)
     {
-        <a href=@project.ProjectLink style="background-image: url(@project.ImagePath)" class="project-box"></a>
+        <a href=@project.ProjectLink style="background-image: url(@project.ImagePath)" class="project-box">
+            <p class="project-name">@project.Name</p>
+        </a>
     }
 </div>
 

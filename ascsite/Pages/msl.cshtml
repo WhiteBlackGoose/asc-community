@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/addon/hint/show-hint.css">
         <link rel="stylesheet" type="text/css" href="~/css/styles.css">
         <script language="javascript" src="~/msl/msleditor.js"></script>
-    </head>
+</head>
 
 <form method="post">
     <div>
@@ -34,11 +34,11 @@
 
     <div class="horizontal-align-container">
         <div class="inlined-block">
-            <input class="asc-button big-asc-button" type="submit" 
-                   value="Compile" id="send-button" asp-page-handler="CompileCode"/>
+            <input class="asc-button big-asc-button" type="submit"
+                   value="Compile" id="send-button" asp-page-handler="CompileCode" />
         </div>
         <div class="inlined-block">
-            <input class="asc-button big-asc-button" type="submit" 
+            <input class="asc-button big-asc-button" type="submit"
                    value="Get link" id="getlink-buttom" asp-page-handler="GenerateLink" />
         </div>
     </div>
@@ -47,3 +47,11 @@
 <div id="response">
     <textarea spellcheck="false" id="msl-output" rows="10" cols="80">@Model.OutputMSL</textarea>
 </div>
+
+<script language="javascript">
+var cm = CodeMirror.fromTextArea(document.getElementById("msl-editor"), {
+    lineNumbers: true,
+    mode: "text/x-csharp",
+    matchBrackets: true,
+});
+        </script>
