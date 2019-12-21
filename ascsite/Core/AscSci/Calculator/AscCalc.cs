@@ -1,5 +1,5 @@
 ﻿using AscSite.Core.AscSci.AscMath;
-using MathSharp;
+using AngouriMath;
 using Processor;
 using Processor.lexicProcessor;
 using Processor.syntaxProcessor;
