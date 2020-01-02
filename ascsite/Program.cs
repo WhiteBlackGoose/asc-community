@@ -22,17 +22,11 @@ namespace ascsite
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            string password = File.ReadAllText(Const.CERTIFICATE_PATH + @"\password.txt", Encoding.UTF8);
-            
             return Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseKestrel(options =>
                     {
-                        options.Listen(IPAddress.Any, 443, listenOptions =>
-                        {
-                            listenOptions.UseHttps(Const.CERTIFICATE_PATH + @"\cert.pfx", password);
-                        }); // https
                     });
                     webBuilder.UseStartup<Startup>();
                     webBuilder.UseWebRoot(Const.PATH_WEBROOT);

@@ -234,11 +234,11 @@ namespace ascsite.Core.AscSci.Calculator
                             vars = Functions.MakeUnique(vars);
                             string req = expressionSegment.Build();
                             string newExpr;
-                            newExpr = MathS.FromString(req).Simplify().ToString();
+                            newExpr = MathS.FromString(req).Simplify(6).ToString();
                             newExprs.Add(newExpr);
                             if(isLast && latex)
                             {
-                                newExpr = MathS.FromString(req).Simplify().Latexise();
+                                newExpr = MathS.FromString(req).Simplify(6).Latexise();
                                 newLatexExprs.Add("$$" + newExpr + "$$");
                             }
                         }
