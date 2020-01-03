@@ -21,6 +21,10 @@ namespace Processor
         public static string COS = "cos";
         public static string TAN = "tan";
         public static string COTAN = "cotan";
+        public static string ARCSIN = "arcsin";
+        public static string ARCCOS = "arccos";
+        public static string ARCTAN = "arctan";
+        public static string ARCCOTAN = "arccotan";
         public static string LOG = "log";
         public static string LN = "ln";
         public static string SEC = "sec";
