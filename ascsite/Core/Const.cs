@@ -25,7 +25,7 @@ namespace ascsite.Core
         public static readonly string ERMSG_INVALID_REQUEST = "Invalid request";
 
         /*  PATHS  */
-        public static readonly string PATH_ROOT = @"D:\main\vs_prj\asc-community-dev\ascsite";
+        public static readonly string PATH_ROOT = @"D:\asc\src\asc-community\ascsite";
         public static readonly string PATH_PYTHON = @"D:\asc\programs\python\python.exe";
         public static readonly string CERTIFICATE_PATH = @"D:\asc\pw";
         public static readonly string PATH_WEBROOT = PATH_ROOT + @"\wwwroot";
